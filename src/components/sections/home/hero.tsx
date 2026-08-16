@@ -14,7 +14,7 @@ const Hero = () => {
               <h1
                 className="h1 text-foreground mb-4"
               >
-                Smart Solutions Built for the Future of Finance
+                Bienvenue dans l'ère de l'IA
               </h1>
             </AnimateOnView>
 
@@ -25,7 +25,7 @@ const Hero = () => {
               <p
                 className="text-body-md max-w-2xl mx-auto mb-5"
               >
-                Track the growth and engagement of your newsletter detailed analytics your reach.
+                J'ai généré +50 000€ en 6 mois en vendant des produits digitaux sur TikTok, sans jamais montrer mon visage. Voici la méthode.
               </p>
             </AnimateOnView>
 

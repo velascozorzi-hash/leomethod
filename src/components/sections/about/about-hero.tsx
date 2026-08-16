@@ -16,14 +16,14 @@ const AboutHero = () => {
                     {/* Headline */}
                     <AnimateOnView blur once>
                         <h1 className="h1 mb-4">
-                            Smart Solutions Built for the Future of Finance
+                            Bienvenue dans l'ère de l'IA
                         </h1>
                     </AnimateOnView>
 
                     {/* Subheadline */}
                     <AnimateOnView blur once delay={0.1}>
                         <p className="text-lg mb-[21px]">
-                            Track the growth and engagement of your newsletter detailed analytics your reach.
+                            J'ai généré +50 000€ en 6 mois en vendant des produits digitaux sur TikTok, sans jamais montrer mon visage. Voici la méthode.
                         </p>
                     </AnimateOnView>
 
