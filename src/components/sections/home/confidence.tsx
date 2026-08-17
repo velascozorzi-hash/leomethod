@@ -1,4 +1,4 @@
-import lottieData from '@/assets/lottie/confidence.json'
+import lottieData from '@/assets/lottie/side glow strokes.json'
 import { Button } from '@/components/ui/button'
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'

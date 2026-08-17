@@ -1,6 +1,6 @@
-import lottie1 from '@/assets/lottie/content-1.json';
-import lottie2 from '@/assets/lottie/content-2.json';
-import lottie3 from '@/assets/lottie/content-3.json';
+import lottie1 from '@/assets/lottie/growth-100.json';
+import lottie2 from '@/assets/lottie/progress hours spent.json';
+import lottie3 from '@/assets/lottie/19k-earning.json';
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view';
 import { StaggerContainer } from '@/components/ui/motion/stagger';
 import Lottie from 'lottie-react';
