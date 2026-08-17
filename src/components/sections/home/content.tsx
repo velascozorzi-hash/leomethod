@@ -9,21 +9,21 @@ import Container from '../../container';
 const streamlineFeatures = [
   {
     id: 1,
-    title: "Send & Receive Payments Seamlessly",
-    description: "Set auto-transfer rules and send free USD wires.",
+    title: "Du contenu TikTok qui convertit",
+    description: "Des scripts et formats testés, générés avec l'IA, sans jamais montrer ton visage.",
     lottieData: lottie1,
   },
   {
     id: 2,
-    title: "Organize Your Payment",
-    description: "Immediately group your transactions to make it easy",
-    lottieData: lottie2, // Will be added later
+    title: "Une automatisation de A à Z",
+    description: "Livraison, paiements et relances : ton produit se vend même quand tu n'es pas là.",
+    lottieData: lottie2,
   },
   {
     id: 3,
-    title: "Unlock Cards Earlier with Low Deposit Minimums",
-    description: "Unlock credit cards earlier with industry-low deposit minimums",
-    lottieData: lottie3, // Will be added later
+    title: "Tes premiers euros en quelques semaines",
+    description: "Un plan d'action jour par jour pour publier, tester, ajuster et encaisser tes premières ventes.",
+    lottieData: lottie3,
   },
 ];
 
@@ -33,17 +33,13 @@ const Content = () => {
       <Container className="space-y-8 md:space-y-20">
         <StaggerContainer className="text-center">
           <AnimateOnView blur>
-            <h2
-              className="h2 md:mb-5 mb-3"
-            >
-              Streamline Financial Zero Hassle.
+            <h2 className="h2 md:mb-5 mb-3">
+              Ce que tu mets en place concrètement
             </h2>
           </AnimateOnView>
           <AnimateOnView blur delay={0.2}>
-            <p
-              className="text-muted-foreground"
-            >
-              We respond quickly, tackle what matters, and are dedicated to your success.
+            <p className="text-muted-foreground">
+              Un système simple, reproductible, et pensé pour être lancé en solo.
             </p>
           </AnimateOnView>
         </StaggerContainer>
@@ -100,4 +96,3 @@ const Content = () => {
 }
 
 export default Content
-

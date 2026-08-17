@@ -1,6 +1,5 @@
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
-import { Link } from 'react-router-dom'
 import Container from '../../container'
 import { Button } from '../../ui/button'
 import {
@@ -9,75 +8,47 @@ import {
   FeatureCardContent,
   FeatureCardDescription,
   FeatureCardImage,
-  FeatureCardOverlay,
   FeatureCardTitle
 } from '../../ui/feature-card'
 
 const cards = [
   {
     id: 1,
-    title: "Make Smarter Money Decisions Quickly",
-    description: "Access real-time analytics and personalized insights to optimize your finances, investments, and business growth effectively.",
+    title: "Apprends à viser le bon public",
+    description: "Identifie une audience qui a un vrai problème à résoudre, comprends ses attentes et parle-lui avec les bons mots pour capter son attention dès la première seconde.",
     imageSrc: "images/home/feature-1.png",
-    imageAlt: "Man using smartphone for financial analytics",
-    overlayData: {
-      src: "images/home/feature-stat-1.webp",
-      alt: "Financial statistics and analytics",
-      className: "aspect-[203/188] w-full max-w-[203px]"
-    },
-    overlayPosition: "bottom-left" as const
+    imageAlt: "Analyse d'audience sur smartphone",
   },
   {
     id: 2,
-    title: "Make Smarter Money Decisions Quickly",
-    description: "Access real-time analytics and personalized insights to optimize your finances, investments, and business growth effectively.",
+    title: "Apprends à créer une offre irrésistible",
+    description: "Structure une promesse claire, un positionnement unique et un prix juste pour que ton offre devienne évidente aux yeux de ton audience.",
     imageSrc: "images/home/feature-2.webp",
-    imageAlt: "Man using smartphone for financial analytics",
-    overlayData: {
-      src: "images/home/feature-stat-2.png",
-      alt: "Financial statistics and analytics",
-      className: "aspect-[244/130] w-full max-w-[244px]"
-    },
-    overlayPosition: "bottom-left" as const
+    imageAlt: "Construction d'une offre digitale",
   },
   {
     id: 3,
-    title: "Make Smarter Money Decisions Quickly",
-    description: "Access real-time analytics and personalized insights to optimize your finances, investments, and business growth effectively.",
+    title: "Crée ton produit digital",
+    description: "Utilise l'IA pour concevoir, rédiger et livrer ton produit en quelques jours seulement, sans compétence technique et sans jamais montrer ton visage.",
     imageSrc: "images/home/feature-3.webp",
-    imageAlt: "Man using smartphone for financial analytics",
-    overlayData: {
-      src: "images/home/feature-stat-3.png",
-      alt: "Financial statistics and analytics",
-      className: "aspect-[173/180] w-full max-w-[173px]"
-    },
-    overlayPosition: "bottom-left" as const
+    imageAlt: "Création d'un produit digital avec l'IA",
   }
 ]
 
 const Features = () => {
 
   return (
-    <section className="py-12 md:py-[60px] bg-background">
+    <section id="methode" className="py-12 md:py-[60px] bg-background">
       <Container className="space-y-8 md:space-y-20">
         <StaggerContainer className="text-center max-w-xl mx-auto">
-          <AnimateOnView
-            blur
-          >
-            <h2
-              className="h2 mb-6"
-            >
-              Bank Complete Confidence
+          <AnimateOnView blur>
+            <h2 className="h2 mb-6">
+              La méthode en 3 étapes
             </h2>
           </AnimateOnView>
-          <AnimateOnView
-            blur
-            delay={0.2}
-          >
-            <p
-              className='text-muted-foreground'
-            >
-              Enjoy high-yield accounts, unlimited 2% cashback cards for Pro customers, and flexible working capital to power your business.
+          <AnimateOnView blur delay={0.2}>
+            <p className='text-muted-foreground'>
+              Un chemin simple et reproductible pour lancer ton produit digital avec l'IA et le vendre en ligne.
             </p>
           </AnimateOnView>
         </StaggerContainer>
@@ -98,20 +69,13 @@ const Features = () => {
                   <FeatureCardDescription>{card.description}</FeatureCardDescription>
                   <FeatureCardAction>
                     <Button asChild>
-                      <Link to="/contact">
-                        Learn More
-                      </Link>
+                      <a href="#offre">
+                        Je veux apprendre
+                      </a>
                     </Button>
                   </FeatureCardAction>
                 </FeatureCardContent>
-                <FeatureCardImage src={card.imageSrc} alt={card.imageAlt}>
-                  <FeatureCardOverlay
-                    src={card.overlayData.src}
-                    alt={card.overlayData.alt}
-                    position={card.overlayPosition}
-                    className={card.overlayData.className}
-                  />
-                </FeatureCardImage>
+                <FeatureCardImage src={card.imageSrc} alt={card.imageAlt} />
               </FeatureCard>
             </AnimateOnView>
           ))}

@@ -8,14 +8,12 @@ const Content = lazy(() => import("@/components/sections/home/content"));
 const Pricing = lazy(() => import("@/components/sections/home/pricing"));
 const Testimonials = lazy(() => import("@/components/sections/home/testimonials"));
 const FAQ = lazy(() => import("@/components/sections/shared/faq"));
-const LogoTicker = lazy(() => import("@/components/sections/shared/logo-ticker"));
 
 const Home = () => {
 
   return (
     <Layout>
       <Hero />
-      <LogoTicker />
       <Suspense fallback={null}>
         <Features />
       </Suspense>

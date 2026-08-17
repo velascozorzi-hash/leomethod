@@ -1,72 +1,44 @@
+import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
-import { Newsletter } from "@/components/ui/newsletter";
 
 const Hero = () => {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden hero-padding-top pb-10 md:pb-0 bg-[url(/images/home/hero-bg.webp)] bg-cover bg-center">
+    <section className="relative flex items-center justify-center overflow-hidden hero-padding-top pb-16 md:pb-28 bg-[url(/images/home/hero-bg.webp)] bg-cover bg-center">
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <StaggerContainer>
-            <AnimateOnView
-              blur
-            >
-              <h1
-                className="h1 text-foreground mb-4"
-              >
+            <AnimateOnView blur>
+              <span className="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm">
+                Formation 100 % en ligne
+              </span>
+            </AnimateOnView>
+
+            <AnimateOnView blur>
+              <h1 className="h1 text-foreground mb-4">
                 Bienvenue dans l'ère de l'IA
               </h1>
             </AnimateOnView>
 
-            <AnimateOnView
-              blur
-              delay={0.2}
-            >
-              <p
-                className="text-body-md max-w-2xl mx-auto mb-5"
-              >
-                J'ai généré +50 000€ en 6 mois en vendant des produits digitaux sur TikTok, sans jamais montrer mon visage. Voici la méthode.
+            <AnimateOnView blur delay={0.2}>
+              <p className="text-body-md max-w-2xl mx-auto mb-8 text-muted-foreground">
+                J'ai généré +50 000€ en 6 mois en vendant des produits digitaux sur TikTok,
+                sans jamais montrer mon visage. Voici la méthode.
               </p>
             </AnimateOnView>
 
-            <AnimateOnView
-              className="flex items-center justify-center mb-16"
-              delay={0.3}
-            >
-              <Newsletter />
+            <AnimateOnView delay={0.3} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button asChild size="lg">
+                <a href="#offre">Rejoindre la formation</a>
+              </Button>
+              <a
+                href="#methode"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Découvrir la méthode
+              </a>
             </AnimateOnView>
           </StaggerContainer>
-
-          <div
-            className="relative flex items-center justify-center"
-          >
-            <StaggerContainer className="relative w-full max-w-[840px] flex items-center justify-center">
-
-              <AnimateOnView delay={0.1} className="absolute right-0 top-1/2 -translate-y-1/2 aspect-[429/259] w-[51%] z-0">
-                <img
-                  src="/images/home/card-2.png"
-                  alt="Credit card placeholder"
-                  className="w-full h-full object-cover"
-                />
-              </AnimateOnView>
-
-              <AnimateOnView delay={0.2} className="aspect-[525/317] w-[63%] z-10 bg-[url('/images/home/card-bg.png')] bg-cover bg-center rounded-[19px]">
-                <img
-                  src="/images/home/card-1.png"
-                  alt="Credit card placeholder"
-                  className="w-full h-full object-cover"
-                />
-              </AnimateOnView>
-
-              <AnimateOnView delay={0.3} className="absolute left-0 top-1/2 -translate-y-1/2 aspect-[429/259] w-[51%] z-0">
-                <img
-                  src="/images/home/card-2.png"
-                  alt="Credit card placeholder"
-                  className="w-full h-full object-cover"
-                />
-              </AnimateOnView>
-            </StaggerContainer>
-          </div>
         </div>
       </div>
     </section>
