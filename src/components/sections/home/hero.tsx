@@ -8,11 +8,6 @@ const Hero = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <StaggerContainer>
-            <AnimateOnView blur>
-              <span className="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm">
-                Formation 100 % en ligne
-              </span>
-            </AnimateOnView>
 
             <AnimateOnView blur>
               <h1 className="h1 text-foreground mb-4">

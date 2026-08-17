@@ -1,9 +1,8 @@
-import faqAnimation from "@/assets/lottie/processor.json";
 import Container from "@/components/container";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
-import Lottie from "lottie-react";
+import FaqVisual from "@/components/ui/faq-visual";
 import { Minus, Plus } from "lucide-react";
 
 const faqs = [
@@ -39,11 +38,7 @@ const FAQ = () => {
         <div className="flex flex-col lg:flex-row gap-16 items-center justify-center">
           <AnimateOnView once className="max-w-[500px] w-full">
             <div className="relative aspect-square w-full rounded-3xl overflow-hidden bg-gradient-to-br from-card to-background border border-border/50 shadow-2xl">
-              <Lottie
-                animationData={faqAnimation}
-                loop={true}
-                className="w-full h-full object-cover"
-              />
+              <FaqVisual />
             </div>
           </AnimateOnView>
 
