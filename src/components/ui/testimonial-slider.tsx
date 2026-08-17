@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import * as React from "react"
 
 interface Testimonial {
@@ -7,41 +7,41 @@ interface Testimonial {
     title: string
     quote: string
     author: string
-    image: string
+    context: string
 }
 
 const testimonials: Testimonial[] = [
     {
         id: 1,
-        title: "Mes premières ventes en 3 semaines",
+        title: "J'ai failli abandonner au bout de 11 vidéos",
         quote:
-            "Je partais de zéro, sans audience. En suivant la méthode j'ai sorti mon premier produit digital et encaissé 1 200€ le premier mois.",
+            "Mes 11 premières vidéos ont fait 200 vues chacune, j'étais prêt à tout lâcher. J'ai repris le module sur les scripts, changé mon accroche et la 14e vidéo est partie à 340 000 vues. Mon ebook sur la reprise du sport après 40 ans a fait 68 ventes en dix jours. Je bosse toujours à l'usine, mais plus pour longtemps.",
         author: "Lucas M.",
-        image: "/images/home/testimonial-1.webp",
+        context: "32 ans, Lille · niche fitness",
     },
     {
         id: 2,
-        title: "Enfin une offre claire",
+        title: "Mon mari ne sait toujours pas que c'est un avatar",
         quote:
-            "Le module sur l'offre a tout changé : j'ai arrêté de m'éparpiller et mes vidéos ont commencé à convertir presque tout de suite.",
+            "Je voulais un revenu en plus le soir, sans passer devant la caméra parce que je suis prof et que mes élèves me trouvent partout. L'avatar IA a réglé le problème en une soirée. Trois mois plus tard je suis à 1 400€ par mois avec un pack de fiches d'organisation. Ma seule erreur : avoir attendu deux ans avant de me lancer.",
         author: "Sarah B.",
-        image: "/images/home/testimonial-2.webp",
+        context: "38 ans, Nantes · niche organisation",
     },
     {
         id: 3,
-        title: "Sans jamais montrer mon visage",
+        title: "Je vendais un truc que personne ne voulait",
         quote:
-            "Je pensais qu'il fallait être face caméra pour percer. Les formats faceless expliqués ici marchent vraiment, mes vidéos font des dizaines de milliers de vues.",
-        author: "Elena R.",
-        image: "/images/home/testimonial-3.webp",
+            "Avant, je proposais une formation « productivité » générale, zéro vente en deux mois. Le module sur la niche m'a forcé à aller lire 400 commentaires TikTok. Résultat : j'ai créé un template Notion pour les freelances qui oublient de facturer. 39€, 210 ventes depuis février. C'est le problème précis qui a tout changé, pas la technique.",
+        author: "Mehdi K.",
+        context: "27 ans, Lyon · niche freelance",
     },
     {
         id: 4,
-        title: "L'IA fait 80 % du travail",
+        title: "Deux heures le dimanche, un mois de contenu",
         quote:
-            "Les prompts fournis me font gagner un temps fou : je produis en une heure ce qui me prenait une semaine avant.",
-        author: "Mehdi K.",
-        image: "/images/home/testimonial-4.webp",
+            "Je suis infirmière, je n'ai clairement pas le temps de filmer. Je bloque deux heures le dimanche : je génère les scripts, mon avatar les tourne, je programme 30 vidéos. Le reste de la semaine je ne touche à rien à part répondre aux commentaires. Mon dernier mois : 2 100€ de ventes sur une mini-formation sur le sommeil.",
+        author: "Elena R.",
+        context: "41 ans, Toulouse · niche sommeil",
     },
 ]
 
@@ -59,91 +59,49 @@ const TestimonialSlider = () => {
         setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
     }
 
+    const active = testimonials[currentIndex]
+
     return (
-        <div className="w-full max-w-6xl mx-auto overflow-hidden">
-
-            <div className="relative md:h-[450px] h-[500px] flex items-center pb-20">
-                <div className="flex gap-6 items-center w-full relative">
-                    {/* Active Testimonial Card */}
-                    <motion.div
-                        layout
-                        key={`active-${testimonials[currentIndex].id}`}
-                        className="flex-shrink-0 flex flex-col md:flex-row items-center gap-12 w-full md:w-[70%] z-20 h-80"
-                        initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
-                        transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                    >
-                        <div className="relative md:w-80 md:h-80 h-64 w-64 flex-shrink-0 overflow-hidden rounded-2xl">
-                            <img
-                                src={testimonials[currentIndex].image || "/images/common/placeholder.svg"}
-                                alt={testimonials[currentIndex].author}
-                                className="object-cover"
-                            />
-                        </div>
-                        <div className="flex flex-col justify-between h-full max-w-md text-center md:text-left">
-                            <div>
-                                <h3 className="h4 mb-4">{testimonials[currentIndex].title}</h3>
-                                <p className="text-lg font-medium text-muted-foreground mb-2">"{testimonials[currentIndex].quote}"</p>
-                            </div>
-                            <p className="text-muted-foreground">{testimonials[currentIndex].author}</p>
-                        </div>
-                    </motion.div>
-
-                    {/* Next Testimonial Cards (Preview) with Overlapping Transition */}
-                    <div className="hidden md:flex gap-6 flex-1 relative h-80">
-                        {testimonials.map((_, i) => {
-                            const index = (currentIndex + i + 1) % testimonials.length
-                            if (i >= 2) return null
-
-                            return (
-                                <motion.div
-                                    key={`preview-${testimonials[index].id}`}
-                                    layout
-                                    className="flex-shrink-0 w-64 h-80 flex items-center relative rounded-2xl overflow-hidden grayscale opacity-40 hover:opacity-60 transition-opacity"
-                                    initial={{ opacity: 0, x: direction > 0 ? 150 : -150 }}
-                                    animate={{ opacity: 0.4, x: 0 }}
-                                    exit={{ opacity: 0, x: direction > 0 ? -150 : 150 }}
-                                    transition={{
-                                        type: "spring",
-                                        damping: 30,
-                                        stiffness: 250,
-                                        delay: i * 0.05, // Staggered transition for overlapping effect
-                                    }}
-                                >
-                                    <img
-                                        src={testimonials[index].image || "/images/common/placeholder.svg"}
-                                        alt={testimonials[index].author}
-                                        className="object-cover"
-                                    />
-                                </motion.div>
-                            )
-                        })}
+        <div className="w-full max-w-4xl mx-auto overflow-hidden">
+            <div className="relative min-h-[340px] md:min-h-[300px] flex items-center">
+                <motion.div
+                    key={active.id}
+                    className="w-full rounded-[28px] border border-border/60 bg-card/50 p-6 md:p-10"
+                    initial={{ opacity: 0, x: direction > 0 ? 60 : -60 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                >
+                    <Quote className="w-8 h-8 text-primary mb-5" />
+                    <h3 className="h4 mb-4">{active.title}</h3>
+                    <p className="text-base md:text-lg text-muted-foreground mb-6">{active.quote}</p>
+                    <div>
+                        <p className="font-medium">{active.author}</p>
+                        <p className="text-sm text-muted-foreground">{active.context}</p>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
-            {/* Controls */}
-            <div className="flex flex-col-reverse md:flex-row items-center md:justify-between justify-center gap-4 md:gap-0 md:mt-12 mt-20">
+            {/* Contrôles */}
+            <div className="flex flex-col-reverse md:flex-row items-center md:justify-between justify-center gap-4 md:gap-0 mt-8">
                 <div className="flex gap-4">
                     <button
                         onClick={prev}
-                        className="w-12 h-12 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-zinc-800 transition-colors group"
-                        aria-label="Previous testimonial"
+                        className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors group"
+                        aria-label="Témoignage précédent"
                     >
-                        <ChevronLeft className="w-6 h-6 text-zinc-400 group-hover:text-white transition-colors" />
+                        <ChevronLeft className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" />
                     </button>
                     <button
                         onClick={next}
-                        className="w-12 h-12 rounded-full border border-zinc-700 flex items-center justify-center hover:bg-zinc-800 transition-colors group"
-                        aria-label="Next testimonial"
+                        className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors group"
+                        aria-label="Témoignage suivant"
                     >
-                        <ChevronRight className="w-6 h-6 text-zinc-400 group-hover:text-white transition-colors" />
+                        <ChevronRight className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" />
                     </button>
                 </div>
 
-                <div className="text-zinc-500 font-medium tabular-nums">
-                    <span className="text-white">{currentIndex + 1}</span>
+                <div className="text-muted-foreground font-medium tabular-nums">
+                    <span className="text-foreground">{currentIndex + 1}</span>
                     <span className="mx-1">/</span>
                     <span>{testimonials.length}</span>
                 </div>
