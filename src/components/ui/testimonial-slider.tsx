@@ -13,34 +13,34 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
     {
         id: 1,
-        title: "Finally Found the Solution",
+        title: "Mes premières ventes en 3 semaines",
         quote:
-            "I used to dread checking my accounts, but AI budgeting tools gave me a clear picture of my spending within days. Now I actually look forward to managing my money.",
-        author: "James Arthur",
+            "Je partais de zéro, sans audience. En suivant la méthode j'ai sorti mon premier produit digital et encaissé 1 200€ le premier mois.",
+        author: "Lucas M.",
         image: "/images/home/testimonial-1.webp",
     },
     {
         id: 2,
-        title: "Game Changer for My Business",
+        title: "Enfin une offre claire",
         quote:
-            "The insights provided by this platform have completely transformed how we approach our monthly financial planning. It's intuitive, powerful, and essential.",
-        author: "Sarah Chen",
+            "Le module sur l'offre a tout changé : j'ai arrêté de m'éparpiller et mes vidéos ont commencé à convertir presque tout de suite.",
+        author: "Sarah B.",
         image: "/images/home/testimonial-2.webp",
     },
     {
         id: 3,
-        title: "Simplified My Life",
+        title: "Sans jamais montrer mon visage",
         quote:
-            "I never thought managing multiple streams of income could be this simple. The automation handles the heavy lifting, leaving me to focus on what I love.",
-        author: "Elena Rodriguez",
+            "Je pensais qu'il fallait être face caméra pour percer. Les formats faceless expliqués ici marchent vraiment, mes vidéos font des dizaines de milliers de vues.",
+        author: "Elena R.",
         image: "/images/home/testimonial-3.webp",
     },
     {
         id: 4,
-        title: "Total Peace of Mind",
+        title: "L'IA fait 80 % du travail",
         quote:
-            "Knowing that my finances are being monitored by such a sophisticated AI gives me peace of mind I haven't had in years. Highly recommended for everyone.",
-        author: "Michael Ross",
+            "Les prompts fournis me font gagner un temps fou : je produis en une heure ce qui me prenait une semaine avant.",
+        author: "Mehdi K.",
         image: "/images/home/testimonial-4.webp",
     },
 ]

@@ -6,38 +6,36 @@ import { PricingCard } from '../../ui/pricing-card'
 const pricingPlans = [
   {
     id: 1,
-    title: "Starter",
-    description: "Full-featured banking essentials with no strings attached.",
-    price: "$2",
-    pricePeriod: "/month",
+    title: "Formation complète",
+    description: "Tout le système pour créer et vendre ton produit digital avec l'IA.",
+    price: "97€",
+    pricePeriod: "paiement unique",
     features: [
-      "1.5% Cash Back Rewards",
-      "Hundreds of millions protected by FDIC insurance",
-      "Instant ACH transfers for just $1",
-      "Domestic wire transfers available for $6",
-      "Unlimited virtual card options",
-      "International wire transfers at $25",
+      "Les 3 modules : audience, offre, produit",
+      "Les prompts IA prêts à l'emploi",
+      "Les scripts TikTok qui convertissent",
+      "Le plan d'action jour par jour",
+      "Accès à vie et mises à jour incluses",
     ],
-    buttonText: "Get Started",
-    buttonLink: "/pricing/starter",
+    buttonText: "Rejoindre la formation",
+    buttonLink: "/signup",
     isHighlighted: false,
   },
   {
     id: 2,
-    title: "Professional",
-    description: "Scale your business with advanced industry-specific capabilities.",
-    price: "$5",
-    pricePeriod: "/month",
+    title: "Formation + accompagnement",
+    description: "La formation, plus un suivi personnalisé pour aller beaucoup plus vite.",
+    price: "297€",
+    pricePeriod: "paiement unique",
     features: [
-      "4% Cash Back Rewards",
-      "Hundreds of millions protected by FDIC insurance",
-      "Same-day ACH transfers for only $0.5",
-      "Domestic wire transfers for a fee of $3",
-      "Unlimited access to virtual cards",
-      "International wire transfers for $20",
+      "Tout ce qui est inclus dans la formation",
+      "Audit de ton offre et de ton positionnement",
+      "Relecture de tes 10 premiers scripts",
+      "Sessions questions/réponses en groupe",
+      "Communauté privée des élèves",
     ],
-    buttonText: "Get Started Today!",
-    buttonLink: "/pricing/professional",
+    buttonText: "Je veux être accompagné",
+    buttonLink: "/signup",
     isHighlighted: true,
     backgroundImage: "/images/pricing/pricing-bg.webp",
   },
@@ -46,21 +44,17 @@ const pricingPlans = [
 const Pricing = () => {
 
   return (
-    <section className="py-12 md:py-[60px]">
+    <section id="offre" className="py-12 md:py-[60px] scroll-mt-24">
       <Container className="space-y-8 md:space-y-20">
         <StaggerContainer className="text-center">
           <AnimateOnView blur>
-            <h2
-              className="h2 mb-5"
-            >
-              Pricing that Match with you
+            <h2 className="h2 mb-5">
+              Choisis ta formule
             </h2>
           </AnimateOnView>
           <AnimateOnView blur delay={0.2}>
-            <p
-              className="text-muted-foreground"
-            >
-              Access robust banking services for free, with advanced financial workflows starting at just $35/month.
+            <p className="text-muted-foreground">
+              Un investissement unique, un accès à vie, et un système que tu gardes pour toujours.
             </p>
           </AnimateOnView>
         </StaggerContainer>
@@ -92,4 +86,3 @@ const Pricing = () => {
 }
 
 export default Pricing
-

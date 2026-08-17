@@ -1,130 +1,52 @@
 import Container from "@/components/container";
-import { Newsletter } from "@/components/ui/newsletter";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Instagram, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const pageLinks = [
-  { title: "Home", href: "/" },
-  { title: "About", href: "/about" },
-  { title: "Feature", href: "/feature" },
-  { title: "Blog", href: "/blog" },
-  { title: "Pricing", href: "/pricing" },
-  { title: "Integration", href: "/integration" },
-  { title: "Contact", href: "/contact" }
-];
-
-const innerLinks = [
-  { title: "Pricing single", href: "/pricing/starter" },
-  { title: "Blog single", href: "/blog/travel-ticketing" },
-  { title: "Integration single", href: "/integration/ledgerlink" }
-];
-
-const utilityLinks = [
-  { title: "Early Access", href: "/early-access" },
-  { title: "Cookie policy", href: "/legal/cookie-policy" },
-  { title: "404", href: "/404" },
-];
-
 const socialLinks = [
-  { icon: Facebook, href: "https://www.facebook.com/", label: "Facebook" },
   { icon: Instagram, href: "https://www.instagram.com/", label: "Instagram" },
-  { icon: Twitter, href: "https://x.com/", label: "X" },
-  { icon: Linkedin, href: "https://www.linkedin.com/", label: "LinkedIn" },
+  { icon: Youtube, href: "https://www.youtube.com/", label: "YouTube" },
 ];
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0A0A0A] text-white pt-24 pb-12">
+    <footer className="bg-[#0A0A0A] text-white pt-16 pb-12">
       <Container>
-        <div className="flex flex-col lg:flex-row justify-between gap-12 mb-20">
-          {/* Left Column: Newsletter & Logo */}
-          <div className="space-y-16">
-            <div className="space-y-6">
-              <h3 className="text-[20px] font-medium leading-[140%] tracking-[-0.02em]">
-                Subscribe Newsletter
-              </h3>
-              <Newsletter
-                className="max-w-[420px]"
-                placeholder="Enter Your Email"
-              />
-            </div>
-
-            <Link to="/" className="inline-block">
-              <img
-                src="/images/common/logo.svg"
-                alt="PAYMARK"
-                className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-            </Link>
-          </div>
-
-          {/* Right Column: Links */}
-          <div className="flex flex-col lg:flex-row gap-8">
-            <div>
-              <h4 className="font-semibold text-white mb-6">Pages</h4>
-              <ul className="space-y-4">
-                {pageLinks.map((link) => (
-                  <li key={link.title}>
-                    <Link to={link.href} className="text-white/70 hover:text-white transition-colors text-[16px]">
-                      {link.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-white mb-6">Inner Pages</h4>
-              <ul className="space-y-4">
-                {innerLinks.map((link) => (
-                  <li key={link.title}>
-                    <Link to={link.href} className="text-white/70 hover:text-white transition-colors text-[16px]">
-                      {link.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-white mb-6">Utility Pages</h4>
-              <ul className="space-y-4">
-                {utilityLinks.map((link) => (
-                  <li key={link.title}>
-                    <Link to={link.href} className="text-white/70 hover:text-white transition-colors text-[16px]">
-                      {link.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-muted-foreground text-sm text-center md:text-left md:max-w-none max-w-xs">
-            © Copyright {new Date().getFullYear()} | Design & Developed By{" "}
-            <Link to="https://onixtheme.io" target="_blank" className="text-white/90 hover:text-white transition-colors">Onixtheme</Link>
-            {" - "}
-            <Link to="/legal/terms-&-condition" className="text-white/70 hover:text-white transition-colors">License</Link>
-            {" | Powered By "}
-            <Link to="https://lovable.dev" target="_blank" className="text-white/90 hover:text-white transition-colors">Lovable</Link>
-          </p>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 pb-10 border-b border-white/10">
+          <Link to="/" className="inline-block">
+            <img
+              src="/images/common/logo.svg"
+              alt="Logo"
+              className="h-8 w-auto opacity-70 hover:opacity-100 transition-opacity"
+            />
+          </Link>
 
           <div className="flex items-center gap-4">
-            {socialLinks.map((social, index) => (
+            {socialLinks.map((social) => (
               <a
-                key={index}
+                key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all text-white/70 hover:text-white"
-                aria-label={social.label || "Social Link"}
+                aria-label={social.label}
               >
                 <social.icon className="w-4 h-4" />
               </a>
             ))}
+          </div>
+        </div>
+
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-muted-foreground text-sm text-center">
+            © {new Date().getFullYear()} — Tous droits réservés.
+          </p>
+          <div className="flex items-center gap-6 text-sm">
+            <Link to="/legal/terms-&-condition" className="text-white/70 hover:text-white transition-colors">
+              Conditions
+            </Link>
+            <Link to="/legal/privacy-&-policy" className="text-white/70 hover:text-white transition-colors">
+              Confidentialité
+            </Link>
           </div>
         </div>
       </Container>
@@ -133,4 +55,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

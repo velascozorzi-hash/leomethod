@@ -1,9 +1,8 @@
-import lottieData from '@/assets/lottie/confidence.json'
+import lottieData from '@/assets/lottie/side glow strokes.json'
 import { Button } from '@/components/ui/button'
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
 import Lottie from 'lottie-react'
-import { Link } from 'react-router-dom'
 import Container from '../../container'
 
 const Confidence = () => {
@@ -28,29 +27,22 @@ const Confidence = () => {
       {/* Content */}
       <Container className="relative z-10">
         <StaggerContainer className="text-center max-w-[600px] mx-auto">
-          <AnimateOnView
-            blur
-          >
-            <h2
-              className="h2 md:mb-5 mb-3"
-            >
-              Who Says a Banking Platform Can't Blow Mind?
+          <AnimateOnView blur>
+            <h2 className="h2 md:mb-5 mb-3">
+              Et si l'IA travaillait pour toi pendant que tu dors ?
             </h2>
           </AnimateOnView>
-          <AnimateOnView
-            blur
-            delay={0.2}
-          >
-            <p
-              className='text-muted-foreground md:mb-10 mb-5'
-            >
-              We care a lot. And you’ll feel it in everything we do. With Rho, feel seen & taken care of across every step of the startup journey (not just your finances).            </p>
+          <AnimateOnView blur delay={0.2}>
+            <p className='text-muted-foreground md:mb-10 mb-5'>
+              Pas besoin d'équipe, ni de caméra, ni de budget pub. Juste une bonne offre, les bons outils d'IA
+              et un système de contenu qui tourne tous les jours à ta place.
+            </p>
           </AnimateOnView>
           <AnimateOnView>
             <Button asChild>
-              <Link to="/contact">
-                Get Started
-              </Link>
+              <a href="#offre">
+                Commencer maintenant
+              </a>
             </Button>
           </AnimateOnView>
         </StaggerContainer>
@@ -60,4 +52,3 @@ const Confidence = () => {
 }
 
 export default Confidence
-
