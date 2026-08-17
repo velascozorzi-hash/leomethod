@@ -14,7 +14,7 @@ interface PricingCardProps {
   title: string;
   description: string;
   price: string;
-  pricePeriod: string;
+  pricePeriod: React.ReactNode;
   features: string[];
   buttonText: string;
   buttonLink: string;
