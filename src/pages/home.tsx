@@ -5,6 +5,7 @@ import { lazy, Suspense } from "react";
 const Features = lazy(() => import("@/components/sections/home/features"));
 const Confidence = lazy(() => import("@/components/sections/home/confidence"));
 const Content = lazy(() => import("@/components/sections/home/content"));
+const Program = lazy(() => import("@/components/sections/home/program"));
 const Pricing = lazy(() => import("@/components/sections/home/pricing"));
 const Testimonials = lazy(() => import("@/components/sections/home/testimonials"));
 const FAQ = lazy(() => import("@/components/sections/shared/faq"));
@@ -22,6 +23,9 @@ const Home = () => {
       </Suspense>
       <Suspense fallback={null}>
         <Content />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Program />
       </Suspense>
       <Suspense fallback={null}>
         <Pricing />

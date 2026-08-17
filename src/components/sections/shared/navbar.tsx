@@ -20,7 +20,7 @@ const Navbar = () => {
               <UserMenu />
             ) : (
               <Button asChild>
-                <a href="#offre">Get Started</a>
+                <a href="#offre">Rejoindre la formation</a>
               </Button>
             )
           )}

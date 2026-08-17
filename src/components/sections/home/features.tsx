@@ -1,5 +1,6 @@
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
+import StepVisual, { type StepVisualKind } from '@/components/ui/step-visual'
 import Container from '../../container'
 import { Button } from '../../ui/button'
 import {
@@ -7,31 +8,27 @@ import {
   FeatureCardAction,
   FeatureCardContent,
   FeatureCardDescription,
-  FeatureCardImage,
   FeatureCardTitle
 } from '../../ui/feature-card'
 
-const cards = [
+const cards: { id: number; title: string; description: string; visual: StepVisualKind }[] = [
   {
     id: 1,
     title: "Apprends à viser le bon public",
-    description: "Identifie une audience qui a un vrai problème à résoudre, comprends ses attentes et parle-lui avec les bons mots pour capter son attention dès la première seconde.",
-    imageSrc: "images/home/feature-1.png",
-    imageAlt: "Analyse d'audience sur smartphone",
+    description: "Identifie une niche qui a un vrai problème douloureux, comprends ses attentes et parle-lui avec ses propres mots pour capter son attention dès la première seconde.",
+    visual: "audience",
   },
   {
     id: 2,
     title: "Apprends à créer une offre irrésistible",
-    description: "Structure une promesse claire, un positionnement unique et un prix juste pour que ton offre devienne évidente aux yeux de ton audience.",
-    imageSrc: "images/home/feature-2.webp",
-    imageAlt: "Construction d'une offre digitale",
+    description: "Transforme ce problème en solution : un ebook, un template ou une mini-formation, avec une promesse claire, un positionnement unique et un prix juste.",
+    visual: "offre",
   },
   {
     id: 3,
-    title: "Crée ton produit digital",
-    description: "Utilise l'IA pour concevoir, rédiger et livrer ton produit en quelques jours seulement, sans compétence technique et sans jamais montrer ton visage.",
-    imageSrc: "images/home/feature-3.webp",
-    imageAlt: "Création d'un produit digital avec l'IA",
+    title: "Crée ton avatar IA et ton produit digital",
+    description: "Génère un avatar IA qui parle à ta place sur TikTok, publie chaque jour du contenu sur le problème de ta niche et vends ton produit sans jamais montrer ton visage.",
+    visual: "avatar",
   }
 ]
 
@@ -48,7 +45,7 @@ const Features = () => {
           </AnimateOnView>
           <AnimateOnView blur delay={0.2}>
             <p className='text-muted-foreground'>
-              Un chemin simple et reproductible pour lancer ton produit digital avec l'IA et le vendre en ligne.
+              Un chemin simple et reproductible : une niche, une offre, un avatar IA qui vend pour toi.
             </p>
           </AnimateOnView>
         </StaggerContainer>
@@ -75,7 +72,9 @@ const Features = () => {
                     </Button>
                   </FeatureCardAction>
                 </FeatureCardContent>
-                <FeatureCardImage src={card.imageSrc} alt={card.imageAlt} />
+                <div className="w-full md:order-2 flex justify-center">
+                  <StepVisual kind={card.visual} />
+                </div>
               </FeatureCard>
             </AnimateOnView>
           ))}

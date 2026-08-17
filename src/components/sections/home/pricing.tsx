@@ -7,14 +7,16 @@ const pricingPlans = [
   {
     id: 1,
     title: "Formation complète",
-    description: "Tout le système pour créer et vendre ton produit digital avec l'IA.",
+    description: "Tout le système avatar IA pour créer et vendre ton produit digital sur TikTok.",
     price: "97€",
+    oldPrice: "136€",
+    discount: "-40%",
     pricePeriod: "paiement unique",
     features: [
-      "Les 3 modules : audience, offre, produit",
-      "Les prompts IA prêts à l'emploi",
-      "Les scripts TikTok qui convertissent",
-      "Le plan d'action jour par jour",
+      "Les 6 modules et 53 leçons de la formation",
+      "La création de tes avatars IA pas à pas",
+      "Les prompts et scripts TikTok prêts à l'emploi",
+      "Les modèles de produits digitaux (ebook, template)",
       "Accès à vie et mises à jour incluses",
     ],
     buttonText: "Rejoindre la formation",
@@ -24,15 +26,17 @@ const pricingPlans = [
   {
     id: 2,
     title: "Formation + accompagnement",
-    description: "La formation, plus un suivi personnalisé pour aller beaucoup plus vite.",
-    price: "297€",
+    description: "La formation complète, plus un accompagnement personnalisé avec moi.",
+    price: "136€",
+    oldPrice: "200€",
+    discount: "-32%",
     pricePeriod: "paiement unique",
     features: [
       "Tout ce qui est inclus dans la formation",
-      "Audit de ton offre et de ton positionnement",
-      "Relecture de tes 10 premiers scripts",
-      "Sessions questions/réponses en groupe",
-      "Communauté privée des élèves",
+      "Accompagnement complet et personnalisé avec moi",
+      "Audit de ta niche, de ton offre et de ton avatar IA",
+      "Relecture de tes 10 premiers scripts TikTok",
+      "Réponses à tes questions jusqu'à tes premières ventes",
     ],
     buttonText: "Je veux être accompagné",
     buttonLink: "/signup",
@@ -65,17 +69,27 @@ const Pricing = () => {
                 key={plan.id}
                 delay={index * 0.1}
               >
-                <PricingCard
-                  title={plan.title}
-                  description={plan.description}
-                  price={plan.price}
-                  pricePeriod={plan.pricePeriod}
-                  features={plan.features}
-                  buttonText={plan.buttonText}
-                  buttonLink={plan.buttonLink}
-                  isHighlighted={plan.isHighlighted}
-                  backgroundImage={plan.backgroundImage}
-                />
+                <div className="relative h-full">
+                  <div className="absolute -top-3 right-6 z-20 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
+                    {plan.discount}
+                  </div>
+                  <PricingCard
+                    title={plan.title}
+                    description={plan.description}
+                    price={plan.price}
+                    pricePeriod={
+                      <span className="flex items-center gap-2">
+                        <span className="line-through">{plan.oldPrice}</span>
+                        <span>· {plan.pricePeriod}</span>
+                      </span>
+                    }
+                    features={plan.features}
+                    buttonText={plan.buttonText}
+                    buttonLink={plan.buttonLink}
+                    isHighlighted={plan.isHighlighted}
+                    backgroundImage={plan.backgroundImage}
+                  />
+                </div>
               </AnimateOnView>
             ))}
           </div>

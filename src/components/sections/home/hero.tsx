@@ -8,11 +8,6 @@ const Hero = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <StaggerContainer>
-            <AnimateOnView blur>
-              <span className="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm">
-                Formation 100 % en ligne
-              </span>
-            </AnimateOnView>
 
             <AnimateOnView blur>
               <h1 className="h1 text-foreground mb-4">
@@ -22,8 +17,9 @@ const Hero = () => {
 
             <AnimateOnView blur delay={0.2}>
               <p className="text-body-md max-w-2xl mx-auto mb-8 text-muted-foreground">
-                J'ai généré +50 000€ en 6 mois en vendant des produits digitaux sur TikTok,
-                sans jamais montrer mon visage. Voici la méthode.
+                Crée un avatar IA, publie chaque jour sur TikTok pour résoudre le problème d'une niche,
+                et vends ton ebook, ton template ou ta formation — sans jamais montrer ton visage.
+                +50 000€ en 6 mois avec ce système : voici la méthode complète.
               </p>
             </AnimateOnView>
 
