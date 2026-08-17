@@ -80,7 +80,7 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
             <div className="h-px bg-white/10" />
             <div className="space-y-4">
               <h4 className="text-lg font-medium text-foreground">
-                What You Get
+                Ce que tu obtiens
               </h4>
               <ul className="space-y-3">
                 {features.map((feature, index) => (
