@@ -13,7 +13,7 @@ const Testimonials = () => {
                     <h2
                         className="h2 mb-5 text-center"
                     >
-                        Customer testimonials
+                        Ils ont appliqué la méthode
                     </h2>
                 </AnimateOnView>
                 <TestimonialSlider />

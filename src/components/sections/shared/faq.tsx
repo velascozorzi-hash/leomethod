@@ -5,24 +5,23 @@ import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import Lottie from "lottie-react";
 import { Minus, Plus } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const faqs = [
   {
-    question: "What is Paymark?",
-    answer: "Reach, leverages AI-optimized cold email campaigns to elevate your business. We provide tailored strategies that enhance outreach",
+    question: "À qui s'adresse cette formation ?",
+    answer: "À toute personne qui veut créer un revenu en ligne avec l'IA, même en partant de zéro : pas besoin d'audience, de compétence technique ni de montrer son visage.",
   },
   {
-    question: "Is there a limit for cashback I can earn?",
-    answer: "Reach, leverages AI-optimized cold email campaigns to elevate your business. We provide tailored strategies that enhance outreach",
+    question: "Combien de temps par jour dois-je y consacrer ?",
+    answer: "Une à deux heures par jour suffisent pour avancer sérieusement. Le plan d'action est découpé en étapes courtes que tu peux faire à ton rythme.",
   },
   {
-    question: "Are there any account fees in Paymark?",
-    answer: "No, there are no monthly or annual account fees for using Paymark. We believe in keeping it simple and transparent so you can get more value without hidden costs.",
+    question: "Faut-il un budget publicitaire ?",
+    answer: "Non. Toute la méthode repose sur du contenu organique sur TikTok, généré et optimisé avec l'IA. Zéro euro de pub nécessaire pour démarrer.",
   },
   {
-    question: "Why should I use Paymark?",
-    answer: "Because our built-in AI helps you automate the boring parts of finance (tracking expenses, reminders, insights), so you can focus on what really matters.",
+    question: "Est-ce que j'ai un accès à vie ?",
+    answer: "Oui. Tu gardes l'accès à la formation et à toutes ses mises à jour futures, sans abonnement ni frais cachés.",
   }
 ];
 
@@ -33,7 +32,7 @@ const FAQ = () => {
       <Container>
         <AnimateOnView once blur>
           <div className="text-center mb-8 md:mb-24">
-            <h2 className="h2">Frequently Asked Questions</h2>
+            <h2 className="h2">Questions fréquentes</h2>
           </div>
         </AnimateOnView>
 
@@ -73,12 +72,12 @@ const FAQ = () => {
         <AnimateOnView once y={20} delay={0.2} className="">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-xl mx-auto md:mt-20 mt-8 md:py-2 md:pr-2 py-4 pr-4 pl-8 md:rounded-full rounded-md bg-card/50 border border-border/50 backdrop-blur-sm">
             <p className="text-lg font-medium text-center sm:text-left">
-              Can't find the answer you're looking for?
+              Tu as encore une question ?
             </p>
             <Button asChild className="rounded-full px-6 bg-foreground text-background hover:bg-foreground/90 w-full sm:w-auto">
-              <Link to="/contact">
-                Ask Something
-              </Link>
+              <a href="#offre">
+                Voir l'offre
+              </a>
             </Button>
           </div>
         </AnimateOnView>
