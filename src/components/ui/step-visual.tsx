@@ -6,7 +6,7 @@ const shell =
 
 const float = (delay = 0) => ({
   animate: { y: [0, -8, 0] },
-  transition: { duration: 4, repeat: Infinity, ease: "easeInOut", delay },
+  transition: { duration: 4, repeat: Infinity, ease: "easeInOut" as const, delay },
 });
 
 const AudienceVisual = () => (
