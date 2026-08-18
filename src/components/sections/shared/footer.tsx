@@ -46,9 +46,6 @@ const Footer = () => {
               © {new Date().getFullYear()} — Tous droits réservés.
             </p>
             <nav className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm">
-              <Link to="/legal/mentions-legales" className="text-white/70 hover:text-white transition-colors">
-                Mentions légales
-              </Link>
               <Link to="/legal/cgv" className="text-white/70 hover:text-white transition-colors">
                 CGV
               </Link>
