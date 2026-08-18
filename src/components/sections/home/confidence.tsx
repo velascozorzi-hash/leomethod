@@ -10,7 +10,7 @@ const Confidence = () => {
     <section
       className="relative bg-background overflow-hidden lg:pt-[218px] lg:pb-[291px] md:pt-[60px] md:pb-[60px] pt-12 pb-12">
       {/* Lottie Background */}
-      <div className="absolute inset-x-0 top-0 z-0 pointer-events-none md:block hidden">
+      <div className="absolute inset-x-0 top-0 z-0 pointer-events-none block">
         <div className='max-w-[1440px] mx-auto aspect-[1200/650] w-full'>
           <Lottie
             animationData={lottieData}
