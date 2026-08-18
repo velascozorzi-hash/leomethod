@@ -77,7 +77,7 @@ export const template = {
   displayName: 'Accès à la formation',
   previewData: {
     name: 'Léo',
-    accessUrl: 'https://leomethod.app/acces?t=exemple',
+    accessUrl: 'https://www.skool.com/leo-avatar-method-9184',
     planLabel: 'Formation + accompagnement',
   },
 } satisfies TemplateEntry
