@@ -1,6 +1,7 @@
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 import { createClient } from "npm:@supabase/supabase-js@2";
-import { COURSE_ACCESS_URL } from "../_shared/plans.ts";
+import { COURSE_ACCESS_URL, PLANS, isPlanId } from "../_shared/plans.ts";
+import { sendTemplateEmail } from "../_shared/transactional-email-templates/send-email.ts";
 
 // Mollie appelle cette URL après chaque changement de statut de paiement.
 // On ne fait jamais confiance au corps de la requête : on re-interroge Mollie.
@@ -53,7 +54,7 @@ Deno.serve(async (req) => {
       .eq("id", order.id);
 
     if (isPaid && !order.email_sent_at) {
-      const sent = await sendAccessEmail(order.email, order.full_name, order.access_token);
+      const sent = await sendAccessEmail(order.email, order.full_name, order.access_token, order.plan);
       if (sent) {
         await supabase
           .from("orders")
@@ -69,23 +70,25 @@ Deno.serve(async (req) => {
   }
 });
 
-async function sendAccessEmail(email: string, fullName: string | null, token: string) {
+async function sendAccessEmail(
+  email: string,
+  fullName: string | null,
+  token: string,
+  plan: string,
+) {
   try {
-    const mod = await import("../_shared/transactional-email-templates/send-email.ts").catch(
-      () => null,
-    );
-    if (!mod?.sendTemplateEmail) {
-      console.warn("Email templates not scaffolded yet — access email skipped");
-      return false;
-    }
-    const result = await mod.sendTemplateEmail("course-access", email, {
+    const result = await sendTemplateEmail("course-access", email, {
       templateData: {
         name: fullName ?? undefined,
         accessUrl: `${COURSE_ACCESS_URL}?t=${token}`,
+        planLabel: isPlanId(plan) ? PLANS[plan].label : undefined,
       },
       idempotencyKey: `course-access-${token}`,
     });
-    return result?.sent === true;
+    if (!result.sent) {
+      console.warn("Access email not sent:", result.reason);
+    }
+    return result.sent === true;
   } catch (err) {
     console.error("sendAccessEmail failed:", err);
     return false;
