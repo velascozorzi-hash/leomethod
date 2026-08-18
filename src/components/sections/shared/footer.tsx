@@ -36,17 +36,32 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-sm text-center">
-            © {new Date().getFullYear()} — Tous droits réservés.
+        <div className="pt-8 flex flex-col gap-6">
+          <p className="text-xs text-white/40 leading-relaxed max-w-3xl">
+            Les résultats présentés (captures, témoignages) sont des exemples individuels et ne
+            constituent pas une garantie de revenus. Ce site n'est affilié à aucune plateforme tierce.
           </p>
-          <div className="flex items-center gap-6 text-sm">
-            <Link to="/legal/terms-&-condition" className="text-white/70 hover:text-white transition-colors">
-              Conditions
-            </Link>
-            <Link to="/legal/privacy-&-policy" className="text-white/70 hover:text-white transition-colors">
-              Confidentialité
-            </Link>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-muted-foreground text-sm text-center">
+              © {new Date().getFullYear()} — Tous droits réservés.
+            </p>
+            <nav className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm">
+              <Link to="/legal/mentions-legales" className="text-white/70 hover:text-white transition-colors">
+                Mentions légales
+              </Link>
+              <Link to="/legal/cgv" className="text-white/70 hover:text-white transition-colors">
+                CGV
+              </Link>
+              <Link to="/legal/confidentialite" className="text-white/70 hover:text-white transition-colors">
+                Confidentialité
+              </Link>
+              <Link to="/legal/cookies" className="text-white/70 hover:text-white transition-colors">
+                Cookies
+              </Link>
+              <a href="mailto:contact@formation-ia.com" className="text-white/70 hover:text-white transition-colors">
+                Contact
+              </a>
+            </nav>
           </div>
         </div>
       </Container>
