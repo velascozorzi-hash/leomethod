@@ -76,21 +76,35 @@ async function sendAccessEmail(
   token: string,
   plan: string,
 ) {
-  try {
+  const templateData = {
+    name: fullName ?? undefined,
+    accessUrl: `${COURSE_ACCESS_URL}?t=${token}`,
+    planLabel: isPlanId(plan) ? PLANS[plan].label : undefined,
+  };
+
+  const attempt = async (idempotencyKey: string) => {
     const result = await sendTemplateEmail("course-access", email, {
-      templateData: {
-        name: fullName ?? undefined,
-        accessUrl: `${COURSE_ACCESS_URL}?t=${token}`,
-        planLabel: isPlanId(plan) ? PLANS[plan].label : undefined,
-      },
-      idempotencyKey: `course-access-${token}`,
+      templateData,
+      idempotencyKey,
     });
-    if (!result.sent) {
-      console.warn("Access email not sent:", result.reason);
-    }
+    if (!result.sent) console.warn("Access email not sent:", result.reason);
     return result.sent === true;
+  };
+
+  try {
+    return await attempt(`course-access-${token}`);
   } catch (err) {
+    // Un envoi précédent a échoué côté API : on retente avec une nouvelle clé.
+    if ((err as { code?: string }).code === "run_failed") {
+      try {
+        return await attempt(`course-access-${token}-${Date.now()}`);
+      } catch (retryErr) {
+        console.error("sendAccessEmail retry failed:", retryErr);
+        return false;
+      }
+    }
     console.error("sendAccessEmail failed:", err);
     return false;
   }
+
 }
