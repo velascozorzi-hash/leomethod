@@ -13,7 +13,7 @@ const pricingPlans = [
     discount: "-40%",
     pricePeriod: "paiement unique",
     features: [
-      "Les 6 modules et 53 leçons de la formation",
+      "Les 5 modules et 47 leçons de la formation",
       "La création de tes avatars IA pas à pas",
       "Les prompts et scripts TikTok prêts à l'emploi",
       "Les modèles de produits digitaux (ebook, template)",

@@ -15,35 +15,76 @@ const testimonials: Testimonial[] = [
         id: 1,
         title: "J'ai failli abandonner au bout de 11 vidéos",
         quote:
-            "Mes 11 premières vidéos ont fait 200 vues chacune, j'étais prêt à tout lâcher. J'ai repris le module sur les scripts, changé mon accroche et la 14e vidéo est partie à 340 000 vues. Mon ebook sur la reprise du sport après 40 ans a fait 68 ventes en dix jours. Je bosse toujours à l'usine, mais plus pour longtemps.",
+            "Mes 11 premières vidéos faisaient 200 vues. J'ai repris le module scripts, changé mon accroche, et la 14e est partie à 340 000 vues. Mon ebook a fait 68 ventes en dix jours.",
         author: "Lucas M.",
-        context: "32 ans, Lille · niche fitness",
+        context: "24 ans, Lille",
     },
     {
         id: 2,
-        title: "Mon mari ne sait toujours pas que c'est un avatar",
-        quote:
-            "Je voulais un revenu en plus le soir, sans passer devant la caméra parce que je suis prof et que mes élèves me trouvent partout. L'avatar IA a réglé le problème en une soirée. Trois mois plus tard je suis à 1 400€ par mois avec un pack de fiches d'organisation. Ma seule erreur : avoir attendu deux ans avant de me lancer.",
+        title: "Simple et clair",
+        quote: "Formation carrée, rien de superflu. J'ai suivi les étapes dans l'ordre, mon avatar était prêt en deux soirs.",
         author: "Sarah B.",
-        context: "38 ans, Nantes · niche organisation",
+        context: "22 ans, Nantes",
     },
     {
         id: 3,
-        title: "Je vendais un truc que personne ne voulait",
+        title: "210 ventes sur mon template",
         quote:
-            "Avant, je proposais une formation « productivité » générale, zéro vente en deux mois. Le module sur la niche m'a forcé à aller lire 400 commentaires TikTok. Résultat : j'ai créé un template Notion pour les freelances qui oublient de facturer. 39€, 210 ventes depuis février. C'est le problème précis qui a tout changé, pas la technique.",
+            "Avant je vendais un truc trop général, zéro vente. Le module niche m'a forcé à lire des centaines de commentaires TikTok. Résultat : un template Notion à 39€ qui part tout seul.",
         author: "Mehdi K.",
-        context: "27 ans, Lyon · niche freelance",
+        context: "26 ans, Lyon",
     },
     {
         id: 4,
-        title: "Deux heures le dimanche, un mois de contenu",
-        quote:
-            "Je suis infirmière, je n'ai clairement pas le temps de filmer. Je bloque deux heures le dimanche : je génère les scripts, mon avatar les tourne, je programme 30 vidéos. Le reste de la semaine je ne touche à rien à part répondre aux commentaires. Mon dernier mois : 2 100€ de ventes sur une mini-formation sur le sommeil.",
-        author: "Elena R.",
-        context: "41 ans, Toulouse · niche sommeil",
+        title: "Je poste sans montrer ma tête",
+        quote: "C'était mon seul blocage. Réglé en une soirée avec l'avatar. Je publie 2 vidéos par jour depuis.",
+        author: "Enzo T.",
+        context: "20 ans, Bordeaux",
+    },
+    {
+        id: 5,
+        title: "Rentabilisée en 3 semaines",
+        quote: "J'ai récupéré le prix de la formation en trois semaines. Rien à dire.",
+        author: "Camille D.",
+        context: "25 ans, Rennes",
+    },
+    {
+        id: 6,
+        title: "Les prompts valent le prix à eux seuls",
+        quote: "Je génère 30 scripts en une soirée avec les prompts fournis. Ça m'a enlevé la partie que je détestais.",
+        author: "Yanis A.",
+        context: "23 ans, Marseille",
+    },
+    {
+        id: 7,
+        title: "Étudiante, 2 h par semaine",
+        quote: "Je bosse dessus le dimanche entre deux partiels. Premier mois : 640€ avec un pack de fiches.",
+        author: "Léa P.",
+        context: "21 ans, Montpellier",
+    },
+    {
+        id: 8,
+        title: "Enfin du concret",
+        quote: "J'avais déjà acheté deux formations vagues. Là c'est du pas-à-pas, tu ouvres l'outil et tu fais.",
+        author: "Théo R.",
+        context: "27 ans, Paris",
+    },
+    {
+        id: 9,
+        title: "Mon tunnel tourne tout seul",
+        quote: "Paiement, livraison, relances : tout est automatisé. Je me réveille avec des ventes, c'est bizarre au début.",
+        author: "Inès B.",
+        context: "28 ans, Strasbourg",
+    },
+    {
+        id: 10,
+        title: "Top",
+        quote: "Clair, rapide, français. Je recommande à ceux qui veulent tester sans se filmer.",
+        author: "Noah L.",
+        context: "19 ans, Toulouse",
     },
 ]
+
 
 const TestimonialSlider = () => {
     const [currentIndex, setCurrentIndex] = React.useState(0)
