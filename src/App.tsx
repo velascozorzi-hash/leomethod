@@ -21,6 +21,7 @@ import CGVPage from "./pages/legal/cgv";
 import ConfidentialitePage from "./pages/legal/confidentialite";
 import CookiesPage from "./pages/legal/cookies";
 import LoginPage from "./pages/login";
+import MerciPage from "./pages/merci";
 import NotFound from "./pages/not-found";
 import Pricing from "./pages/pricing";
 import ProfessionalPricing from "./pages/pricing/professional";

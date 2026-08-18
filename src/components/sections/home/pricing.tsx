@@ -50,6 +50,7 @@ const pricingPlans = [
 ]
 
 const Pricing = () => {
+  const [selectedPlan, setSelectedPlan] = useState<CheckoutPlan | null>(null)
 
   return (
     <section id="offre" className="py-12 md:py-[60px] scroll-mt-24">
@@ -98,6 +99,13 @@ const Pricing = () => {
                     features={plan.features}
                     buttonText={plan.buttonText}
                     buttonLink={plan.buttonLink}
+                    onButtonClick={() =>
+                      setSelectedPlan({
+                        id: plan.planId,
+                        label: plan.title,
+                        price: plan.price,
+                      })
+                    }
                     isHighlighted={plan.isHighlighted}
                     backgroundImage={plan.backgroundImage}
                   />
@@ -107,6 +115,7 @@ const Pricing = () => {
           </div>
         </StaggerContainer>
       </Container>
+      <CheckoutDialog plan={selectedPlan} onOpenChange={(open) => !open && setSelectedPlan(null)} />
     </section>
   )
 }
