@@ -20,7 +20,6 @@ import IntegrationDetailsPage from "./pages/integration/[slug]";
 import CGVPage from "./pages/legal/cgv";
 import ConfidentialitePage from "./pages/legal/confidentialite";
 import CookiesPage from "./pages/legal/cookies";
-import MentionsLegalesPage from "./pages/legal/mentions-legales";
 import LoginPage from "./pages/login";
 import NotFound from "./pages/not-found";
 import Pricing from "./pages/pricing";
@@ -57,7 +56,6 @@ const App = () => (
               <Route path="/dashboard/blog/edit/:id" element={<BlogEditor />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
-              <Route path="/legal/mentions-legales" element={<MentionsLegalesPage />} />
               <Route path="/legal/cgv" element={<CGVPage />} />
               <Route path="/legal/confidentialite" element={<ConfidentialitePage />} />
               <Route path="/legal/cookies" element={<CookiesPage />} />
