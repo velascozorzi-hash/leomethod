@@ -57,7 +57,7 @@ const Features = () => {
             <AnimateOnView
               delay={index * 0.1}
               key={card.id}
-              className={`md:sticky md:top-24 z-10 bg-background md:rounded-[30px] rounded-lg`}
+              className={`sticky top-20 md:top-24 z-10 bg-background md:rounded-[30px] rounded-lg`}
             >
               <FeatureCard
                 imagePosition="right"
