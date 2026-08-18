@@ -17,9 +17,10 @@ import Feature from "./pages/feature";
 import Home from "./pages/home";
 import Integration from "./pages/integration";
 import IntegrationDetailsPage from "./pages/integration/[slug]";
-import CookiePolicyPage from "./pages/legal/cookie-policy";
-import PrivacyPolicyPage from "./pages/legal/privacy-&-policy";
-import TermsAndConditionPage from "./pages/legal/terms-&-condition";
+import CGVPage from "./pages/legal/cgv";
+import ConfidentialitePage from "./pages/legal/confidentialite";
+import CookiesPage from "./pages/legal/cookies";
+import MentionsLegalesPage from "./pages/legal/mentions-legales";
 import LoginPage from "./pages/login";
 import NotFound from "./pages/not-found";
 import Pricing from "./pages/pricing";
@@ -56,9 +57,10 @@ const App = () => (
               <Route path="/dashboard/blog/edit/:id" element={<BlogEditor />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
-              <Route path="/legal/terms-&-condition" element={<TermsAndConditionPage />} />
-              <Route path="/legal/privacy-policy" element={<PrivacyPolicyPage />} />
-              <Route path="/legal/cookie-policy" element={<CookiePolicyPage />} />
+              <Route path="/legal/mentions-legales" element={<MentionsLegalesPage />} />
+              <Route path="/legal/cgv" element={<CGVPage />} />
+              <Route path="/legal/confidentialite" element={<ConfidentialitePage />} />
+              <Route path="/legal/cookies" element={<CookiesPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AuthProvider>
