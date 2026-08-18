@@ -70,20 +70,8 @@ const modules = [
       'Les chiffres à suivre chaque semaine pour ajuster',
     ],
   },
-  {
-    id: 6,
-    icon: Rocket,
-    label: 'Module 6',
-    title: 'Passer à l\'échelle',
-    duration: '6 leçons · 1 h',
-    lessons: [
-      'Dupliquer le système sur une deuxième niche',
-      'Multiplier les avatars et les comptes sans y passer tes journées',
-      'Augmenter ton prix et ajouter une offre haut de gamme',
-      'Ce qu\'il faut déléguer en premier',
-    ],
-  },
 ]
+
 
 const Program = () => {
   return (
