@@ -2,7 +2,7 @@ import Container from '@/components/container'
 import { Button } from '@/components/ui/button'
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
-import { Bot, Check, Rocket, Search, ShoppingBag, Video, Wrench } from 'lucide-react'
+import { Bot, Check, Search, ShoppingBag, Video, Wrench } from 'lucide-react'
 
 const modules = [
   {
@@ -83,7 +83,7 @@ const Program = () => {
           </AnimateOnView>
           <AnimateOnView blur delay={0.2}>
             <p className="text-muted-foreground">
-              6 modules, 53 leçons et plus de 8 heures de vidéo : de la niche à ton premier avatar IA,
+              5 modules, 47 leçons et plus de 7 heures de vidéo : de la niche à ton premier avatar IA,
               jusqu'aux ventes automatisées.
             </p>
           </AnimateOnView>
