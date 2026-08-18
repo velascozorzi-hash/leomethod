@@ -19,6 +19,5 @@ export const isPlanId = (value: unknown): value is PlanId =>
   typeof value === "string" && Object.prototype.hasOwnProperty.call(PLANS, value);
 
 // Lien vers l'espace de la formation envoyé au client après paiement.
-// Remplace cette valeur par ton vrai lien (Notion, Drive, espace membre...).
 export const COURSE_ACCESS_URL =
-  Deno.env.get("COURSE_ACCESS_URL") ?? "https://leomethod.lovable.app/acces";
+  Deno.env.get("COURSE_ACCESS_URL") ?? "https://www.skool.com/leo-avatar-method-9184";
