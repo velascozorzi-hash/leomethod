@@ -21,6 +21,7 @@ import CGVPage from "./pages/legal/cgv";
 import ConfidentialitePage from "./pages/legal/confidentialite";
 import CookiesPage from "./pages/legal/cookies";
 import LoginPage from "./pages/login";
+import MerciPage from "./pages/merci";
 import NotFound from "./pages/not-found";
 import Pricing from "./pages/pricing";
 import ProfessionalPricing from "./pages/pricing/professional";
@@ -50,6 +51,7 @@ const App = () => (
               <Route path="/integration" element={<Integration />} />
               <Route path="/integration/:slug" element={<IntegrationDetailsPage />} />
               <Route path="/early-access" element={<EarlyAccess />} />
+              <Route path="/merci" element={<MerciPage />} />
               <Route path="/dashboard/profile" element={<ProfilePage />} />
               <Route path="/dashboard/blog" element={<BlogDashboard />} />
               <Route path="/dashboard/blog/new" element={<BlogEditor />} />

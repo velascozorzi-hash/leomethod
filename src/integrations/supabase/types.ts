@@ -56,6 +56,54 @@ export type Database = {
         }
         Relationships: []
       }
+      orders: {
+        Row: {
+          access_token: string
+          amount: number
+          created_at: string
+          currency: string
+          email: string
+          email_sent_at: string | null
+          full_name: string | null
+          id: string
+          mollie_payment_id: string | null
+          paid_at: string | null
+          plan: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          access_token?: string
+          amount: number
+          created_at?: string
+          currency?: string
+          email: string
+          email_sent_at?: string | null
+          full_name?: string | null
+          id?: string
+          mollie_payment_id?: string | null
+          paid_at?: string | null
+          plan: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          access_token?: string
+          amount?: number
+          created_at?: string
+          currency?: string
+          email?: string
+          email_sent_at?: string | null
+          full_name?: string | null
+          id?: string
+          mollie_payment_id?: string | null
+          paid_at?: string | null
+          plan?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null

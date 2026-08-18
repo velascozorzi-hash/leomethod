@@ -1,11 +1,14 @@
+import CheckoutDialog, { type CheckoutPlan } from '@/components/checkout-dialog'
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
+import { useState } from 'react'
 import Container from '../../container'
 import { PricingCard } from '../../ui/pricing-card'
 
 const pricingPlans = [
   {
     id: 1,
+    planId: "formation" as const,
     title: "Formation complète",
     description: "Tout le système avatar IA pour créer et vendre ton produit digital sur TikTok.",
     price: "97€",
@@ -25,6 +28,7 @@ const pricingPlans = [
   },
   {
     id: 2,
+    planId: "accompagnement" as const,
     title: "Formation + accompagnement",
     description: "La formation complète, plus un accompagnement personnalisé avec moi.",
     price: "136€",
@@ -46,6 +50,7 @@ const pricingPlans = [
 ]
 
 const Pricing = () => {
+  const [selectedPlan, setSelectedPlan] = useState<CheckoutPlan | null>(null)
 
   return (
     <section id="offre" className="py-12 md:py-[60px] scroll-mt-24">
@@ -94,6 +99,13 @@ const Pricing = () => {
                     features={plan.features}
                     buttonText={plan.buttonText}
                     buttonLink={plan.buttonLink}
+                    onButtonClick={() =>
+                      setSelectedPlan({
+                        id: plan.planId,
+                        label: plan.title,
+                        price: plan.price,
+                      })
+                    }
                     isHighlighted={plan.isHighlighted}
                     backgroundImage={plan.backgroundImage}
                   />
@@ -103,6 +115,7 @@ const Pricing = () => {
           </div>
         </StaggerContainer>
       </Container>
+      <CheckoutDialog plan={selectedPlan} onOpenChange={(open) => !open && setSelectedPlan(null)} />
     </section>
   )
 }

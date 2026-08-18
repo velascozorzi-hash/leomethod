@@ -18,6 +18,7 @@ interface PricingCardProps {
   features: string[];
   buttonText: string;
   buttonLink: string;
+  onButtonClick?: () => void;
   isHighlighted?: boolean;
   backgroundImage?: string;
 }
@@ -32,6 +33,7 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
       features,
       buttonText,
       buttonLink,
+      onButtonClick,
       isHighlighted = false,
       backgroundImage,
       ...props
@@ -119,15 +121,25 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
             </div>
           </CardContent>
           <CardFooter>
-            <Button
-              className="w-full"
-              variant={isHighlighted ? "pricing" : "outline"}
-              asChild
-            >
-              <Link to={buttonLink}>
+            {onButtonClick ? (
+              <Button
+                className="w-full"
+                variant={isHighlighted ? "pricing" : "outline"}
+                onClick={onButtonClick}
+              >
                 {buttonText}
-              </Link>
-            </Button>
+              </Button>
+            ) : (
+              <Button
+                className="w-full"
+                variant={isHighlighted ? "pricing" : "outline"}
+                asChild
+              >
+                <Link to={buttonLink}>
+                  {buttonText}
+                </Link>
+              </Button>
+            )}
           </CardFooter>
         </div>
       </Card>
