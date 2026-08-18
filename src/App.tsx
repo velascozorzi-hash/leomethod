@@ -51,6 +51,7 @@ const App = () => (
               <Route path="/integration" element={<Integration />} />
               <Route path="/integration/:slug" element={<IntegrationDetailsPage />} />
               <Route path="/early-access" element={<EarlyAccess />} />
+              <Route path="/merci" element={<MerciPage />} />
               <Route path="/dashboard/profile" element={<ProfilePage />} />
               <Route path="/dashboard/blog" element={<BlogDashboard />} />
               <Route path="/dashboard/blog/new" element={<BlogEditor />} />
