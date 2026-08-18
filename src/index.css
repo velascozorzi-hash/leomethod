@@ -156,3 +156,24 @@
     @apply pt-[130px] md:pt-[180px] xl:pt-[207px];
   }
 }
+@layer components {
+  .legal-prose h2 {
+    @apply text-xl md:text-2xl font-medium text-foreground mt-10 mb-3;
+  }
+
+  .legal-prose h3 {
+    @apply text-lg font-medium text-foreground mt-6 mb-2;
+  }
+
+  .legal-prose p {
+    @apply text-muted-foreground leading-relaxed mb-4;
+  }
+
+  .legal-prose ul {
+    @apply list-disc pl-5 space-y-2 text-muted-foreground mb-4;
+  }
+
+  .legal-prose a {
+    @apply text-primary underline underline-offset-4;
+  }
+}
