@@ -47,10 +47,25 @@ const CGVPage = () => (
             rétractation lors de la commande. Ce consentement est recueilli au moment du paiement.
         </p>
 
-        <h2>6. Remboursement</h2>
+        <h2>6. Garantie satisfait ou remboursé 30 jours</h2>
         <p>
-            En dehors du cas ci-dessus, toute demande de remboursement peut être adressée à{" "}
-            <a href={`mailto:${legalConfig.email}`}>{legalConfig.email}</a> et sera étudiée au cas par cas.
+            La formation est garantie satisfait ou remboursé pendant 30 jours : si, au terme de ces 30
+            jours, l'acheteur n'a pas généré au minimum l'équivalent du prix d'achat qu'il a payé, il est
+            intégralement remboursé.
+        </p>
+        <p>Cette garantie s'applique aux conditions cumulatives suivantes :</p>
+        <ul>
+            <li>avoir travaillé sur la méthode chaque jour pendant les 30 jours ;</li>
+            <li>avoir consommé l'intégralité de la formation (tous les modules et leçons) ;</li>
+            <li>
+                présenter ses résultats et son avancement (contenus publiés, produit créé, statistiques)
+                lors de la demande.
+            </li>
+        </ul>
+        <p>
+            La demande se fait par email à{" "}
+            <a href={`mailto:${legalConfig.email}`}>{legalConfig.email}</a> dans les 7 jours suivant la fin
+            de la période de 30 jours. Le remboursement est effectué sous 14 jours après validation.
         </p>
 
         <h2>7. Garantie de résultats</h2>
