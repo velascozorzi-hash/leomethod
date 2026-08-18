@@ -58,7 +58,7 @@ const Footer = () => {
               <Link to="/legal/cookies" className="text-white/70 hover:text-white transition-colors">
                 Cookies
               </Link>
-              <a href="mailto:contact@formation-ia.com" className="text-white/70 hover:text-white transition-colors">
+              <a href="mailto:velascozorzi@gmail.com" className="text-white/70 hover:text-white transition-colors">
                 Contact
               </a>
             </nav>
