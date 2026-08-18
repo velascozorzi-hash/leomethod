@@ -1,7 +1,7 @@
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view';
 import { StaggerContainer } from '@/components/ui/motion/stagger';
 import { motion } from 'framer-motion';
-import { Bot, CalendarCheck, CreditCard, Mail, Play, TrendingUp } from 'lucide-react';
+import { Bot, CalendarCheck, CreditCard, FileText, GraduationCap, LayoutTemplate, Mail, Play, Sparkles, Target, TrendingUp } from 'lucide-react';
 import Container from '../../container';
 
 const ScriptsVisual = () => (
