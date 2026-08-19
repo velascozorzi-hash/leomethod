@@ -2,7 +2,8 @@ import Container from '@/components/container'
 import { Button } from '@/components/ui/button'
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
-import { Bot, Check, Search, ShoppingBag, Video, Wrench } from 'lucide-react'
+import { Bot, Check, ChevronDown, Search, ShoppingBag, Video, Wrench } from 'lucide-react'
+import { useState } from 'react'
 
 const modules = [
   {
@@ -73,6 +74,44 @@ const modules = [
 ]
 
 
+const ModuleCard = ({ module }: { module: (typeof modules)[number] }) => {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="h-full rounded-2xl md:rounded-[28px] border border-border/60 bg-card/50 p-5 md:p-8">
+      <div className="flex items-center gap-3 mb-3 md:mb-4">
+        <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center shrink-0">
+          <module.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+        </div>
+        <div>
+          <p className="text-xs uppercase tracking-wide text-primary">{module.label}</p>
+          <p className="text-xs text-muted-foreground">{module.duration}</p>
+        </div>
+      </div>
+      <h3 className="text-base md:text-2xl font-medium md:mb-4">{module.title}</h3>
+
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="md:hidden mt-3 flex items-center gap-1.5 text-sm text-primary"
+        aria-expanded={open}
+      >
+        {open ? 'Masquer les leçons' : 'Voir les leçons'}
+        <ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+
+      <ul className={`space-y-2.5 mt-3 md:mt-0 ${open ? 'block' : 'hidden'} md:block`}>
+        {module.lessons.map((lesson) => (
+          <li key={lesson} className="flex items-start gap-2.5 text-muted-foreground text-sm md:text-base">
+            <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
+            <span>{lesson}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 const Program = () => {
   return (
     <section id="programme" className="py-12 md:py-[60px] scroll-mt-24">
@@ -90,34 +129,14 @@ const Program = () => {
         </StaggerContainer>
 
         <StaggerContainer>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {modules.map((module, index) => (
               <AnimateOnView
                 key={module.id}
                 delay={(index % 2) * 0.1}
                 className={index === modules.length - 1 && modules.length % 2 === 1 ? 'md:col-span-2 md:w-1/2 md:mx-auto' : undefined}
               >
-                <div className="h-full rounded-[28px] border border-border/60 bg-card/50 p-6 md:p-8">
-
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center">
-                      <module.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-wide text-primary">{module.label}</p>
-                      <p className="text-xs text-muted-foreground">{module.duration}</p>
-                    </div>
-                  </div>
-                  <h3 className="h4 mb-4">{module.title}</h3>
-                  <ul className="space-y-2.5">
-                    {module.lessons.map((lesson) => (
-                      <li key={lesson} className="flex items-start gap-2.5 text-muted-foreground text-sm md:text-base">
-                        <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
-                        <span>{lesson}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ModuleCard module={module} />
               </AnimateOnView>
             ))}
           </div>

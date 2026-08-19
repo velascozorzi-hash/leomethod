@@ -4,7 +4,7 @@ export const PLANS = {
   formation: {
     id: "formation",
     label: "Formation complète",
-    amount: "0.10",
+    amount: "97.00",
   },
   accompagnement: {
     id: "accompagnement",

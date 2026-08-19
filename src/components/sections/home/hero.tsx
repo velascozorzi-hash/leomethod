@@ -35,11 +35,6 @@ const Hero = () => {
               </a>
             </AnimateOnView>
 
-            <AnimateOnView delay={0.4}>
-              <p className="mt-5 text-xs text-muted-foreground/70">
-                Satisfait ou remboursé sous 30 jours (voir conditions)
-              </p>
-            </AnimateOnView>
           </StaggerContainer>
         </div>
       </div>

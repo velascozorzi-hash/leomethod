@@ -11,9 +11,9 @@ const pricingPlans = [
     planId: "formation" as const,
     title: "Formation complète",
     description: "Tout le système avatar IA pour créer et vendre ton produit digital sur TikTok.",
-    price: "0,10€",
-    oldPrice: "97€",
-    discount: "-99%",
+    price: "97€",
+    oldPrice: "136€",
+    discount: "-40%",
     pricePeriod: "paiement unique",
     features: [
       "Les 5 modules et 47 leçons de la formation",
@@ -64,14 +64,6 @@ const Pricing = () => {
           <AnimateOnView blur delay={0.2}>
             <p className="text-muted-foreground">
               Un investissement unique, un accès à vie, et un système que tu gardes pour toujours.
-            </p>
-          </AnimateOnView>
-          <AnimateOnView blur delay={0.3}>
-            <p className="mt-4 text-sm text-muted-foreground/80">
-              Satisfait ou remboursé sous 30 jours : si tu n'as pas généré au minimum le prix que tu as
-              payé, tu es remboursé — à condition de travailler chaque jour, de consommer toute la
-              formation et de me présenter tes résultats et ton avancement.{" "}
-              <a href="/legal/cgv" className="underline hover:text-foreground">Voir les conditions</a>
             </p>
           </AnimateOnView>
         </StaggerContainer>
