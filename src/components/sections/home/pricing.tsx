@@ -13,8 +13,8 @@ const pricingPlans = [
     title: "Formation complète",
     description: "Tout le système avatar IA pour créer et vendre ton produit digital sur TikTok.",
     price: "97€",
-    oldPrice: "150€",
-    discount: "-35%",
+    oldPrice: "194€",
+    discount: "-50%",
     pricePeriod: "paiement unique",
     features: [
       "Les 5 modules et 47 leçons de la formation",
@@ -33,8 +33,8 @@ const pricingPlans = [
     title: "Formation + accompagnement",
     description: "La formation complète, plus un accompagnement personnalisé avec moi.",
     price: "127€",
-    oldPrice: "190€",
-    discount: "-33%",
+    oldPrice: "282€",
+    discount: "-55%",
     pricePeriod: "paiement unique",
     features: [
       "Tout ce qui est inclus dans la formation",
