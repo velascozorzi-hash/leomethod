@@ -13,8 +13,8 @@ const pricingPlans = [
     title: "Formation complète",
     description: "Tout le système avatar IA pour créer et vendre ton produit digital sur TikTok.",
     price: "97€",
-    oldPrice: "136€",
-    discount: "-40%",
+    oldPrice: "220€",
+    discount: "-56%",
     pricePeriod: "paiement unique",
     features: [
       "Les 5 modules et 47 leçons de la formation",
@@ -33,8 +33,8 @@ const pricingPlans = [
     title: "Formation + accompagnement",
     description: "La formation complète, plus un accompagnement personnalisé avec moi.",
     price: "136€",
-    oldPrice: "200€",
-    discount: "-32%",
+    oldPrice: "220€",
+    discount: "-38%",
     pricePeriod: "paiement unique",
     features: [
       "Tout ce qui est inclus dans la formation",
@@ -70,7 +70,7 @@ const Pricing = () => {
           <AnimateOnView blur delay={0.3}>
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm text-foreground">
               <ShieldCheck className="w-4 h-4 text-primary" />
-              Satisfait ou remboursé sous 30 jours (voir conditions dans les CGV)
+              Satisfait ou remboursé sous 30 jours
             </div>
           </AnimateOnView>
 

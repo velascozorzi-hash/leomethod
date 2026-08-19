@@ -28,12 +28,6 @@ const Hero = () => {
               <Button asChild size="lg">
                 <a href="#offre">Rejoindre la formation</a>
               </Button>
-              <a
-                href="#methode"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Découvrir la méthode
-              </a>
             </AnimateOnView>
 
             <AnimateOnView delay={0.4}>
