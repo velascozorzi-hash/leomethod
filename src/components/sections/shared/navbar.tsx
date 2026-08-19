@@ -1,6 +1,5 @@
 import Container from "@/components/container";
 import UserMenu from "@/components/sections/shared/user-menu";
-import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
 import { Link } from "react-router-dom";
 
@@ -15,15 +14,7 @@ const Navbar = () => {
         </Link>
 
         <div className="flex gap-2 items-center">
-          {!loading && (
-            user ? (
-              <UserMenu />
-            ) : (
-              <Button asChild>
-                <a href="#offre">Rejoindre la formation</a>
-              </Button>
-            )
-          )}
+          {!loading && user && <UserMenu />}
         </div>
       </Container>
     </header>
