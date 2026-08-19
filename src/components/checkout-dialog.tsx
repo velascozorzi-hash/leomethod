@@ -106,7 +106,7 @@ const CheckoutDialog = ({ plan, onOpenChange }: CheckoutDialogProps) => {
             {loading ? "Redirection..." : "Payer en toute sécurité"}
           </Button>
           <p className="text-xs text-muted-foreground text-center">
-            Paiement sécurisé par Mollie · Satisfait ou remboursé 30 jours
+            Paiement sécurisé par Mollie
           </p>
         </form>
       </DialogContent>

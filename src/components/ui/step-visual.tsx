@@ -88,7 +88,7 @@ const OfferVisual = () => (
         className="rounded-xl border border-border/60 bg-background/60 px-4 py-3 text-sm"
       >
         <span className="text-muted-foreground line-through mr-2">97 €</span>
-        <span className="text-primary font-semibold">0,10 €</span>
+        <span className="text-primary font-semibold">97 €</span>
       </motion.div>
       <motion.div
         {...float(0.6)}
