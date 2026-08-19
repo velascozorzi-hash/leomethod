@@ -147,6 +147,7 @@ const features = [
     icon: Sparkles,
     title: 'Ton avatar IA prêt à publier',
     description: "Un personnage crédible, avec sa voix et son ton, qui parle à ta place sur TikTok.",
+    bullets: ['Visage et voix générés', 'Ton et personnalité définis', 'Prêt à publier chaque jour'],
     visual: <AvatarVisual />,
   },
   {
@@ -154,6 +155,7 @@ const features = [
     icon: Target,
     title: 'Une niche et un problème précis',
     description: "Tu sais exactement à qui tu parles et quel problème payant tu viens résoudre.",
+    bullets: ['Niche repérée', 'Problème douloureux validé', 'Offre alignée'],
     visual: <NicheVisual />,
   },
   {
@@ -161,6 +163,7 @@ const features = [
     icon: Bot,
     title: 'Du contenu TikTok qui convertit',
     description: "Des scripts et formats testés, générés avec l'IA, sans jamais montrer ton visage.",
+    bullets: ['Accroches qui retiennent', 'Scripts générés en série', 'Format prêt pour l\'algorithme'],
     visual: <ScriptsVisual />,
   },
   {
@@ -168,6 +171,7 @@ const features = [
     icon: FileText,
     title: 'Ton produit digital fini',
     description: "Ebook, template ou mini-formation : un produit réellement livrable, créé en quelques jours.",
+    bullets: ['Ebook', 'Template', 'Mini-formation'],
     visual: <ProductVisual />,
   },
   {
@@ -175,6 +179,7 @@ const features = [
     icon: Mail,
     title: 'Une automatisation de A à Z',
     description: "Livraison, paiements et relances : ton produit se vend même quand tu n'es pas là.",
+    bullets: ['Paiement automatique', 'Livraison instantanée', 'Relances par e-mail'],
     visual: <AutomationVisual />,
   },
   {
@@ -182,9 +187,11 @@ const features = [
     icon: TrendingUp,
     title: 'Tes premiers euros en quelques semaines',
     description: "Un plan d'action jour par jour pour publier, tester, ajuster et encaisser tes premières ventes.",
+    bullets: ['Plan jour par jour', 'Tests et ajustements', 'Premières ventes'],
     visual: <RevenueVisual />,
   },
 ];
+
 
 
 const Content = () => {
