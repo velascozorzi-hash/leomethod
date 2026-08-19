@@ -66,6 +66,13 @@ const Pricing = () => {
               Un investissement unique, un accès à vie, et un système que tu gardes pour toujours.
             </p>
           </AnimateOnView>
+          <AnimateOnView blur delay={0.3}>
+            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm text-foreground">
+              <ShieldCheck className="w-4 h-4 text-primary" />
+              Satisfait ou remboursé sous 30 jours (voir conditions dans les CGV)
+            </div>
+          </AnimateOnView>
+
         </StaggerContainer>
         <StaggerContainer>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[1058px] mx-auto">
