@@ -74,8 +74,12 @@ const modules = [
 ]
 
 
+const MOBILE_PREVIEW = 2
+
 const ModuleCard = ({ module }: { module: (typeof modules)[number] }) => {
   const [open, setOpen] = useState(false)
+  const hasMore = module.lessons.length > MOBILE_PREVIEW
+  const visibleLessons = open ? module.lessons : module.lessons.slice(0, MOBILE_PREVIEW)
 
   return (
     <div className="h-full rounded-2xl md:rounded-[28px] border border-border/60 bg-card/50 p-5 md:p-8">
@@ -90,19 +94,31 @@ const ModuleCard = ({ module }: { module: (typeof modules)[number] }) => {
       </div>
       <h3 className="text-base md:text-2xl font-medium md:mb-4">{module.title}</h3>
 
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="md:hidden mt-3 flex items-center gap-1.5 text-sm text-primary"
-        aria-expanded={open}
-      >
-        {open ? 'Masquer les leçons' : 'Voir les leçons'}
-        <ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
-      </button>
+      {/* Mobile : extrait + voir tout */}
+      <ul className="md:hidden space-y-2 mt-3">
+        {visibleLessons.map((lesson) => (
+          <li key={lesson} className="flex items-start gap-2.5 text-muted-foreground text-sm">
+            <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+            <span className={open ? undefined : 'line-clamp-2'}>{lesson}</span>
+          </li>
+        ))}
+      </ul>
+      {hasMore && (
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden mt-3 flex items-center gap-1.5 text-sm text-primary"
+          aria-expanded={open}
+        >
+          {open ? 'Réduire' : `Voir tout (${module.lessons.length})`}
+          <ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
+        </button>
+      )}
 
-      <ul className={`space-y-2.5 mt-3 md:mt-0 ${open ? 'block' : 'hidden'} md:block`}>
+      {/* Desktop : liste complète */}
+      <ul className="hidden md:block space-y-2.5">
         {module.lessons.map((lesson) => (
-          <li key={lesson} className="flex items-start gap-2.5 text-muted-foreground text-sm md:text-base">
+          <li key={lesson} className="flex items-start gap-2.5 text-muted-foreground text-base">
             <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
             <span>{lesson}</span>
           </li>
