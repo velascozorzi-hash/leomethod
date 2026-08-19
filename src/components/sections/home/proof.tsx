@@ -35,11 +35,34 @@ const Proof = () => {
           </AnimateOnView>
         </StaggerContainer>
 
-        <StaggerContainer>
-          <div className="columns-2 lg:columns-3 gap-3 sm:gap-5 [column-fill:_balance]">
+        {/* Mobile : carrousel d'images recadrées */}
+        <div className="sm:hidden -mx-6">
+          <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {proofs.map((proof) => (
+              <div
+                key={proof.src}
+                className="snap-center shrink-0 w-[78%] overflow-hidden rounded-xl border border-border/60 bg-card/50"
+              >
+                <img
+                  src={proof.src}
+                  alt={proof.alt}
+                  loading="lazy"
+                  className="w-full aspect-[4/3] object-cover object-top"
+                />
+              </div>
+            ))}
+          </div>
+          <p className="mt-2 text-center text-xs text-muted-foreground">
+            Fais glisser pour voir les {proofs.length} captures →
+          </p>
+        </div>
+
+        {/* Desktop : mosaïque */}
+        <StaggerContainer className="hidden sm:block">
+          <div className="columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
             {proofs.map((proof, index) => (
               <AnimateOnView key={proof.src} delay={(index % 3) * 0.1}>
-                <div className="mb-3 sm:mb-5 break-inside-avoid overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-card/50">
+                <div className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-border/60 bg-card/50">
                   <img
                     src={proof.src}
                     alt={proof.alt}
@@ -51,6 +74,7 @@ const Proof = () => {
             ))}
           </div>
         </StaggerContainer>
+
       </Container>
     </section>
   );
