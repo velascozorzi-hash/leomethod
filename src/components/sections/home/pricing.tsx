@@ -66,14 +66,6 @@ const Pricing = () => {
               Un investissement unique, un accès à vie, et un système que tu gardes pour toujours.
             </p>
           </AnimateOnView>
-          <AnimateOnView blur delay={0.3}>
-            <p className="mt-4 text-sm text-muted-foreground/80">
-              Satisfait ou remboursé sous 30 jours : si tu n'as pas généré au minimum le prix que tu as
-              payé, tu es remboursé — à condition de travailler chaque jour, de consommer toute la
-              formation et de me présenter tes résultats et ton avancement.{" "}
-              <a href="/legal/cgv" className="underline hover:text-foreground">Voir les conditions</a>
-            </p>
-          </AnimateOnView>
         </StaggerContainer>
         <StaggerContainer>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[1058px] mx-auto">
