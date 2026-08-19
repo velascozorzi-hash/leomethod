@@ -36,10 +36,10 @@ const Proof = () => {
         </StaggerContainer>
 
         <StaggerContainer>
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
+          <div className="columns-2 lg:columns-3 gap-3 sm:gap-5 [column-fill:_balance]">
             {proofs.map((proof, index) => (
               <AnimateOnView key={proof.src} delay={(index % 3) * 0.1}>
-                <div className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-border/60 bg-card/50">
+                <div className="mb-3 sm:mb-5 break-inside-avoid overflow-hidden rounded-xl sm:rounded-2xl border border-border/60 bg-card/50">
                   <img
                     src={proof.src}
                     alt={proof.alt}
