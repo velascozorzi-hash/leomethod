@@ -1,6 +1,7 @@
 import CheckoutDialog, { type CheckoutPlan } from '@/components/checkout-dialog'
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
+import { ShieldCheck } from 'lucide-react'
 import { useState } from 'react'
 import Container from '../../container'
 import { PricingCard } from '../../ui/pricing-card'
