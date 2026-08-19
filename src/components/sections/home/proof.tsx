@@ -37,7 +37,7 @@ const Proof = () => {
 
         {/* Mobile : carrousel d'images recadrées */}
         <div className="sm:hidden -mx-6">
-          <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-3 scrollbar-none">
+          <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {proofs.map((proof) => (
               <div
                 key={proof.src}
