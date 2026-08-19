@@ -23,8 +23,8 @@ const CGVPage = () => (
 
         <h2>3. Prix et paiement</h2>
         <ul>
-            <li>Offre Formation : 97 € TTC (au lieu de 136 €).</li>
-            <li>Offre Formation + Accompagnement : 136 € TTC (au lieu de 200 €).</li>
+            <li>Offre Formation : 97 € TTC (au lieu de 150 €).</li>
+            <li>Offre Formation + Accompagnement : 127 € TTC (au lieu de 190 €).</li>
         </ul>
         <p>
             Les prix sont indiqués en euros, toutes taxes comprises. Le paiement s'effectue en ligne par
