@@ -203,18 +203,18 @@ const Content = () => {
         </StaggerContainer>
 
         <StaggerContainer>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
             {features.map((feature, index) => (
               <AnimateOnView key={feature.id} delay={index * 0.1}>
-                <div className="h-full rounded-[28px] border border-border/60 bg-card/50 p-6 md:p-7 flex flex-col gap-5">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center">
-                      <feature.icon className="w-5 h-5 text-primary" />
+                <div className="h-full rounded-2xl md:rounded-[28px] border border-border/60 bg-card/50 p-4 md:p-7 flex flex-col gap-3 md:gap-5">
+                  <div className="flex items-start gap-3">
+                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center shrink-0">
+                      <feature.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                     </div>
-                    <h3 className="h4">{feature.title}</h3>
+                    <h3 className="text-base md:text-2xl font-medium">{feature.title}</h3>
                   </div>
                   <p className="text-muted-foreground text-sm md:text-base">{feature.description}</p>
-                  <div className="mt-auto pt-2">{feature.visual}</div>
+                  <div className="mt-auto pt-2 hidden md:block">{feature.visual}</div>
                 </div>
               </AnimateOnView>
             ))}
