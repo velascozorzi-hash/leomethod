@@ -49,8 +49,13 @@ const pricingPlans = [
   },
 ]
 
+const priceIds: Record<typeof pricingPlans[number]["planId"], string> = {
+  formation: "formation_onetime",
+  accompagnement: "accompagnement_onetime",
+}
+
 const Pricing = () => {
-  const [selectedPlan, setSelectedPlan] = useState<CheckoutPlan | null>(null)
+  const { openCheckout, checkoutElement } = useStripeCheckout()
 
   return (
     <section id="offre" className="py-12 md:py-[60px] scroll-mt-24">
@@ -99,10 +104,9 @@ const Pricing = () => {
                     buttonText={plan.buttonText}
                     buttonLink={plan.buttonLink}
                     onButtonClick={() =>
-                      setSelectedPlan({
-                        id: plan.planId,
-                        label: plan.title,
-                        price: plan.price,
+                      openCheckout({
+                        priceId: priceIds[plan.planId],
+                        returnUrl: `${window.location.origin}/merci?session_id={CHECKOUT_SESSION_ID}`,
                       })
                     }
                     isHighlighted={plan.isHighlighted}
@@ -114,7 +118,7 @@ const Pricing = () => {
           </div>
         </StaggerContainer>
       </Container>
-      <CheckoutDialog plan={selectedPlan} onOpenChange={(open) => !open && setSelectedPlan(null)} />
+      {checkoutElement}
     </section>
   )
 }
