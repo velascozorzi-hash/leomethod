@@ -9,9 +9,7 @@ const Navbar = () => {
   return (
     <header className="w-full md:top-10 top-6 mx-auto absolute z-40">
       <Container className="flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-2 w-fit">
-          <img src="/images/common/logo.svg" alt="Logo" className="h-6" />
-        </Link>
+        <span aria-hidden className="w-fit" />
 
         <div className="flex gap-2 items-center">
           {!loading && user && <UserMenu />}
