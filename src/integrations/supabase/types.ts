@@ -66,10 +66,11 @@ export type Database = {
           email_sent_at: string | null
           full_name: string | null
           id: string
-          mollie_payment_id: string | null
           paid_at: string | null
           plan: string
           status: string
+          stripe_payment_intent_id: string | null
+          stripe_session_id: string | null
           updated_at: string
         }
         Insert: {
@@ -81,10 +82,11 @@ export type Database = {
           email_sent_at?: string | null
           full_name?: string | null
           id?: string
-          mollie_payment_id?: string | null
           paid_at?: string | null
           plan: string
           status?: string
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
           updated_at?: string
         }
         Update: {
@@ -96,10 +98,11 @@ export type Database = {
           email_sent_at?: string | null
           full_name?: string | null
           id?: string
-          mollie_payment_id?: string | null
           paid_at?: string | null
           plan?: string
           status?: string
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
           updated_at?: string
         }
         Relationships: []
