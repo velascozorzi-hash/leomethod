@@ -69,6 +69,8 @@ async function createCheckoutSession(options: {
     : stripePrice.product.id;
   const product = await stripe.products.retrieve(productId);
 
+  const planId = Object.entries(PLANS).find(([, p]) => p.id === options.priceId)?.[0] as keyof typeof PLANS | undefined;
+
   const session = await stripe.checkout.sessions.create({
     line_items: [{ price: stripePrice.id, quantity: options.quantity || 1 }],
     mode: "payment",
@@ -76,7 +78,10 @@ async function createCheckoutSession(options: {
     return_url: options.returnUrl,
     ...(customerId && { customer: customerId }),
     payment_intent_data: { description: product.name },
-    metadata: { userId: options.userId ?? "" },
+    metadata: {
+      userId: options.userId ?? "",
+      ...(planId && { planId }),
+    },
     managed_payments: { enabled: true },
   } as Stripe.Checkout.SessionCreateParams);
 
