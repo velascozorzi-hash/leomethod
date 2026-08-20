@@ -86,8 +86,7 @@ async function createCheckoutSession(options: {
       userId: options.userId ?? "",
       ...(planId && { planId }),
     },
-    managed_payments: { enabled: true },
-  } as Stripe.Checkout.SessionCreateParams);
+  });
 
   return session.client_secret;
 }
