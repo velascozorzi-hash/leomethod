@@ -33,8 +33,8 @@ const pricingPlans = [
     title: "Formation + accompagnement",
     description: "La formation complète, plus un accompagnement personnalisé avec moi.",
     price: "127€",
-    oldPrice: "282€",
-    discount: "-55%",
+    oldPrice: "318€",
+    discount: "-60%",
     pricePeriod: "paiement unique",
     features: [
       "Tout ce qui est inclus dans la formation",
