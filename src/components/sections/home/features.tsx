@@ -14,23 +14,24 @@ import {
 const cards: { id: number; title: string; description: string; visual: StepVisualKind }[] = [
   {
     id: 1,
-    title: "Crée ton avatar IA et ton produit digital",
-    description: "Génère un avatar IA qui parle à ta place sur TikTok, publie chaque jour du contenu sur le problème de ta niche et vends ton produit sans jamais montrer ton visage.",
-    visual: "avatar",
+    title: "Choisis ta niche, ton positionnement et ton offre",
+    description: "Identifie une niche qui a un vrai problème douloureux, place-toi avec un angle unique et transforme ce problème en offre claire : ebook, template ou mini-formation.",
+    visual: "niche",
   },
   {
     id: 2,
-    title: "Apprends à viser le bon public",
-    description: "Identifie une niche qui a un vrai problème douloureux, comprends ses attentes et parle-lui avec ses propres mots pour capter son attention dès la première seconde.",
-    visual: "audience",
+    title: "Crée ton avatar IA et ton produit digital",
+    description: "Génère un avatar IA avec sa voix et son visage, qui parle à ta place, puis fabrique ton produit digital de A à Z avec les modèles prêts à l'emploi.",
+    visual: "avatar",
   },
   {
     id: 3,
-    title: "Apprends à créer une offre irrésistible",
-    description: "Transforme ce problème en solution : un ebook, un template ou une mini-formation, avec une promesse claire, un positionnement unique et un prix juste.",
-    visual: "offre",
+    title: "Utilise les réseaux sans jamais montrer ta tête pour vendre en automatique",
+    description: "Publie chaque jour sur TikTok avec ton avatar IA, attire les bonnes personnes et laisse le tunnel encaisser et livrer ton produit à ta place, 24h/24.",
+    visual: "reseaux",
   }
 ]
+
 
 
 const Features = () => {
