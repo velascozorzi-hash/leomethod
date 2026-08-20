@@ -14,18 +14,10 @@ function getSupabase() {
   return _supabase;
 }
 
-const PRICE_TO_PLAN: Record<string, keyof typeof PLANS> = {
-  formation_onetime: "formation",
-  accompagnement_onetime: "accompagnement",
-};
-
 function planIdFromSession(session: any): keyof typeof PLANS | null {
-  const lineItems = session.line_items?.data ?? session.line_items ?? [];
-  for (const item of lineItems) {
-    const lookupKey = item?.price?.lookup_key || item?.price?.metadata?.lovable_external_id;
-    if (lookupKey && lookupKey in PRICE_TO_PLAN) {
-      return PRICE_TO_PLAN[lookupKey];
-    }
+  const planId = session.metadata?.planId;
+  if (planId && planId in PLANS) {
+    return planId as keyof typeof PLANS;
   }
   return null;
 }
@@ -81,7 +73,7 @@ async function fulfill(session: any) {
     email,
     full_name: fullName,
     plan: planId,
-    amount: plan.amount,
+    amount: parseFloat(plan.amount),
     currency: session.currency?.toUpperCase() ?? "EUR",
     status: "paid",
     paid_at: new Date().toISOString(),

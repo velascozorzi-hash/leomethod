@@ -69,14 +69,23 @@ async function createCheckoutSession(options: {
     : stripePrice.product.id;
   const product = await stripe.products.retrieve(productId);
 
+  const planId: keyof typeof PLANS | undefined =
+    options.priceId === "formation_onetime" ? "formation"
+    : options.priceId === "accompagnement_onetime" ? "accompagnement"
+    : undefined;
+
   const session = await stripe.checkout.sessions.create({
     line_items: [{ price: stripePrice.id, quantity: options.quantity || 1 }],
     mode: "payment",
     ui_mode: "embedded_page",
+    locale: "fr",
     return_url: options.returnUrl,
     ...(customerId && { customer: customerId }),
     payment_intent_data: { description: product.name },
-    metadata: { userId: options.userId ?? "" },
+    metadata: {
+      userId: options.userId ?? "",
+      ...(planId && { planId }),
+    },
     managed_payments: { enabled: true },
   } as Stripe.Checkout.SessionCreateParams);
 
