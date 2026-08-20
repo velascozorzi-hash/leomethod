@@ -19,6 +19,7 @@ const Layout = ({ children }) => {
     return (
         <main>
             <ScrollToTop />
+            <PaymentTestModeBanner />
             <Navbar />
             {children}
             <CTA />
