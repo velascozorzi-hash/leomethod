@@ -69,7 +69,10 @@ async function createCheckoutSession(options: {
     : stripePrice.product.id;
   const product = await stripe.products.retrieve(productId);
 
-  const planId = Object.entries(PLANS).find(([, p]) => p.id === options.priceId)?.[0] as keyof typeof PLANS | undefined;
+  const planId: keyof typeof PLANS | undefined =
+    options.priceId === "formation_onetime" ? "formation"
+    : options.priceId === "accompagnement_onetime" ? "accompagnement"
+    : undefined;
 
   const session = await stripe.checkout.sessions.create({
     line_items: [{ price: stripePrice.id, quantity: options.quantity || 1 }],
