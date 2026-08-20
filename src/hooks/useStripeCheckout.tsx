@@ -24,7 +24,7 @@ export function useStripeCheckout() {
   }, []);
 
   const checkoutElement = isOpen && options
-    ? <StripeEmbeddedCheckout {...options} />
+    ? <StripeEmbeddedCheckout key={options.priceId} {...options} onClose={closeCheckout} />
     : null;
 
   return { openCheckout, closeCheckout, isOpen, checkoutElement };
