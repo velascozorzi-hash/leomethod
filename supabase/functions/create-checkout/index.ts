@@ -78,6 +78,7 @@ async function createCheckoutSession(options: {
     line_items: [{ price: stripePrice.id, quantity: options.quantity || 1 }],
     mode: "payment",
     ui_mode: "embedded_page",
+    locale: "fr",
     return_url: options.returnUrl,
     ...(customerId && { customer: customerId }),
     payment_intent_data: { description: product.name },
