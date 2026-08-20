@@ -56,7 +56,14 @@ const priceIds: Record<typeof pricingPlans[number]["planId"], string> = {
 }
 
 const Pricing = () => {
-  const { openCheckout, checkoutElement } = useStripeCheckout()
+  const { openCheckout, checkoutElement, isOpen } = useStripeCheckout()
+  const checkoutRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (isOpen && checkoutRef.current) {
+      checkoutRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [isOpen])
 
   return (
     <section id="offre" className="py-12 md:py-[60px] scroll-mt-24">
@@ -119,7 +126,7 @@ const Pricing = () => {
           </div>
         </StaggerContainer>
       </Container>
-      {checkoutElement}
+      <div ref={checkoutRef}>{checkoutElement}</div>
     </section>
   )
 }
