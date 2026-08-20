@@ -15,7 +15,7 @@ const MerciPage = () => {
         <Container className="max-w-[640px] text-center space-y-6">
           <h1 className="h2">Merci, ta commande est enregistrée</h1>
           <p className="text-muted-foreground">
-            Dès que Mollie confirme le paiement (quelques secondes en général), tu reçois un e-mail
+            Dès que Stripe confirme le paiement (quelques secondes en général), tu reçois un e-mail
             avec ton lien d'accès à la formation. Pense à vérifier tes spams.
           </p>
           <p className="text-sm text-muted-foreground/80">

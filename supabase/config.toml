@@ -3,9 +3,9 @@ project_id = "qkinpgrvvsxtepmbcwzk"
 [functions]
   [functions.auth-email-hook]
     verify_jwt = false
-  [functions.create-mollie-payment]
+  [functions.create-checkout]
     verify_jwt = false
-  [functions.mollie-webhook]
+  [functions.payments-webhook]
     verify_jwt = false
   [functions.preview-transactional-email]
     verify_jwt = false
