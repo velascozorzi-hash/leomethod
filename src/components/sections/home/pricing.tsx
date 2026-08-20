@@ -2,6 +2,7 @@ import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
 import { useStripeCheckout } from '@/hooks/useStripeCheckout'
 import { ShieldCheck } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 import Container from '../../container'
 import { PricingCard } from '../../ui/pricing-card'
 
