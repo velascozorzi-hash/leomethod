@@ -76,54 +76,80 @@ const modules = [
 
 const MOBILE_PREVIEW = 2
 
-const ModuleCard = ({ module }: { module: (typeof modules)[number] }) => {
+const ModuleCard = ({ module, index }: { module: (typeof modules)[number]; index: number }) => {
   const [open, setOpen] = useState(false)
   const hasMore = module.lessons.length > MOBILE_PREVIEW
   const visibleLessons = open ? module.lessons : module.lessons.slice(0, MOBILE_PREVIEW)
 
   return (
-    <div className="h-full rounded-2xl md:rounded-[28px] border border-border/60 bg-card/50 p-5 md:p-8">
-      <div className="flex items-center gap-3 mb-3 md:mb-4">
-        <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center shrink-0">
-          <module.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+    <div className="group relative h-full">
+      {/* halo animé */}
+      <div className="pointer-events-none absolute -inset-px rounded-[26px] bg-gradient-to-br from-primary/50 via-primary/0 to-primary/30 opacity-40 blur-[2px] transition-opacity duration-500 group-hover:opacity-100" />
+
+      <div className="relative h-full overflow-hidden rounded-[26px] border border-border/60 bg-card/70 backdrop-blur-sm p-6 md:p-8 transition-transform duration-500 md:group-hover:-translate-y-1.5">
+        {/* lueur au survol */}
+        <div className="pointer-events-none absolute -top-24 -right-16 h-52 w-52 rounded-full bg-primary/20 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+        {/* numéro filigrane */}
+        <span className="pointer-events-none absolute -bottom-6 right-2 text-[110px] leading-none font-semibold text-primary/5 transition-all duration-500 group-hover:text-primary/10 group-hover:-translate-y-1 select-none">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+
+        <div className="relative flex items-start gap-4">
+          <div className="relative shrink-0">
+            <div className="absolute inset-0 rounded-2xl bg-primary/30 blur-md opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/25 to-primary/5 border border-primary/30 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+              <module.icon className="w-5 h-5 text-primary" />
+            </div>
+          </div>
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              <p className="text-[11px] uppercase tracking-[0.18em] text-primary">{module.label}</p>
+              <span className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
+            </div>
+            <h3 className="text-lg md:text-2xl font-medium mt-1.5">{module.title}</h3>
+            <p className="text-xs text-muted-foreground mt-1">{module.duration}</p>
+          </div>
         </div>
-        <div>
-          <p className="text-xs uppercase tracking-wide text-primary">{module.label}</p>
-          <p className="text-xs text-muted-foreground">{module.duration}</p>
+
+        <div className="relative mt-5 h-px w-full bg-border/60 overflow-hidden">
+          <span className="absolute inset-y-0 left-0 w-0 bg-primary transition-all duration-700 group-hover:w-full" />
         </div>
+
+        {/* Mobile : extrait + voir tout */}
+        <ul className="md:hidden space-y-2 mt-4">
+          {visibleLessons.map((lesson) => (
+            <li key={lesson} className="flex items-start gap-2.5 text-muted-foreground text-sm">
+              <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span className={open ? undefined : 'line-clamp-2'}>{lesson}</span>
+            </li>
+          ))}
+        </ul>
+        {hasMore && (
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden mt-3 flex items-center gap-1.5 text-sm text-primary"
+            aria-expanded={open}
+          >
+            {open ? 'Réduire' : `Voir tout (${module.lessons.length})`}
+            <ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
+          </button>
+        )}
+
+        {/* Desktop : liste complète */}
+        <ul className="hidden md:block space-y-3 mt-5">
+          {module.lessons.map((lesson) => (
+            <li
+              key={lesson}
+              className="flex items-start gap-2.5 text-muted-foreground text-base transition-colors duration-300 group-hover:text-foreground/80"
+            >
+              <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
+              <span>{lesson}</span>
+            </li>
+          ))}
+        </ul>
       </div>
-      <h3 className="text-base md:text-2xl font-medium md:mb-4">{module.title}</h3>
-
-      {/* Mobile : extrait + voir tout */}
-      <ul className="md:hidden space-y-2 mt-3">
-        {visibleLessons.map((lesson) => (
-          <li key={lesson} className="flex items-start gap-2.5 text-muted-foreground text-sm">
-            <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-            <span className={open ? undefined : 'line-clamp-2'}>{lesson}</span>
-          </li>
-        ))}
-      </ul>
-      {hasMore && (
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="md:hidden mt-3 flex items-center gap-1.5 text-sm text-primary"
-          aria-expanded={open}
-        >
-          {open ? 'Réduire' : `Voir tout (${module.lessons.length})`}
-          <ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
-        </button>
-      )}
-
-      {/* Desktop : liste complète */}
-      <ul className="hidden md:block space-y-2.5">
-        {module.lessons.map((lesson) => (
-          <li key={lesson} className="flex items-start gap-2.5 text-muted-foreground text-base">
-            <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
-            <span>{lesson}</span>
-          </li>
-        ))}
-      </ul>
     </div>
   )
 }
@@ -152,7 +178,7 @@ const Program = () => {
                 delay={(index % 2) * 0.1}
                 className={index === modules.length - 1 && modules.length % 2 === 1 ? 'md:col-span-2 md:w-1/2 md:mx-auto' : undefined}
               >
-                <ModuleCard module={module} />
+                <ModuleCard module={module} index={index} />
               </AnimateOnView>
             ))}
           </div>

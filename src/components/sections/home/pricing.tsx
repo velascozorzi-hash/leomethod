@@ -31,14 +31,16 @@ const pricingPlans = [
     id: 2,
     planId: "accompagnement" as const,
     title: "Formation + accompagnement",
-    description: "La formation complète, plus un accompagnement personnalisé avec moi.",
+    description:
+      "La formation complète, plus un accompagnement personnalisé avec moi sur WhatsApp. C'est moi qui te réponds, jamais un associé ni une équipe.",
     price: "127€",
     oldPrice: "318€",
     discount: "-60%",
     pricePeriod: "paiement unique",
     features: [
       "Tout ce qui est inclus dans la formation",
-      "Accompagnement complet et personnalisé avec moi",
+      "Accompagnement personnalisé avec moi directement sur WhatsApp",
+      "Une réponse en 2 h maximum, par moi, jamais un associé",
       "Audit de ta niche, de ton offre et de ton avatar IA",
       "Relecture de tes 10 premiers scripts TikTok",
       "Réponses à tes questions jusqu'à tes premières ventes",
