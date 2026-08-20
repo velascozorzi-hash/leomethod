@@ -1,7 +1,6 @@
 import Container from "@/components/container";
 import UserMenu from "@/components/sections/shared/user-menu";
 import { useAuth } from "@/hooks/use-auth";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { user, loading } = useAuth();
