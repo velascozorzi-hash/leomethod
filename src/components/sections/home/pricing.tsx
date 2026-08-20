@@ -2,6 +2,7 @@ import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
 import { useStripeCheckout } from '@/hooks/useStripeCheckout'
 import { ShieldCheck } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 import Container from '../../container'
 import { PricingCard } from '../../ui/pricing-card'
 
@@ -55,7 +56,14 @@ const priceIds: Record<typeof pricingPlans[number]["planId"], string> = {
 }
 
 const Pricing = () => {
-  const { openCheckout, checkoutElement } = useStripeCheckout()
+  const { openCheckout, checkoutElement, isOpen } = useStripeCheckout()
+  const checkoutRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (isOpen && checkoutRef.current) {
+      checkoutRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [isOpen])
 
   return (
     <section id="offre" className="py-12 md:py-[60px] scroll-mt-24">
@@ -118,7 +126,7 @@ const Pricing = () => {
           </div>
         </StaggerContainer>
       </Container>
-      {checkoutElement}
+      <div ref={checkoutRef}>{checkoutElement}</div>
     </section>
   )
 }
