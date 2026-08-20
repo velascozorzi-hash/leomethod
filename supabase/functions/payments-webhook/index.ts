@@ -73,7 +73,7 @@ async function fulfill(session: any) {
     email,
     full_name: fullName,
     plan: planId,
-    amount: plan.amount,
+    amount: parseFloat(plan.amount),
     currency: session.currency?.toUpperCase() ?? "EUR",
     status: "paid",
     paid_at: new Date().toISOString(),
