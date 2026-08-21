@@ -3,7 +3,7 @@ import Hero from "@/components/sections/home/hero";
 import { lazy, Suspense } from "react";
 
 const Features = lazy(() => import("@/components/sections/home/features"));
-const Confidence = lazy(() => import("@/components/sections/home/confidence"));
+
 const Proof = lazy(() => import("@/components/sections/home/proof"));
 const Program = lazy(() => import("@/components/sections/home/program"));
 const Pricing = lazy(() => import("@/components/sections/home/pricing"));
