@@ -13,9 +13,9 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
     {
         id: 1,
-        title: "J'ai failli abandonner au bout de 11 vidéos",
+        title: "Première vente 9 jours après avoir commencé",
         quote:
-            "Mes 11 premières vidéos faisaient 200 vues. J'ai repris le module scripts, changé mon accroche, et la 14e est partie à 340 000 vues. Mon ebook a fait 68 ventes en dix jours.",
+            "Je suis parti de zéro, aucune audience. J'ai suivi les modules dans l'ordre, sorti mon avatar et publié tous les jours. Neuf jours plus tard, première vente de mon ebook à 29€, puis 12 autres dans la foulée.",
         author: "Lucas M.",
         context: "24 ans, Lille",
     },

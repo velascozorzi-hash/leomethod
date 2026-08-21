@@ -4,12 +4,12 @@ export const PLANS = {
   formation: {
     id: "formation",
     label: "Formation complète",
-    amount: "1.00",
+    amount: "97.00",
   },
   accompagnement: {
     id: "accompagnement",
     label: "Formation + accompagnement",
-    amount: "1.00",
+    amount: "127.00",
   },
 } as const;
 
