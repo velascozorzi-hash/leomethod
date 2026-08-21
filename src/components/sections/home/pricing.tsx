@@ -12,9 +12,7 @@ const pricingPlans = [
     planId: "formation" as const,
     title: "Formation complète",
     description: "Tout le système avatar IA pour créer et vendre ton produit digital sur TikTok.",
-    price: "97€",
-    oldPrice: "176€",
-    discount: "-45%",
+    price: "1€",
     pricePeriod: "paiement unique",
     features: [
       "Les 5 modules et 47 leçons de la formation",
@@ -33,9 +31,7 @@ const pricingPlans = [
     title: "Formation + accompagnement",
     description:
       "La formation complète, plus un accompagnement personnalisé avec moi sur WhatsApp. C'est moi qui te réponds, jamais un associé ni une équipe.",
-    price: "127€",
-    oldPrice: "318€",
-    discount: "-60%",
+    price: "1€",
     pricePeriod: "paiement unique",
     features: [
       "Tout ce qui est inclus dans la formation",
@@ -97,17 +93,13 @@ const Pricing = () => {
                 delay={index * 0.1}
               >
                 <div className="relative h-full">
-                  <div className="absolute -top-3 right-6 z-20 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
-                    {plan.discount}
-                  </div>
                   <PricingCard
                     title={plan.title}
                     description={plan.description}
                     price={plan.price}
                     pricePeriod={
-                      <span className="flex items-center gap-2">
-                        <span className="line-through">{plan.oldPrice}</span>
-                        <span>· {plan.pricePeriod}</span>
+                      <span>
+                        · {plan.pricePeriod}
                       </span>
                     }
                     features={plan.features}
