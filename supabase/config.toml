@@ -9,6 +9,3 @@ project_id = "qkinpgrvvsxtepmbcwzk"
     verify_jwt = false
   [functions.preview-transactional-email]
     verify_jwt = false
-
-[functions.stripe-debug]
-verify_jwt = false
