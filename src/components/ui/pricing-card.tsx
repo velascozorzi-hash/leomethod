@@ -14,6 +14,8 @@ interface PricingCardProps {
   title: string;
   description: string;
   price: string;
+  oldPrice?: string;
+  discount?: string;
   pricePeriod: React.ReactNode;
   features: string[];
   buttonText: string;
@@ -29,6 +31,8 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
       title,
       description,
       price,
+      oldPrice,
+      discount,
       pricePeriod,
       features,
       buttonText,
@@ -72,13 +76,22 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
           </CardHeader>
           <CardContent className="flex-1 space-y-8">
             <div className="space-y-2">
-              <div className="flex items-baseline gap-2">
+              <div className="flex items-baseline gap-2 flex-wrap">
                 <span className="h1">{price}</span>
+                {oldPrice && (
+                  <span className="text-xl text-muted-foreground line-through">{oldPrice}</span>
+                )}
                 <span className="text-lg text-muted-foreground">
                   {pricePeriod}
                 </span>
               </div>
+              {discount && (
+                <span className="inline-flex items-center rounded-full bg-primary/15 border border-primary/40 px-3 py-1 text-sm font-medium text-primary">
+                  {discount}
+                </span>
+              )}
             </div>
+
             <div className="h-px bg-white/10" />
             <div className="space-y-4">
               <h4 className="text-lg font-medium text-foreground">

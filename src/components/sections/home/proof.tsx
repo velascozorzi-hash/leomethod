@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import Container from '@/components/container';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view';
 import { StaggerContainer } from '@/components/ui/motion/stagger';
 import img1 from '@/assets/proof/image1.jpg.asset.json';
@@ -20,6 +22,8 @@ const proofs = [
 ];
 
 const Proof = () => {
+  const [active, setActive] = useState<{ src: string; alt: string } | null>(null);
+
   return (
     <section className="py-12 md:py-[60px]">
       <Container className="space-y-8 md:space-y-12">
@@ -39,8 +43,11 @@ const Proof = () => {
         <div className="sm:hidden -mx-6">
           <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {proofs.map((proof) => (
-              <div
+              <button
+                type="button"
                 key={proof.src}
+                onClick={() => setActive(proof)}
+                aria-label={`Agrandir : ${proof.alt}`}
                 className="snap-center shrink-0 w-[78%] overflow-hidden rounded-xl border border-border/60 bg-card/50"
               >
                 <img
@@ -49,11 +56,11 @@ const Proof = () => {
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover object-top"
                 />
-              </div>
+              </button>
             ))}
           </div>
           <p className="mt-2 text-center text-xs text-muted-foreground">
-            Fais glisser pour voir les {proofs.length} captures →
+            Fais glisser pour voir les {proofs.length} captures → touche une image pour l'agrandir
           </p>
         </div>
 
@@ -76,6 +83,14 @@ const Proof = () => {
         </StaggerContainer>
 
       </Container>
+
+      <Dialog open={!!active} onOpenChange={(open) => !open && setActive(null)}>
+        <DialogContent className="max-w-[95vw] sm:max-w-2xl p-2 bg-background">
+          {active && (
+            <img src={active.src} alt={active.alt} className="w-full h-auto rounded-lg" />
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

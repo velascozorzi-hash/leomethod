@@ -12,7 +12,9 @@ const pricingPlans = [
     planId: "formation" as const,
     title: "Formation complète",
     description: "Tout le système avatar IA pour créer et vendre ton produit digital sur TikTok.",
-    price: "1€",
+    price: "97€",
+    oldPrice: "176€",
+    discount: "-45%",
     pricePeriod: "paiement unique",
     features: [
       "Les 5 modules et 47 leçons de la formation",
@@ -31,7 +33,9 @@ const pricingPlans = [
     title: "Formation + accompagnement",
     description:
       "La formation complète, plus un accompagnement personnalisé avec moi sur WhatsApp. C'est moi qui te réponds, jamais un associé ni une équipe.",
-    price: "1€",
+    price: "127€",
+    oldPrice: "318€",
+    discount: "-60%",
     pricePeriod: "paiement unique",
     features: [
       "Tout ce qui est inclus dans la formation",
@@ -97,6 +101,8 @@ const Pricing = () => {
                     title={plan.title}
                     description={plan.description}
                     price={plan.price}
+                    oldPrice={plan.oldPrice}
+                    discount={plan.discount}
                     pricePeriod={
                       <span>
                         · {plan.pricePeriod}
