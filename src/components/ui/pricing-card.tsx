@@ -14,6 +14,8 @@ interface PricingCardProps {
   title: string;
   description: string;
   price: string;
+  oldPrice?: string;
+  discount?: string;
   pricePeriod: React.ReactNode;
   features: string[];
   buttonText: string;
@@ -29,6 +31,8 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
       title,
       description,
       price,
+      oldPrice,
+      discount,
       pricePeriod,
       features,
       buttonText,
