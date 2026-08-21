@@ -82,14 +82,23 @@ const Proof = () => {
           <div className="columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
             {proofs.map((proof, index) => (
               <AnimateOnView key={proof.src} delay={(index % 3) * 0.1}>
-                <div className="mb-5 break-inside-avoid overflow-hidden rounded-2xl border border-border/60 bg-card/50">
+                <button
+                  type="button"
+                  onClick={() => setActive(proof)}
+                  aria-label={`Agrandir : ${proof.alt}`}
+                  className="group relative mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-border/60 bg-card/50 shadow-sm transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-[0_20px_50px_-20px_rgb(var(--primary)/0.6)]"
+                >
                   <img
                     src={proof.src}
                     alt={proof.alt}
                     loading="lazy"
-                    className="w-full h-auto"
+                    className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
-                </div>
+                  <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <span className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-3 p-4 text-left text-xs text-foreground/90 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                    {proof.alt}
+                  </span>
+                </button>
               </AnimateOnView>
             ))}
           </div>
