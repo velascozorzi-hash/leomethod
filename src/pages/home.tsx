@@ -33,9 +33,6 @@ const Home = () => {
       <Suspense fallback={null}>
         <FAQ />
       </Suspense>
-      <Suspense fallback={null}>
-        <Confidence />
-      </Suspense>
 
     </Layout>
   );
