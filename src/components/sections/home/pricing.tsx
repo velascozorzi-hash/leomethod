@@ -93,17 +93,13 @@ const Pricing = () => {
                 delay={index * 0.1}
               >
                 <div className="relative h-full">
-                  <div className="absolute -top-3 right-6 z-20 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
-                    {plan.discount}
-                  </div>
                   <PricingCard
                     title={plan.title}
                     description={plan.description}
                     price={plan.price}
                     pricePeriod={
-                      <span className="flex items-center gap-2">
-                        <span className="line-through">{plan.oldPrice}</span>
-                        <span>· {plan.pricePeriod}</span>
+                      <span>
+                        · {plan.pricePeriod}
                       </span>
                     }
                     features={plan.features}
