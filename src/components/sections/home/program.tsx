@@ -2,7 +2,7 @@ import Container from '@/components/container'
 import { Button } from '@/components/ui/button'
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
-import { Bot, Check, ChevronDown, Layers, Megaphone, Package, Rocket, Search, Sparkles, Target, Video, Workflow } from 'lucide-react'
+import { Bot, Check, ChevronDown, Layers, Package, Rocket, Search, Sparkles, Target, Video, Workflow } from 'lucide-react'
 import { useState } from 'react'
 
 const modules = [
@@ -152,7 +152,6 @@ const ModuleCard = ({ module, index }: { module: (typeof modules)[number]; index
               <span className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
             </div>
             <h3 className="text-lg md:text-2xl font-medium mt-1.5">{module.title}</h3>
-            <p className="text-xs text-muted-foreground mt-1">{module.duration}</p>
           </div>
         </div>
 
@@ -208,8 +207,8 @@ const Program = () => {
           </AnimateOnView>
           <AnimateOnView blur delay={0.2}>
             <p className="text-muted-foreground">
-              5 modules, 47 leçons et plus de 7 heures de vidéo : de la niche à ton premier avatar IA,
-              jusqu'aux ventes automatisées.
+              9 modules pas à pas : de la niche à ton avatar IA, jusqu'à un système de vente
+              automatisé qui tourne sans toi.
             </p>
           </AnimateOnView>
         </StaggerContainer>
