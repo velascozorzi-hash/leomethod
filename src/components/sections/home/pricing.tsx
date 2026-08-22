@@ -17,12 +17,14 @@ const pricingPlans = [
     discount: "-45%",
     pricePeriod: "paiement unique",
     features: [
-      "Les 5 modules et 47 leçons de la formation",
-      "La création de tes avatars IA pas à pas",
-      "Les prompts et scripts TikTok prêts à l'emploi",
-      "Les modèles de produits digitaux (ebook, template)",
+      "Les 9 modules complets de la formation",
+      "La création de tes avatars IA pas à pas (visage, voix, personnalité)",
+      "Ta stratégie de contenu et tes scripts TikTok prêts à l'emploi",
+      "La création de ton produit digital (ebook, template, mini-formation)",
+      "Ton système de vente et son automatisation avec l'IA",
       "Accès à vie et mises à jour incluses",
     ],
+
     buttonText: "Rejoindre la formation",
     buttonLink: "/signup",
     isHighlighted: false,
