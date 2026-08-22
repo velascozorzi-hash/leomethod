@@ -2,7 +2,7 @@ import Container from '@/components/container'
 import { Button } from '@/components/ui/button'
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
-import { Bot, Check, ChevronDown, Search, ShoppingBag, Video, Wrench } from 'lucide-react'
+import { Bot, Check, ChevronDown, Layers, Megaphone, Package, Rocket, Search, Sparkles, Target, Video, Workflow } from 'lucide-react'
 import { useState } from 'react'
 
 const modules = [
@@ -10,68 +10,112 @@ const modules = [
     id: 1,
     icon: Search,
     label: 'Module 1',
-    title: 'Trouver la niche et le problème à résoudre',
-    duration: '8 leçons · 1 h 10',
+    title: 'Cibler une niche et son problème',
     lessons: [
-      'Les 12 niches les plus rentables en 2026 et pourquoi',
-      'La méthode pour repérer un problème douloureux et payant',
-      "Analyser les commentaires TikTok pour trouver les mots exacts de l'audience",
-      'Vérifier la demande avant de créer quoi que ce soit',
+      'Trouver une niche à fort potentiel, même en partant de zéro',
+      "Identifier le problème que ton audience veut vraiment résoudre",
+      "Utiliser les commentaires TikTok pour capter les mots exacts de ta cible",
+      'Valider la demande avant de créer quoi que ce soit',
     ],
   },
   {
     id: 2,
     icon: Bot,
     label: 'Module 2',
-    title: "Créer ton avatar IA (le cœur du système)",
-    duration: '10 leçons · 1 h 40',
+    title: 'Créer ton avatar IA',
     lessons: [
-      "Choisir le visage, la voix et la personnalité de ton avatar IA",
-      'Les outils de génération : configuration pas à pas, réglages inclus',
-      "Rendre ton avatar crédible : regard, gestuelle, lip-sync, ton de voix",
-      "Créer 2 ou 3 avatars pour tester plusieurs angles sans jamais montrer ta tête",
+      "Un personnage qui incarne ta marque à ta place : visage généré, voix clonée, mascotte",
+      'Les outils de génération, réglages et configuration pas à pas',
+      'Rendre ton avatar crédible : regard, gestuelle, lip-sync, ton de voix',
+      "Créer plusieurs avatars pour tester des angles sans jamais montrer ta tête",
     ],
   },
   {
     id: 3,
-    icon: Video,
+    icon: Sparkles,
     label: 'Module 3',
-    title: 'Le contenu TikTok qui capte et qui vend',
-    duration: '12 leçons · 2 h',
+    title: 'Trouver ton idée de produit digital',
     lessons: [
-      'Les 7 structures de script qui retiennent au-delà de 3 secondes',
-      "Les prompts prêts à copier pour générer 30 scripts en une soirée",
-      'Montage, sous-titres, sons : le format qui passe dans l\'algorithme',
-      'Le calendrier de publication : 2 vidéos par jour en 45 minutes de travail',
+      'Trouver une idée adaptée à ta niche et à son problème',
+      'Choisir le bon format : ebook, template, pack ou mini-formation',
+      'Vérifier que ton idée est vendable avant de la produire',
+      "S'inspirer de ce qui marche déjà sans copier",
     ],
   },
   {
     id: 4,
-    icon: ShoppingBag,
+    icon: Target,
     label: 'Module 4',
-    title: 'Ton produit digital : ebook, template ou mini-formation',
-    duration: '9 leçons · 1 h 30',
+    title: 'Stratégie de contenu',
     lessons: [
-      'Choisir le bon format selon ton problème et ton prix',
-      "Écrire un ebook complet avec l'IA en un week-end",
-      'Construire un template ou un pack Notion qui se vend seul',
-      "Enregistrer une mini-formation sans caméra, uniquement avec ton avatar",
+      'Savoir quoi poster et dans quelle direction aller',
+      'Trouver ton angle et poser les bases de ton compte',
+      'Les piliers de contenu qui attirent des acheteurs, pas des curieux',
+      'Un calendrier simple à tenir sur la durée',
     ],
   },
   {
     id: 5,
-    icon: Wrench,
+    icon: Video,
     label: 'Module 5',
-    title: 'Vendre et automatiser de A à Z',
-    duration: '8 leçons · 1 h 20',
+    title: 'Utiliser TikTok pour vendre',
     lessons: [
-      'Page de vente en 1 heure : structure, mots-clés, preuves',
-      'Paiement, livraison automatique et emails de relance',
+      'Attirer une audience qualifiée et promouvoir ton produit',
+      'Les structures de script qui retiennent au-delà de 3 secondes',
+      'Montage, sous-titres, sons : le format qui passe dans l\'algorithme',
+      'Publier vite : plusieurs vidéos par jour en moins d\'une heure',
+    ],
+  },
+  {
+    id: 6,
+    icon: Layers,
+    label: 'Module 6',
+    title: 'Structurer ton offre',
+    lessons: [
+      'Construire une offre claire et irrésistible',
+      'Une promesse forte, un prix cohérent, des preuves',
+      'Ce qu\'on inclut (et surtout ce qu\'on enlève)',
+      'Positionner ton offre face aux alternatives de ta niche',
+    ],
+  },
+  {
+    id: 7,
+    icon: Package,
+    label: 'Module 7',
+    title: 'Créer ton produit digital',
+    lessons: [
+      'Transformer ton savoir-faire en produit vendable : structure et contenu',
+      "Écrire un ebook complet avec l'IA en un week-end",
+      'Construire un template ou un pack Notion qui se vend seul',
+      'Enregistrer une mini-formation avec ton avatar, sans caméra',
+    ],
+  },
+  {
+    id: 8,
+    icon: Workflow,
+    label: 'Module 8',
+    title: 'Construire ton système de vente',
+    lessons: [
+      'Un système simple pour présenter ton offre et convaincre',
+      'Page de vente, paiement et livraison automatique',
       'Lier ta bio TikTok à ton tunnel sans te faire brider',
+      'Les emails de relance qui récupèrent les ventes perdues',
+    ],
+  },
+  {
+    id: 9,
+    icon: Rocket,
+    label: 'Module 9',
+    title: "Automatiser et scaler avec l'IA",
+    lessons: [
+      "Utiliser l'IA pour gagner du temps et produire plus vite",
+      'Automatiser les tâches répétitives de A à Z',
+      'Dupliquer le système sur une deuxième niche ou un deuxième avatar',
       'Les chiffres à suivre chaque semaine pour ajuster',
     ],
   },
 ]
+
 
 
 const MOBILE_PREVIEW = 2
