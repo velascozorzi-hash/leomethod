@@ -207,8 +207,8 @@ const Program = () => {
           </AnimateOnView>
           <AnimateOnView blur delay={0.2}>
             <p className="text-muted-foreground">
-              9 modules pas à pas : de la niche à ton avatar IA, jusqu'à un système de vente
-              automatisé qui tourne sans toi.
+              9 modules et plus de 5 h de vidéo, pas à pas : de la niche à ton avatar IA, jusqu'à un
+              système de vente automatisé qui tourne sans toi.
             </p>
           </AnimateOnView>
         </StaggerContainer>

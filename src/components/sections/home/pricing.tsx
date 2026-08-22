@@ -17,7 +17,7 @@ const pricingPlans = [
     discount: "-45%",
     pricePeriod: "paiement unique",
     features: [
-      "Les 9 modules complets de la formation",
+      "Les 9 modules complets, plus de 5 h de vidéo",
       "La création de tes avatars IA pas à pas (visage, voix, personnalité)",
       "Ta stratégie de contenu et tes scripts TikTok prêts à l'emploi",
       "La création de ton produit digital (ebook, template, mini-formation)",
@@ -87,6 +87,14 @@ const Pricing = () => {
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm text-foreground">
               <ShieldCheck className="w-4 h-4 text-primary" />
               Satisfait ou remboursé sous 30 jours
+            </div>
+            <div className="mt-3">
+              <a
+                href="/legal/remboursement"
+                className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
+              >
+                Voir les conditions de remboursement
+              </a>
             </div>
           </AnimateOnView>
 
