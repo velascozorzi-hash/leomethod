@@ -30,17 +30,11 @@ const Hero = () => {
             </AnimateOnView>
 
             <AnimateOnView delay={0.4}>
-              <div className="mt-6 flex flex-col items-center gap-2">
+              <div className="mt-6 flex flex-col items-center">
                 <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm text-foreground">
                   <ShieldCheck className="w-4 h-4 text-primary" />
                   Satisfait ou remboursé sous 30 jours
                 </div>
-                <a
-                  href="/legal/remboursement"
-                  className="text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
-                >
-                  Voir les conditions de remboursement
-                </a>
               </div>
             </AnimateOnView>
 
