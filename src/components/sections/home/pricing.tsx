@@ -36,15 +36,16 @@ const pricingPlans = [
     description:
       "La formation complète, plus un accompagnement personnalisé avec moi sur WhatsApp. C'est moi qui te réponds, jamais un associé ni une équipe.",
     price: "127€",
-    oldPrice: "318€",
-    discount: "-60%",
+    oldPrice: "363€",
+    discount: "-65%",
     pricePeriod: "paiement unique",
     features: [
       "Tout ce qui est inclus dans la formation",
       "Accompagnement personnalisé avec moi directement sur WhatsApp",
+      "1 appel par semaine avec moi",
+      "Relecture à vie de tes scripts TikTok, je relis quand tu veux",
       "Une réponse en 2 h maximum, par moi, jamais un associé",
       "Audit de ta niche, de ton offre et de ton avatar IA",
-      "Relecture de tes 10 premiers scripts TikTok",
       "Réponses à tes questions jusqu'à tes premières ventes",
     ],
     buttonText: "Je veux être accompagné",
@@ -97,7 +98,9 @@ const Pricing = () => {
               <AnimateOnView
                 key={plan.id}
                 delay={index * 0.1}
+                className={plan.isHighlighted ? "order-first md:order-none" : "md:order-none"}
               >
+
                 <div className="relative h-full">
                   <PricingCard
                     title={plan.title}
