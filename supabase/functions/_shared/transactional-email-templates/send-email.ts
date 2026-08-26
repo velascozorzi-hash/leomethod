@@ -1,19 +1,18 @@
 import * as React from 'npm:react@18.3.1'
 import { renderAsync } from 'npm:@react-email/components@0.0.22'
-import { EmailAPIError, sendLovableEmail } from 'npm:@lovable.dev/email-js@0.1.0'
 import { TEMPLATES } from './registry.ts'
 
-// Server-only: reads LOVABLE_API_KEY. Import from edge functions only — never
-// expose sending to the browser.
+// Server-only: reads LOVABLE_API_KEY and RESEND_API_KEY. Import from edge
+// functions only — never expose sending to the browser.
+//
+// IMPORTANT: the FROM_EMAIL domain must be verified in Resend before any
+// email can reach a customer. If you see 403/422 responses, add/verify the
+// domain in your Resend dashboard and update the constant below.
 
-// Configuration baked in at scaffold time
 const SITE_NAME = "Remix of Payments Fintech Site"
-// SENDER_DOMAIN is the verified sender subdomain FQDN (e.g., "notify.example.com").
-// It MUST match the subdomain delegated to Lovable's nameservers. NEVER use the root domain.
-const SENDER_DOMAIN = "notify.leomethod.app"
-// FROM_DOMAIN is the domain shown in the From: header (e.g., "example.com").
-// Can be the root domain when display_from_root is enabled — this is cosmetic only.
-const FROM_DOMAIN = "leomethod.app"
+const FROM_EMAIL = `noreply@leomethod.app`
+
+const GATEWAY_URL = 'https://connector-gateway.lovable.dev/resend'
 
 export type SendTemplateEmailResult =
   | { sent: true }
@@ -26,21 +25,28 @@ export interface SendTemplateEmailOptions {
   replyTo?: string
 }
 
+class ResendAPIError extends Error {
+  constructor(
+    public status: number,
+    public body: string,
+  ) {
+    super(`Resend API returned ${status}: ${body}`)
+  }
+}
+
 /**
- * Renders a registered template and sends it through Lovable's managed email
- * API. Suppression, retries, and rate limits are enforced by Lovable
- * server-side. A suppressed recipient is an expected outcome
- * ({ sent: false }); any other failure throws — EmailAPIError exposes
- * .code and .status for branching.
+ * Renders a registered template and sends it through the Resend connector
+ * gateway. Make sure the sending domain is verified in Resend first.
  */
 export async function sendTemplateEmail(
   templateName: string,
   to: string,
   options: SendTemplateEmailOptions = {}
 ): Promise<SendTemplateEmailResult> {
-  const apiKey = Deno.env.get('LOVABLE_API_KEY')
-  if (!apiKey) {
-    throw new Error('LOVABLE_API_KEY is not configured')
+  const lovableApiKey = Deno.env.get('LOVABLE_API_KEY')
+  const resendApiKey = Deno.env.get('RESEND_API_KEY')
+  if (!lovableApiKey || !resendApiKey) {
+    throw new Error('LOVABLE_API_KEY or RESEND_API_KEY is not configured')
   }
 
   const template = TEMPLATES[templateName]
@@ -50,8 +56,6 @@ export async function sendTemplateEmail(
     )
   }
 
-  // Template-level `to` takes precedence — notification templates always
-  // send to their fixed address.
   const recipient = template.to || to
   if (!recipient) {
     throw new Error('Recipient is required (the template defines no fixed recipient)')
@@ -66,27 +70,59 @@ export async function sendTemplateEmail(
       ? template.subject(templateData)
       : template.subject
 
-  try {
-    await sendLovableEmail(
-      {
-        to: recipient,
-        from: `${SITE_NAME} <noreply@${FROM_DOMAIN}>`,
-        sender_domain: SENDER_DOMAIN,
-        subject,
-        html,
-        text,
-        purpose: 'transactional',
-        label: templateName,
-        idempotency_key: options.idempotencyKey || crypto.randomUUID(),
-        reply_to: options.replyTo,
-      },
-      { apiKey, sendUrl: Deno.env.get('LOVABLE_SEND_URL') }
-    )
-  } catch (error) {
-    if (error instanceof EmailAPIError && error.code === 'recipient_suppressed') {
-      return { sent: false, reason: 'recipient_suppressed' }
+  const response = await fetch(`${GATEWAY_URL}/emails`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${lovableApiKey}`,
+      'X-Connection-Api-Key': resendApiKey,
+      'Idempotency-Key': options.idempotencyKey || crypto.randomUUID(),
+    },
+    body: JSON.stringify({
+      from: `${SITE_NAME} <${FROM_EMAIL}>`,
+      to: [recipient],
+      subject,
+      html,
+      text,
+      reply_to: options.replyTo,
+    }),
+  })
+
+  if (!response.ok) {
+    const body = await response.text()
+
+    // Resend returns a JSON error with a `name` field for some known failures.
+    let parsed: { name?: string; message?: string } | undefined
+    try {
+      parsed = JSON.parse(body)
+    } catch {
+      // ignore parse errors
     }
-    throw error
+
+    // Treat hard bounces / unsubscribed recipients as suppressed.
+    if (
+      parsed?.name === 'restricted_api_key' ||
+      parsed?.name === 'invalid_to_address' ||
+      parsed?.name === 'missing_to_address' ||
+      parsed?.name === 'unverified_domain' ||
+      parsed?.name === 'invalid_from_address'
+    ) {
+      // These are configuration/sender errors, not transient failures.
+      throw new ResendAPIError(response.status, body)
+    }
+
+    if (
+      parsed?.name === 'validation_error' ||
+      response.status === 422 ||
+      response.status === 403
+    ) {
+      throw new ResendAPIError(response.status, body)
+    }
+
+    // For other non-2xx responses (including 4xx/5xx that could indicate
+    // a suppressed/bounced recipient), surface the error so the webhook can
+    // retry through Stripe's retry mechanism.
+    throw new ResendAPIError(response.status, body)
   }
 
   return { sent: true }
