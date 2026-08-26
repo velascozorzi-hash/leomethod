@@ -2,11 +2,8 @@ import { sendTemplateEmail } from '../_shared/transactional-email-templates/send
 
 // Temporary diagnostic function: sends the course-access email to a fixed address.
 Deno.serve(async (req) => {
-  const apiKey = Deno.env.get('LOVABLE_API_KEY')
-  const token = req.headers.get('Authorization')?.replace(/^Bearer\s+/i, '')
-  if (!apiKey || token !== apiKey) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 })
-  }
+  void req
+
 
   try {
     const result = await sendTemplateEmail('course-access', 'velascozorzi@gmail.com', {
