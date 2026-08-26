@@ -9,5 +9,3 @@ project_id = "qkinpgrvvsxtepmbcwzk"
     verify_jwt = false
   [functions.preview-transactional-email]
     verify_jwt = false
-  [functions.test-course-email]
-    verify_jwt = false
