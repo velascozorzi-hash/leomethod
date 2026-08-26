@@ -86,7 +86,7 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
                 </span>
               </div>
               {discount && (
-                <span className="inline-flex items-center rounded-full bg-primary/20 border border-primary/50 px-5 py-2 text-lg md:text-xl font-bold text-primary shadow-[0_0_24px_hsl(var(--primary)/0.25)]">
+                <span className="inline-flex items-center rounded-full bg-primary/10 border border-primary/30 px-3 py-1 text-sm font-semibold text-primary">
                   {discount}
                 </span>
               )}
