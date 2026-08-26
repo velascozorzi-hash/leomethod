@@ -32,13 +32,17 @@ async function sendAccessEmail(
     buyerEmail: email,
     accessUrl: COURSE_ACCESS_URL,
     planLabel: isPlanId(plan) ? PLANS[plan].label : undefined,
+    ...(plan === "accompagnement" ? { whatsappNumber: "07 67 98 43 21" } : {}),
   };
 
+  const templateName = plan === "accompagnement"
+    ? "course-access-vip"
+    : "course-access";
 
   try {
-    const result = await sendTemplateEmail("course-access", email, {
+    const result = await sendTemplateEmail(templateName, email, {
       templateData,
-      idempotencyKey: `course-access-${email}-${Date.now()}`,
+      idempotencyKey: `${templateName}-${email}-${Date.now()}`,
     });
     return result.sent;
   } catch (err) {
