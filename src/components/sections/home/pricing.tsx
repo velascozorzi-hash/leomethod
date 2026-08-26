@@ -88,14 +88,6 @@ const Pricing = () => {
               <ShieldCheck className="w-4 h-4 text-primary" />
               Satisfait ou remboursé sous 30 jours
             </div>
-            <div className="mt-3">
-              <a
-                href="/legal/remboursement"
-                className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
-              >
-                Voir les conditions de remboursement
-              </a>
-            </div>
           </AnimateOnView>
 
         </StaggerContainer>
