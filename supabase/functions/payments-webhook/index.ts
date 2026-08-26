@@ -29,9 +29,11 @@ async function sendAccessEmail(
 ) {
   const templateData = {
     name: fullName ?? undefined,
+    buyerEmail: email,
     accessUrl: COURSE_ACCESS_URL,
     planLabel: isPlanId(plan) ? PLANS[plan].label : undefined,
   };
+
 
   try {
     const result = await sendTemplateEmail("course-access", email, {
