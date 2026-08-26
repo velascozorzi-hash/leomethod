@@ -9,7 +9,7 @@ import { TEMPLATES } from './registry.ts'
 // email can reach a customer. If you see 403/422 responses, add/verify the
 // domain in your Resend dashboard and update the constant below.
 
-const SITE_NAME = "Remix of Payments Fintech Site"
+const SITE_NAME = "Leo Method"
 const FROM_EMAIL = `noreply@leomethod.app`
 
 const GATEWAY_URL = 'https://connector-gateway.lovable.dev/resend'
