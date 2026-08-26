@@ -91,14 +91,48 @@ const button = {
   textDecoration: 'none',
 }
 const hr = { borderColor: '#252238', margin: '28px 0' }
+const warnBox = {
+  backgroundColor: '#1a1030',
+  border: '2px solid #6c47ff',
+  borderRadius: '12px',
+  padding: '20px 20px 8px',
+  margin: '32px 0',
+}
+const warnTitle = {
+  color: '#ffb020',
+  fontSize: '16px',
+  fontWeight: '700' as const,
+  margin: '0 0 8px',
+  textAlign: 'center' as const,
+}
+const warnBig = {
+  color: '#ffffff',
+  fontSize: '26px',
+  lineHeight: '32px',
+  fontWeight: '800' as const,
+  textAlign: 'center' as const,
+  textTransform: 'uppercase' as const,
+  margin: '0 0 12px',
+}
+const warnEmail = {
+  color: '#c9b9ff',
+  fontSize: '18px',
+  fontWeight: '700' as const,
+  textAlign: 'center' as const,
+  margin: '0 0 16px',
+  wordBreak: 'break-all' as const,
+}
+const warnText = { color: '#d8d5e6', fontSize: '15px', lineHeight: '24px' }
 
 export const template = {
   component: CourseAccessEmail,
-  subject: 'Ton accès à la formation est prêt 🚀',
+  subject: 'Ton accès à la formation est prêt 🚀 (utilise le même email)',
   displayName: 'Accès à la formation',
   previewData: {
     name: 'Léo',
+    buyerEmail: 'client@exemple.com',
     accessUrl: 'https://www.skool.com/leo-avatar-method-9184',
+
     planLabel: 'Formation + accompagnement',
   },
 } satisfies TemplateEntry
