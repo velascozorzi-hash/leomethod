@@ -98,7 +98,9 @@ const Pricing = () => {
               <AnimateOnView
                 key={plan.id}
                 delay={index * 0.1}
+                className={plan.isHighlighted ? "order-first md:order-none" : "md:order-none"}
               >
+
                 <div className="relative h-full">
                   <PricingCard
                     title={plan.title}
