@@ -14,7 +14,7 @@ const modules = [
     lessons: [
       'Trouver une niche à fort potentiel, même en partant de zéro',
       "Identifier le problème que ton audience veut vraiment résoudre",
-      "Utiliser les commentaires TikTok pour capter les mots exacts de ta cible",
+      'Le prompt d\'analyse de niche : il lit les commentaires TikTok et te sort les mots exacts de ta cible',
       'Valider la demande avant de créer quoi que ce soit',
     ],
   },
@@ -38,7 +38,7 @@ const modules = [
     lessons: [
       'Trouver une idée adaptée à ta niche et à son problème',
       'Choisir le bon format : ebook, template, pack ou mini-formation',
-      'Vérifier que ton idée est vendable avant de la produire',
+      "Le prompt de validation d'idée : il te dit si ton produit est vendable avant de le produire",
       "S'inspirer de ce qui marche déjà sans copier",
     ],
   },
@@ -51,7 +51,7 @@ const modules = [
       'Savoir quoi poster et dans quelle direction aller',
       'Trouver ton angle et poser les bases de ton compte',
       'Les piliers de contenu qui attirent des acheteurs, pas des curieux',
-      'Un calendrier simple à tenir sur la durée',
+      "Le prompt calendrier : un mois d'idées de vidéos généré en quelques minutes",
     ],
   },
   {
@@ -61,7 +61,7 @@ const modules = [
     title: 'Utiliser TikTok pour vendre',
     lessons: [
       'Attirer une audience qualifiée et promouvoir ton produit',
-      'Les structures de script qui retiennent au-delà de 3 secondes',
+      'Les prompts de scripts TikTok qui retiennent au-delà de 3 secondes',
       'Montage, sous-titres, sons : le format qui passe dans l\'algorithme',
       'Publier vite : plusieurs vidéos par jour en moins d\'une heure',
     ],
@@ -74,7 +74,7 @@ const modules = [
     lessons: [
       'Construire une offre claire et irrésistible',
       'Une promesse forte, un prix cohérent, des preuves',
-      'Ce qu\'on inclut (et surtout ce qu\'on enlève)',
+      "Le prompt de rédaction d'offre : promesse, bonus et arguments rédigés pour toi",
       'Positionner ton offre face aux alternatives de ta niche',
     ],
   },
@@ -85,7 +85,7 @@ const modules = [
     title: 'Créer ton produit digital',
     lessons: [
       'Transformer ton savoir-faire en produit vendable : structure et contenu',
-      "Écrire un ebook complet avec l'IA en un week-end",
+      "Le prompt ebook : un ebook complet rédigé avec Claude en un week-end",
       'Construire un template ou un pack Notion qui se vend seul',
       'Enregistrer une mini-formation avec ton avatar, sans caméra',
     ],
@@ -99,7 +99,7 @@ const modules = [
       'Un système simple pour présenter ton offre et convaincre',
       'Page de vente, paiement et livraison automatique',
       'Lier ta bio TikTok à ton tunnel sans te faire brider',
-      'Les emails de relance qui récupèrent les ventes perdues',
+      "Le prompt emails de vente : des relances écrites pour toi qui récupèrent les ventes perdues",
     ],
   },
   {
@@ -108,7 +108,7 @@ const modules = [
     label: 'Module 9',
     title: "Automatiser et scaler avec l'IA",
     lessons: [
-      "Utiliser l'IA pour gagner du temps et produire plus vite",
+      'Les prompts d\'automatisation pour produire plus vite, du script à la publication',
       'Automatiser les tâches répétitives de A à Z',
       'Dupliquer le système sur une deuxième niche ou un deuxième avatar',
       'Les chiffres à suivre chaque semaine pour ajuster',
@@ -118,7 +118,7 @@ const modules = [
 
 
 
-const MOBILE_PREVIEW = 2
+const MOBILE_PREVIEW = 0
 
 const ModuleCard = ({ module, index }: { module: (typeof modules)[number]; index: number }) => {
   const [open, setOpen] = useState(false)
@@ -175,7 +175,7 @@ const ModuleCard = ({ module, index }: { module: (typeof modules)[number]; index
             className="md:hidden mt-3 flex items-center gap-1.5 text-sm text-primary"
             aria-expanded={open}
           >
-            {open ? 'Réduire' : `Voir tout (${module.lessons.length})`}
+            {open ? 'Réduire' : `Voir les ${module.lessons.length} points`}
             <ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
           </button>
         )}
