@@ -9,7 +9,6 @@ const modules = [
   {
     id: 1,
     icon: Search,
-    label: 'Module 1',
     title: 'Cibler une niche et son problème',
     lessons: [
       'Trouver une niche à fort potentiel, même en partant de zéro',
@@ -21,7 +20,6 @@ const modules = [
   {
     id: 2,
     icon: Bot,
-    label: 'Module 2',
     title: 'Créer ton avatar IA',
     lessons: [
       "Un personnage qui incarne ta marque à ta place : visage généré, voix clonée, mascotte",
@@ -33,7 +31,6 @@ const modules = [
   {
     id: 3,
     icon: Sparkles,
-    label: 'Module 3',
     title: 'Trouver ton idée de produit digital',
     lessons: [
       'Trouver une idée adaptée à ta niche et à son problème',
@@ -45,7 +42,6 @@ const modules = [
   {
     id: 4,
     icon: Target,
-    label: 'Module 4',
     title: 'Stratégie de contenu',
     lessons: [
       'Savoir quoi poster et dans quelle direction aller',
@@ -57,7 +53,6 @@ const modules = [
   {
     id: 5,
     icon: Video,
-    label: 'Module 5',
     title: 'Utiliser TikTok pour vendre',
     lessons: [
       'Attirer une audience qualifiée et promouvoir ton produit',
@@ -69,7 +64,6 @@ const modules = [
   {
     id: 6,
     icon: Layers,
-    label: 'Module 6',
     title: 'Structurer ton offre',
     lessons: [
       'Construire une offre claire et irrésistible',
@@ -81,7 +75,6 @@ const modules = [
   {
     id: 7,
     icon: Package,
-    label: 'Module 7',
     title: 'Créer ton produit digital',
     lessons: [
       'Transformer ton savoir-faire en produit vendable : structure et contenu',
@@ -93,7 +86,6 @@ const modules = [
   {
     id: 8,
     icon: Workflow,
-    label: 'Module 8',
     title: 'Construire ton système de vente',
     lessons: [
       'Un système simple pour présenter ton offre et convaincre',
@@ -105,7 +97,6 @@ const modules = [
   {
     id: 9,
     icon: Rocket,
-    label: 'Module 9',
     title: "Automatiser et scaler avec l'IA",
     lessons: [
       'Les prompts d\'automatisation pour produire plus vite, du script à la publication',
@@ -116,78 +107,53 @@ const modules = [
   },
 ]
 
-
-
-const MOBILE_PREVIEW = 0
-
-const ModuleCard = ({ module, index }: { module: (typeof modules)[number]; index: number }) => {
+const ModuleRow = ({ module, index }: { module: (typeof modules)[number]; index: number }) => {
   const [open, setOpen] = useState(false)
-  const hasMore = module.lessons.length > MOBILE_PREVIEW
-  const visibleLessons = open ? module.lessons : module.lessons.slice(0, MOBILE_PREVIEW)
 
   return (
-    <div className="group relative h-full">
-      {/* halo animé */}
-      <div className="pointer-events-none absolute -inset-px rounded-[26px] bg-gradient-to-br from-primary/50 via-primary/0 to-primary/30 opacity-40 blur-[2px] transition-opacity duration-500 group-hover:opacity-100" />
+    <div className="group relative pl-12 md:pl-0">
+      {/* timeline dot + number */}
+      <div className="absolute left-0 top-0 md:left-1/2 md:-translate-x-1/2 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-card border border-border/80 shadow-[0_0_0_4px_hsl(var(--background))] z-10 transition-transform duration-500 group-hover:scale-110">
+        <module.icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
+      </div>
 
-      <div className="relative h-full overflow-hidden rounded-[26px] border border-border/60 bg-card/70 backdrop-blur-sm p-6 md:p-8 transition-transform duration-500 md:group-hover:-translate-y-1.5">
-        {/* lueur au survol */}
-        <div className="pointer-events-none absolute -top-24 -right-16 h-52 w-52 rounded-full bg-primary/20 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      {/* card */}
+      <div className={`
+        relative overflow-hidden rounded-2xl border border-border/60 bg-card/70 backdrop-blur-sm p-5 md:p-6
+        transition-all duration-500
+        ${index % 2 === 0 ? 'md:mr-[calc(50%+24px)]' : 'md:ml-[calc(50%+24px)]'}
+      `}>
+        <div className="pointer-events-none absolute -top-16 -right-12 h-32 w-32 rounded-full bg-primary/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-        {/* numéro filigrane */}
-        <span className="pointer-events-none absolute -bottom-6 right-2 text-[110px] leading-none font-semibold text-primary/5 transition-all duration-500 group-hover:text-primary/10 group-hover:-translate-y-1 select-none">
-          {String(index + 1).padStart(2, '0')}
-        </span>
-
-        <div className="relative flex items-start gap-4">
-          <div className="relative shrink-0">
-            <div className="absolute inset-0 rounded-2xl bg-primary/30 blur-md opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/25 to-primary/5 border border-primary/30 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-              <module.icon className="w-5 h-5 text-primary" />
-            </div>
-          </div>
-          <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <p className="text-[11px] uppercase tracking-[0.18em] text-primary">{module.label}</p>
-              <span className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
-            </div>
-            <h3 className="text-lg md:text-2xl font-medium mt-1.5">{module.title}</h3>
-          </div>
+        <div className="relative flex items-start gap-3">
+          <span className="text-xs font-medium text-primary/70 uppercase tracking-wider">Module {String(index + 1).padStart(2, '0')}</span>
         </div>
 
-        <div className="relative mt-5 h-px w-full bg-border/60 overflow-hidden">
-          <span className="absolute inset-y-0 left-0 w-0 bg-primary transition-all duration-700 group-hover:w-full" />
-        </div>
+        <h3 className="relative text-lg md:text-xl font-medium mt-2 pr-10">{module.title}</h3>
 
-        {/* Mobile : extrait + voir tout */}
-        <ul className="md:hidden space-y-2 mt-4">
-          {visibleLessons.map((lesson) => (
+        {/* mobile: toggle list */}
+        <ul className={`md:hidden space-y-2 mt-3 overflow-hidden transition-all duration-300 ${open ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+          {module.lessons.map((lesson) => (
             <li key={lesson} className="flex items-start gap-2.5 text-muted-foreground text-sm">
               <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-              <span className={open ? undefined : 'line-clamp-2'}>{lesson}</span>
+              <span>{lesson}</span>
             </li>
           ))}
         </ul>
-        {hasMore && (
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className="md:hidden mt-3 flex items-center gap-1.5 text-sm text-primary"
-            aria-expanded={open}
-          >
-            {open ? 'Réduire' : `Voir les ${module.lessons.length} points`}
-            <ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden mt-2 flex items-center gap-1.5 text-sm text-primary"
+        >
+          {open ? 'Réduire' : 'Voir les points'}
+          <ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
+        </button>
 
-        {/* Desktop : liste complète */}
-        <ul className="hidden md:block space-y-3 mt-5">
+        {/* desktop: always show */}
+        <ul className="hidden md:block space-y-2.5 mt-4">
           {module.lessons.map((lesson) => (
-            <li
-              key={lesson}
-              className="flex items-start gap-2.5 text-muted-foreground text-base transition-colors duration-300 group-hover:text-foreground/80"
-            >
-              <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
+            <li key={lesson} className="flex items-start gap-2.5 text-muted-foreground text-sm transition-colors duration-300 group-hover:text-foreground/80">
+              <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               <span>{lesson}</span>
             </li>
           ))}
@@ -199,8 +165,8 @@ const ModuleCard = ({ module, index }: { module: (typeof modules)[number]; index
 
 const Program = () => {
   return (
-    <section id="programme" className="py-12 md:py-[60px] scroll-mt-24">
-      <Container className="space-y-8 md:space-y-16">
+    <section id="programme" className="py-14 md:py-24 scroll-mt-24 overflow-hidden">
+      <Container className="space-y-10 md:space-y-16">
         <StaggerContainer className="text-center max-w-2xl mx-auto">
           <AnimateOnView blur>
             <h2 className="h2 md:mb-5 mb-3">Le contenu détaillé de la formation</h2>
@@ -213,15 +179,19 @@ const Program = () => {
           </AnimateOnView>
         </StaggerContainer>
 
-        <StaggerContainer>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <StaggerContainer className="relative max-w-4xl mx-auto">
+          {/* central line */}
+          <div className="absolute left-4 top-3 bottom-3 w-px bg-border/60 md:left-1/2 md:-translate-x-1/2" />
+          <div className="absolute left-4 top-3 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent h-1/3 md:left-1/2 md:-translate-x-1/2" />
+
+          <div className="space-y-6 md:space-y-8">
             {modules.map((module, index) => (
               <AnimateOnView
                 key={module.id}
-                delay={(index % 2) * 0.1}
-                className={index === modules.length - 1 && modules.length % 2 === 1 ? 'md:col-span-2 md:w-1/2 md:mx-auto' : undefined}
+                delay={index * 0.06}
+                direction={index % 2 === 0 ? 'left' : 'right'}
               >
-                <ModuleCard module={module} index={index} />
+                <ModuleRow module={module} index={index} />
               </AnimateOnView>
             ))}
           </div>
