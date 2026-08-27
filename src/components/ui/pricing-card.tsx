@@ -136,7 +136,7 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
           <CardFooter>
             {onButtonClick ? (
               <Button
-                className="w-full"
+                className={isHighlighted ? "w-full" : "w-full bg-primary/15 border-primary/50 text-primary-foreground hover:bg-primary hover:text-primary-foreground"}
                 variant={isHighlighted ? "pricing" : "outline"}
                 onClick={onButtonClick}
               >
@@ -144,7 +144,7 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
               </Button>
             ) : (
               <Button
-                className="w-full"
+                className={isHighlighted ? "w-full" : "w-full bg-primary/15 border-primary/50 text-primary-foreground hover:bg-primary hover:text-primary-foreground"}
                 variant={isHighlighted ? "pricing" : "outline"}
                 asChild
               >

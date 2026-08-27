@@ -2,7 +2,7 @@ import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
 import { useStripeCheckout } from '@/hooks/useStripeCheckout'
 import { ShieldCheck } from 'lucide-react'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Container from '../../container'
 import { PricingCard } from '../../ui/pricing-card'
 
@@ -22,6 +22,7 @@ const pricingPlans = [
       "Ta stratégie de contenu et tes scripts TikTok prêts à l'emploi",
       "La création de ton produit digital (ebook, template, mini-formation)",
       "Ton système de vente et son automatisation avec l'IA",
+      "Tous mes scripts Claude : ceux que j'ai utilisés pour lancer mes premières ventes, et ceux pour automatiser et scaler",
       "Accès à vie et mises à jour incluses",
     ],
 
@@ -46,6 +47,7 @@ const pricingPlans = [
       "Relecture à vie de tes scripts TikTok, je relis quand tu veux",
       "Une réponse en 2 h maximum, par moi, jamais un associé",
       "Audit de ta niche, de ton offre et de ton avatar IA",
+      "Tous mes scripts Claude : ceux que j'ai utilisés pour lancer mes premières ventes, et ceux pour automatiser et scaler",
       "Réponses à tes questions jusqu'à tes premières ventes",
     ],
     buttonText: "Je veux être accompagné",
@@ -63,6 +65,7 @@ const priceIds: Record<typeof pricingPlans[number]["planId"], string> = {
 const Pricing = () => {
   const { openCheckout, checkoutElement, isOpen } = useStripeCheckout()
   const checkoutRef = useRef<HTMLDivElement>(null)
+  const [activePlan, setActivePlan] = useState<'accompagnement' | 'formation'>('accompagnement')
 
   useEffect(() => {
     if (isOpen && checkoutRef.current) {
@@ -93,12 +96,31 @@ const Pricing = () => {
 
         </StaggerContainer>
         <StaggerContainer>
+          <div className="md:hidden mb-6 grid grid-cols-2 gap-2 rounded-full border border-white/10 bg-card p-1 max-w-md mx-auto">
+            {pricingPlans
+              .slice()
+              .sort((a, b) => Number(b.isHighlighted) - Number(a.isHighlighted))
+              .map((plan) => (
+                <button
+                  key={plan.id}
+                  type="button"
+                  onClick={() => setActivePlan(plan.planId)}
+                  className={`rounded-full px-3 py-2 text-sm font-medium transition-colors ${activePlan === plan.planId
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-muted-foreground'
+                    }`}
+                >
+                  {plan.isHighlighted ? 'Formation + accompagnement' : 'Formation'}
+                  <span className="block text-xs opacity-80">{plan.price}</span>
+                </button>
+              ))}
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[1058px] mx-auto">
             {pricingPlans.map((plan, index) => (
               <AnimateOnView
                 key={plan.id}
                 delay={index * 0.1}
-                className={plan.isHighlighted ? "order-first md:order-none" : "md:order-none"}
+                className={`${plan.isHighlighted ? "order-first md:order-none" : "md:order-none"} ${activePlan === plan.planId ? "" : "hidden md:block"}`}
               >
 
                 <div className="relative h-full">
