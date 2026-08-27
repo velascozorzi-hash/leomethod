@@ -118,7 +118,7 @@ const modules = [
 
 
 
-const MOBILE_PREVIEW = 2
+const MOBILE_PREVIEW = 0
 
 const ModuleCard = ({ module, index }: { module: (typeof modules)[number]; index: number }) => {
   const [open, setOpen] = useState(false)
