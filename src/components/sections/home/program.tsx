@@ -175,7 +175,7 @@ const ModuleCard = ({ module, index }: { module: (typeof modules)[number]; index
             className="md:hidden mt-3 flex items-center gap-1.5 text-sm text-primary"
             aria-expanded={open}
           >
-            {open ? 'Réduire' : `Voir tout (${module.lessons.length})`}
+            {open ? 'Réduire' : `Voir les ${module.lessons.length} points`}
             <ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
           </button>
         )}
