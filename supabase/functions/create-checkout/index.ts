@@ -64,28 +64,37 @@ async function createCheckoutSession(options: {
     userId: options.userId,
   });
 
-  const productId = typeof stripePrice.product === "string"
-    ? stripePrice.product
-    : stripePrice.product.id;
-  const product = await stripe.products.retrieve(productId);
+  const isRecurring = stripePrice.type === "recurring";
+
+  let productName: string | undefined;
+  if (!isRecurring) {
+    const productId = typeof stripePrice.product === "string"
+      ? stripePrice.product
+      : stripePrice.product.id;
+    const product = await stripe.products.retrieve(productId);
+    productName = product.name;
+  }
 
   const planId: keyof typeof PLANS | undefined =
-    options.priceId === "formation_onetime" ? "formation"
-    : options.priceId === "accompagnement_onetime" ? "accompagnement"
-    : undefined;
+    options.priceId === "formation_mensuelle" || options.priceId === "formation_onetime"
+      ? "formation"
+      : undefined;
+
+  const metadata = {
+    userId: options.userId ?? "",
+    ...(planId && { planId }),
+  };
 
   const session = await stripe.checkout.sessions.create({
     line_items: [{ price: stripePrice.id, quantity: options.quantity || 1 }],
-    mode: "payment",
+    mode: isRecurring ? "subscription" : "payment",
     ui_mode: "embedded_page",
     locale: "fr",
     return_url: options.returnUrl,
     ...(customerId && { customer: customerId }),
-    payment_intent_data: { description: product.name },
-    metadata: {
-      userId: options.userId ?? "",
-      ...(planId && { planId }),
-    },
+    ...(!isRecurring && { payment_intent_data: { description: productName } }),
+    ...(isRecurring && { subscription_data: { metadata } }),
+    metadata,
   });
 
   return session.client_secret;

@@ -1,6 +1,5 @@
 import type { ComponentType } from 'npm:react@18.3.1'
 import { template as courseAccessTemplate } from './course-access.tsx'
-import { template as courseAccessVipTemplate } from './course-access-vip.tsx'
 
 export interface TemplateEntry {
   component: ComponentType<any>
@@ -21,5 +20,4 @@ export interface TemplateEntry {
  */
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'course-access': courseAccessTemplate,
-  'course-access-vip': courseAccessVipTemplate,
 }
