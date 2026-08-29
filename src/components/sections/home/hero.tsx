@@ -29,14 +29,6 @@ const Hero = () => {
               </Button>
             </AnimateOnView>
 
-            <AnimateOnView delay={0.4}>
-              <div className="mt-6 flex flex-col items-center">
-                <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm text-foreground">
-                  <ShieldCheck className="w-4 h-4 text-primary" />
-                  Satisfait ou remboursé sous 30 jours
-                </div>
-              </div>
-            </AnimateOnView>
 
 
 
