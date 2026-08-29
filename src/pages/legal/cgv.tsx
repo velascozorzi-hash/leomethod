@@ -16,21 +16,22 @@ const CGVPage = () => (
 
         <h2>2. Produits et services</h2>
         <p>
-            La formation est un produit numérique composé de modules vidéo, de ressources téléchargeables
-            et, selon l'offre choisie, d'un accompagnement personnalisé. L'accès est individuel et
-            strictement personnel.
+            La formation est un produit numérique composé de modules vidéo et de ressources
+            téléchargeables, accessible par abonnement. L'accès est individuel et strictement
+            personnel.
         </p>
 
         <h2>3. Prix et paiement</h2>
         <ul>
-            <li>Offre Formation : 97 € TTC (au lieu de 194 €, soit −50 %).</li>
-            <li>Offre Formation + Accompagnement : 127 € TTC (au lieu de 282 €, soit −55 %).</li>
+            <li>Formation complète : 39,99 € TTC par mois, sans engagement.</li>
         </ul>
         <p>
-            Les prix sont indiqués en euros, toutes taxes comprises. Le paiement s'effectue en ligne par
-            carte bancaire via un prestataire de paiement sécurisé. Aucune donnée bancaire n'est stockée
-            par l'éditeur du site.
+            L'abonnement est reconduit automatiquement chaque mois et peut être annulé à tout moment ;
+            l'annulation prend effet à la fin de la période en cours, sans frais. Les prix sont indiqués
+            en euros, toutes taxes comprises. Le paiement s'effectue en ligne via un prestataire de
+            paiement sécurisé. Aucune donnée bancaire n'est stockée par l'éditeur du site.
         </p>
+
 
         <h2>4. Accès à la formation</h2>
         <p>
