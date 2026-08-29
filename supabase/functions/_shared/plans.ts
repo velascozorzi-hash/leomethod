@@ -1,15 +1,10 @@
-// Formules vendues sur la page d'accueil. Les montants sont définis côté serveur
+// Formule vendue sur la page d'accueil. Les montants sont définis côté serveur
 // uniquement : le client ne peut jamais choisir son prix.
 export const PLANS = {
   formation: {
     id: "formation",
     label: "Formation complète",
-    amount: "97.00",
-  },
-  accompagnement: {
-    id: "accompagnement",
-    label: "Formation + accompagnement",
-    amount: "127.00",
+    amount: "39.99",
   },
 } as const;
 

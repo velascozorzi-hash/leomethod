@@ -1,71 +1,40 @@
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
 import { useStripeCheckout } from '@/hooks/useStripeCheckout'
-import { ShieldCheck } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Container from '../../container'
 import { PricingCard } from '../../ui/pricing-card'
 
-const pricingPlans = [
-  {
-    id: 1,
-    planId: "formation" as const,
-    title: "Formation complète",
-    description: "Tout le système avatar IA pour créer et vendre ton produit digital sur TikTok.",
-    price: "97€",
-    oldPrice: "176€",
-    discount: "-45%",
-    pricePeriod: "paiement unique",
-    features: [
-      "Les 9 modules complets, plus de 5 h de vidéo",
-      "La création de tes avatars IA pas à pas (visage, voix, personnalité)",
-      "Ta stratégie de contenu et tes scripts TikTok prêts à l'emploi",
-      "La création de ton produit digital (ebook, template, mini-formation)",
-      "Ton système de vente et son automatisation avec l'IA",
-      "Tous mes scripts Claude : ceux que j'ai utilisés pour lancer mes premières ventes, et ceux pour automatiser et scaler",
-      "Accès à vie et mises à jour incluses",
-    ],
-
-    buttonText: "Rejoindre la formation",
-    buttonLink: "/signup",
-    isHighlighted: false,
-  },
-  {
-    id: 2,
-    planId: "accompagnement" as const,
-    title: "Formation + accompagnement",
-    description:
-      "La formation complète, plus un accompagnement personnalisé avec moi sur WhatsApp. C'est moi qui te réponds, jamais un associé ni une équipe.",
-    price: "127€",
-    oldPrice: "363€",
-    discount: "-65%",
-    pricePeriod: "paiement unique",
-    features: [
-      "Tout ce qui est inclus dans la formation",
-      "Accompagnement personnalisé avec moi directement sur WhatsApp",
-      "1 appel par semaine avec moi",
-      "Relecture à vie de tes scripts TikTok, je relis quand tu veux",
-      "Une réponse en 2 h maximum, par moi, jamais un associé",
-      "Audit de ta niche, de ton offre et de ton avatar IA",
-      "Tous mes scripts Claude : ceux que j'ai utilisés pour lancer mes premières ventes, et ceux pour automatiser et scaler",
-      "Réponses à tes questions jusqu'à tes premières ventes",
-    ],
-    buttonText: "Je veux être accompagné",
-    buttonLink: "/signup",
-    isHighlighted: true,
-    backgroundImage: "/images/pricing/pricing-bg.webp",
-  },
-]
-
-const priceIds: Record<typeof pricingPlans[number]["planId"], string> = {
-  formation: "formation_onetime",
-  accompagnement: "accompagnement_onetime",
+const plan = {
+  planId: 'formation' as const,
+  title: 'Formation complète',
+  description:
+    "Tout le système avatar IA pour créer, publier et vendre ton produit digital sur TikTok, sans jamais montrer ton visage. Accès complet dès l'inscription.",
+  price: '39,99€',
+  features: [
+    'Les 9 modules complets, plus de 5 h de vidéo',
+    'La création de tes avatars IA pas à pas (visage, voix, personnalité)',
+    'Le choix de ta niche, de ton positionnement et de ton offre',
+    "Ta stratégie de contenu et tes scripts TikTok prêts à l'emploi",
+    'La création de ton produit digital (ebook, template, mini-formation)',
+    'Ton système de vente complet : page, paiement et livraison automatique',
+    "Tous mes scripts Claude : ceux que j'ai utilisés pour lancer mes premières ventes, et ceux pour automatiser et scaler",
+    'Les prompts d\'automatisation pour produire tes vidéos en quelques minutes',
+    'Les templates de pages de vente, de bio TikTok et de séquences e-mail',
+    'Les nouveaux modules et mises à jour ajoutés chaque mois, inclus',
+    'Accès à la communauté privée des élèves',
+    'Tu gardes ton accès tant que ton abonnement est actif',
+  ],
+  buttonText: 'Rejoindre la formation',
+  buttonLink: '/signup',
+  backgroundImage: '/images/pricing/pricing-bg.webp',
 }
+
+const PRICE_ID = 'formation_mensuelle'
 
 const Pricing = () => {
   const { openCheckout, checkoutElement, isOpen } = useStripeCheckout()
   const checkoutRef = useRef<HTMLDivElement>(null)
-  const [activePlan, setActivePlan] = useState<'accompagnement' | 'formation'>('accompagnement')
 
   useEffect(() => {
     if (isOpen && checkoutRef.current) {
@@ -75,81 +44,41 @@ const Pricing = () => {
 
   return (
     <section id="offre" className="py-12 md:py-[60px] scroll-mt-24">
-      <Container className="space-y-8 md:space-y-20">
+      <Container className="space-y-8 md:space-y-16">
         <StaggerContainer className="text-center">
           <AnimateOnView blur>
-            <h2 className="h2 mb-5">
-              Choisis ta formule
-            </h2>
+            <h2 className="h2 mb-5">Rejoins la formation</h2>
           </AnimateOnView>
           <AnimateOnView blur delay={0.2}>
             <p className="text-muted-foreground">
-              Un investissement unique, un accès à vie, et un système que tu gardes pour toujours.
+              Un seul accès, tout le système, et de nouvelles ressources chaque mois.
             </p>
           </AnimateOnView>
-          <AnimateOnView blur delay={0.3}>
-            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm text-foreground">
-              <ShieldCheck className="w-4 h-4 text-primary" />
-              Satisfait ou remboursé sous 30 jours
-            </div>
-          </AnimateOnView>
-
         </StaggerContainer>
-        <StaggerContainer>
-          <div className="md:hidden mb-6 grid grid-cols-2 gap-2 rounded-full border border-white/10 bg-card p-1 max-w-md mx-auto">
-            {pricingPlans
-              .slice()
-              .sort((a, b) => Number(b.isHighlighted) - Number(a.isHighlighted))
-              .map((plan) => (
-                <button
-                  key={plan.id}
-                  type="button"
-                  onClick={() => setActivePlan(plan.planId)}
-                  className={`rounded-full px-3 py-2 text-sm font-medium transition-colors ${activePlan === plan.planId
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-muted-foreground'
-                    }`}
-                >
-                  {plan.isHighlighted ? 'Formation + accompagnement' : 'Formation'}
-                  <span className="block text-xs opacity-80">{plan.price}</span>
-                </button>
-              ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[1058px] mx-auto">
-            {pricingPlans.map((plan, index) => (
-              <AnimateOnView
-                key={plan.id}
-                delay={index * 0.1}
-                className={`${plan.isHighlighted ? "order-first md:order-none" : "md:order-none"} ${activePlan === plan.planId ? "" : "hidden md:block"}`}
-              >
 
-                <div className="relative h-full">
-                  <PricingCard
-                    title={plan.title}
-                    description={plan.description}
-                    price={plan.price}
-                    oldPrice={plan.oldPrice}
-                    discount={plan.discount}
-                    pricePeriod={
-                      <span>
-                        · {plan.pricePeriod}
-                      </span>
-                    }
-                    features={plan.features}
-                    buttonText={plan.buttonText}
-                    buttonLink={plan.buttonLink}
-                    onButtonClick={() =>
-                      openCheckout({
-                        priceId: priceIds[plan.planId],
-                        returnUrl: `${window.location.origin}/merci?session_id={CHECKOUT_SESSION_ID}`,
-                      })
-                    }
-                    isHighlighted={plan.isHighlighted}
-                    backgroundImage={plan.backgroundImage}
-                  />
-                </div>
-              </AnimateOnView>
-            ))}
+        <StaggerContainer>
+          <div className="max-w-[560px] mx-auto">
+            <AnimateOnView>
+              <PricingCard
+                title={plan.title}
+                description={plan.description}
+                price={plan.price}
+                pricePeriod={
+                  <span className="text-xs text-muted-foreground/80">/ mois · annulable à tout moment</span>
+                }
+                features={plan.features}
+                buttonText={plan.buttonText}
+                buttonLink={plan.buttonLink}
+                onButtonClick={() =>
+                  openCheckout({
+                    priceId: PRICE_ID,
+                    returnUrl: `${window.location.origin}/merci?session_id={CHECKOUT_SESSION_ID}`,
+                  })
+                }
+                isHighlighted
+                backgroundImage={plan.backgroundImage}
+              />
+            </AnimateOnView>
           </div>
         </StaggerContainer>
       </Container>
