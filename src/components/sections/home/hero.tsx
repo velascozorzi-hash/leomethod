@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { AnimateOnView } from "@/components/ui/motion/animate-on-view";
 import { StaggerContainer } from "@/components/ui/motion/stagger";
-import { ShieldCheck } from "lucide-react";
 
 const Hero = () => {
   return (
