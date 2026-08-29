@@ -133,6 +133,6 @@ export const template = {
     buyerEmail: 'client@exemple.com',
     accessUrl: 'https://www.skool.com/leo-avatar-method-9184',
 
-    planLabel: 'Formation + accompagnement',
+    planLabel: 'Formation complète',
   },
 } satisfies TemplateEntry
