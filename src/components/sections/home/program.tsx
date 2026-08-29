@@ -230,7 +230,7 @@ const Program = () => {
         <StaggerContainer className="hidden md:block">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {modules.map((module, index) => (
-              <AnimateOnView key={module.id} delay={index * 0.05} className={index === modules.length - 1 ? 'lg:col-start-2' : undefined}>
+              <AnimateOnView key={module.id} delay={index * 0.05} className="h-full">
                 <ModuleCard module={module} index={index} />
               </AnimateOnView>
             ))}
