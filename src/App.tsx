@@ -14,6 +14,7 @@ import BlogEditor from "./pages/dashboard/blog/editor";
 import ProfilePage from "./pages/dashboard/profile";
 import EarlyAccess from "./pages/early-access";
 import Feature from "./pages/feature";
+import GererAbonnementPage from "./pages/gerer-abonnement";
 import Home from "./pages/home";
 import Integration from "./pages/integration";
 import IntegrationDetailsPage from "./pages/integration/[slug]";
@@ -53,6 +54,7 @@ const App = () => (
               <Route path="/integration/:slug" element={<IntegrationDetailsPage />} />
               <Route path="/early-access" element={<EarlyAccess />} />
               <Route path="/merci" element={<MerciPage />} />
+              <Route path="/gerer-abonnement" element={<GererAbonnementPage />} />
               <Route path="/dashboard/profile" element={<ProfilePage />} />
               <Route path="/dashboard/blog" element={<BlogDashboard />} />
               <Route path="/dashboard/blog/new" element={<BlogEditor />} />
