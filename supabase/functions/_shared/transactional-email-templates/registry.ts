@@ -21,4 +21,5 @@ export interface TemplateEntry {
  */
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'course-access': courseAccessTemplate,
+  'cancellation-notice': cancellationNoticeTemplate,
 }
