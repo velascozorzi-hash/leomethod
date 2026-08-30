@@ -57,12 +57,14 @@ const Pricing = () => {
         </StaggerContainer>
 
         <StaggerContainer>
-          <div className="max-w-[560px] mx-auto">
+          <div className="max-w-[720px] mx-auto">
             <AnimateOnView>
               <PricingCard
                 title={plan.title}
                 description={plan.description}
                 price={plan.price}
+                oldPrice="79,99€"
+                discount="-50% de lancement"
                 pricePeriod={
                   <span className="text-xs text-muted-foreground/80">/ mois · annulable à tout moment</span>
                 }

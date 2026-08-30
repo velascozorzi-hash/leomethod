@@ -93,16 +93,16 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
             </div>
 
             <div className="h-px bg-white/10" />
-            <div className="space-y-4">
-              <h4 className="text-lg font-medium text-foreground">
+            <div className="space-y-3">
+              <h4 className="text-base font-medium text-foreground">
                 Ce que tu obtiens
               </h4>
-              <ul className="space-y-3">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-2.5">
                 {features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-3">
+                  <li key={index} className="flex items-start gap-2">
                     <svg
-                      width="24"
-                      height="24"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +125,7 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span className="text-lg text-white/80">
+                    <span className="text-sm leading-snug text-white/80">
                       {feature}
                     </span>
                   </li>
