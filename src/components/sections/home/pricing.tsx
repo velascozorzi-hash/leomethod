@@ -57,7 +57,7 @@ const Pricing = () => {
         </StaggerContainer>
 
         <StaggerContainer>
-          <div className="max-w-[560px] mx-auto">
+          <div className="max-w-[720px] mx-auto">
             <AnimateOnView>
               <PricingCard
                 title={plan.title}
