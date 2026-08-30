@@ -1,5 +1,6 @@
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 import { type StripeEnv, createStripeClient } from "../_shared/stripe.ts";
+import { sendTemplateEmail } from "../_shared/transactional-email-templates/send-email.ts";
 
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -64,6 +65,21 @@ Deno.serve(async (req) => {
 
     if (canceled === 0 && !endsAt) {
       return json({ error: "Aucun abonnement actif trouvé avec cette adresse e-mail." }, 404);
+    }
+
+    // Notification au propriétaire (n'empêche pas la réponse client en cas d'échec).
+    if (canceled > 0) {
+      try {
+        const endsAtFr = endsAt
+          ? new Date(endsAt).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })
+          : null;
+        await sendTemplateEmail("cancellation-notice", "", {
+          templateData: { email, endsAt: endsAtFr },
+          idempotencyKey: `cancel-notice-${environment}-${email}-${endsAt ?? "now"}`,
+        });
+      } catch (mailErr) {
+        console.error("cancellation notice email failed:", mailErr);
+      }
     }
 
     return json({ canceled, alreadyCanceled: canceled === 0, endsAt });
