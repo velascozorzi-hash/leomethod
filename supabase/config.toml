@@ -5,6 +5,8 @@ project_id = "qkinpgrvvsxtepmbcwzk"
     verify_jwt = false
   [functions.create-checkout]
     verify_jwt = false
+  [functions.cancel-subscription]
+    verify_jwt = false
   [functions.payments-webhook]
     verify_jwt = false
   [functions.preview-transactional-email]

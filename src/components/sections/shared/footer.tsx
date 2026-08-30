@@ -25,6 +25,9 @@ const Footer = () => {
               © {new Date().getFullYear()} — Tous droits réservés.
             </p>
             <nav className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm">
+              <Link to="/gerer-abonnement" className="text-white/70 hover:text-white transition-colors">
+                Gérer mon abonnement
+              </Link>
               <Link to="/legal/cgv" className="text-white/70 hover:text-white transition-colors">
                 CGV
               </Link>
