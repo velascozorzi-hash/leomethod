@@ -37,7 +37,7 @@ const Footer = () => {
               <Link to="/legal/remboursement" className="text-white/70 hover:text-white transition-colors">
                 Remboursement
               </Link>
-              <a href="mailto:velascozorzi@gmail.com" className="text-white/70 hover:text-white transition-colors">
+              <a href="mailto:rapha9390@gmail.com" className="text-white/70 hover:text-white transition-colors">
                 Contact
               </a>
             </nav>

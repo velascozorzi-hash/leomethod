@@ -43,7 +43,7 @@ export const EmailChangeEmail = ({
         </Button>
         <Text style={footer}>
           Si tu n'es pas à l'origine de cette demande, sécurise ton compte
-          immédiatement et écris-nous à velascozorzi@gmail.com
+          immédiatement et écris-nous à rapha9390@gmail.com
         </Text>
       </Container>
     </Body>

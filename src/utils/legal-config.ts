@@ -6,7 +6,7 @@ export const legalConfig = {
     address: "[Adresse complète]",
     siret: "[Numéro SIRET]",
     vat: "[Numéro de TVA intracommunautaire, si applicable]",
-    email: "velascozorzi@gmail.com",
+    email: "rapha9390@gmail.com",
     publicationDirector: "[Nom du directeur de la publication]",
     host: {
         name: "Lovable",

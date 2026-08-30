@@ -44,7 +44,7 @@ export const InviteEmail = ({
         </Button>
         <Text style={footer}>
           Si tu n'attendais pas cette invitation, tu peux ignorer cet e-mail.
-          Une question ? velascozorzi@gmail.com
+          Une question ? rapha9390@gmail.com
         </Text>
       </Container>
     </Body>

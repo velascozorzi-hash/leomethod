@@ -37,7 +37,7 @@ export const MagicLinkEmail = ({
         </Button>
         <Text style={footer}>
           Si tu n'as pas demandé ce lien, tu peux ignorer cet e-mail. Une
-          question ? velascozorzi@gmail.com
+          question ? rapha9390@gmail.com
         </Text>
       </Container>
     </Body>

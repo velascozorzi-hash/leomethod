@@ -20,8 +20,8 @@ const MerciPage = () => {
           </p>
           <p className="text-sm text-muted-foreground/80">
             Un souci ? Écris-moi à{" "}
-            <a href="mailto:velascozorzi@gmail.com" className="underline hover:text-foreground">
-              velascozorzi@gmail.com
+            <a href="mailto:rapha9390@gmail.com" className="underline hover:text-foreground">
+              rapha9390@gmail.com
             </a>
           </p>
           <Button asChild>
