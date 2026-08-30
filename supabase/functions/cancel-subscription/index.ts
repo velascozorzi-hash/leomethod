@@ -66,6 +66,21 @@ Deno.serve(async (req) => {
       return json({ error: "Aucun abonnement actif trouvé avec cette adresse e-mail." }, 404);
     }
 
+    // Notification au propriétaire (n'empêche pas la réponse client en cas d'échec).
+    if (canceled > 0) {
+      try {
+        const endsAtFr = endsAt
+          ? new Date(endsAt).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })
+          : null;
+        await sendTemplateEmail("cancellation-notice", "", {
+          templateData: { email, endsAt: endsAtFr },
+          idempotencyKey: `cancel-notice-${environment}-${email}-${endsAt ?? "now"}`,
+        });
+      } catch (mailErr) {
+        console.error("cancellation notice email failed:", mailErr);
+      }
+    }
+
     return json({ canceled, alreadyCanceled: canceled === 0, endsAt });
   } catch (err) {
     console.error("cancel-subscription error:", err);
