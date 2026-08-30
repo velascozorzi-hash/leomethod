@@ -68,7 +68,7 @@ export const CourseAccessEmail = ({
           C'est la régularité qui fait les résultats.
         </Text>
         <Text style={muted}>
-          Une question ? Réponds simplement à cet e-mail ou écris à velascozorzi@gmail.com.
+          Une question ? Réponds simplement à cet e-mail ou écris à rapha9390@gmail.com.
         </Text>
       </Container>
     </Body>

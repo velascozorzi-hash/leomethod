@@ -38,7 +38,7 @@ export const RecoveryEmail = ({
         </Button>
         <Text style={footer}>
           Si tu n'as rien demandé, ignore cet e-mail : ton mot de passe reste
-          inchangé. Une question ? velascozorzi@gmail.com
+          inchangé. Une question ? rapha9390@gmail.com
         </Text>
       </Container>
     </Body>

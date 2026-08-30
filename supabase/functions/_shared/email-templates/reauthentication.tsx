@@ -27,7 +27,7 @@ export const ReauthenticationEmail = ({ token }: ReauthenticationEmailProps) => 
         <Text style={codeStyle}>{token}</Text>
         <Text style={footer}>
           Ce code expire dans quelques minutes. Si tu n'as rien demandé, ignore
-          cet e-mail. Une question ? velascozorzi@gmail.com
+          cet e-mail. Une question ? rapha9390@gmail.com
         </Text>
       </Container>
     </Body>

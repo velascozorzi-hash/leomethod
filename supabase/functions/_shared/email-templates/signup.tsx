@@ -49,7 +49,7 @@ export const SignupEmail = ({
         </Button>
         <Text style={footer}>
           Si tu n'es pas à l'origine de cette inscription, tu peux ignorer cet
-          e-mail. Une question ? velascozorzi@gmail.com
+          e-mail. Une question ? rapha9390@gmail.com
         </Text>
       </Container>
     </Body>
