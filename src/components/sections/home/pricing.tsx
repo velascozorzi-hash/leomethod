@@ -63,6 +63,8 @@ const Pricing = () => {
                 title={plan.title}
                 description={plan.description}
                 price={plan.price}
+                oldPrice="79,99€"
+                discount="-50% de lancement"
                 pricePeriod={
                   <span className="text-xs text-muted-foreground/80">/ mois · annulable à tout moment</span>
                 }
