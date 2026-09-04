@@ -66,7 +66,7 @@ async function fulfill(session: any) {
 
   const supabase = getSupabase();
 
-  const { data: existing } = await supabase
+  let { data: existing } = await supabase
     .from("orders")
     .select("id, email_sent_at")
     .eq("stripe_session_id", session.id)
