@@ -78,12 +78,12 @@ const Proof = () => {
         {/* Desktop : grille alignée */}
         <StaggerContainer className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-5">
           {proofs.map((proof, index) => (
-            <AnimateOnView key={proof.src} delay={(index % 3) * 0.1} className="h-full">
+            <AnimateOnView key={proof.src} delay={(index % 3) * 0.1}>
               <button
                 type="button"
                 onClick={() => setActive(proof)}
                 aria-label={`Agrandir : ${proof.alt}`}
-                className="group relative block h-full w-full overflow-hidden rounded-2xl border border-border/60 bg-card/50 shadow-sm transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-[0_20px_50px_-20px_rgb(var(--primary)/0.6)]"
+                className="group relative block aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border/60 bg-card/50 shadow-sm transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-[0_20px_50px_-20px_rgb(var(--primary)/0.6)]"
               >
                 <img
                   src={proof.src}
