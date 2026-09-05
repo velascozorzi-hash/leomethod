@@ -18,7 +18,6 @@ import imgF from '@/assets/proof/image5_2.png.asset.json';
 
 const proofs = [
   { src: img8.url, alt: "Résultat d'un élève : 1 000 € générés en une semaine" },
-  { src: img7.url, alt: 'Première vente à 97 € en 3 jours' },
   { src: imgC.url, alt: "Élève à 2 000 € en une semaine (2 043 $ de payouts)" },
   { src: img3.url, alt: "Résultat après un mois : plus de 2 500 $ de ventes" },
   { src: imgA.url, alt: 'Première vente à 97 € reçue sur PayPal' },
