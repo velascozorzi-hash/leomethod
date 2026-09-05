@@ -8,8 +8,7 @@ import img2 from '@/assets/proof/image2.jpg.asset.json';
 import img3 from '@/assets/proof/image3.jpg.asset.json';
 import img4 from '@/assets/proof/image4.jpg.asset.json';
 import img5 from '@/assets/proof/image5.jpg.asset.json';
-import img7 from '@/assets/proof/image7_1.jpg.asset.json';
-import img8 from '@/assets/proof/image8.jpg.asset.json';
+import img8 from '@/assets/proof/albert-evan-result.png.asset.json';
 import imgA from '@/assets/proof/image0_2.jpeg.asset.json';
 import imgB from '@/assets/proof/image1_3.png.asset.json';
 import imgC from '@/assets/proof/image2_1.jpeg.asset.json';
@@ -19,7 +18,6 @@ import imgF from '@/assets/proof/image5_2.png.asset.json';
 
 const proofs = [
   { src: img8.url, alt: "Résultat d'un élève : 1 000 € générés en une semaine" },
-  { src: img7.url, alt: 'Première vente à 97 € en 3 jours' },
   { src: imgC.url, alt: "Élève à 2 000 € en une semaine (2 043 $ de payouts)" },
   { src: img3.url, alt: "Résultat après un mois : plus de 2 500 $ de ventes" },
   { src: imgA.url, alt: 'Première vente à 97 € reçue sur PayPal' },
@@ -77,31 +75,29 @@ const Proof = () => {
           </p>
         </div>
 
-        {/* Desktop : mosaïque */}
-        <StaggerContainer className="hidden sm:block">
-          <div className="columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
-            {proofs.map((proof, index) => (
-              <AnimateOnView key={proof.src} delay={(index % 3) * 0.1}>
-                <button
-                  type="button"
-                  onClick={() => setActive(proof)}
-                  aria-label={`Agrandir : ${proof.alt}`}
-                  className="group relative mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-border/60 bg-card/50 shadow-sm transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-[0_20px_50px_-20px_rgb(var(--primary)/0.6)]"
-                >
-                  <img
-                    src={proof.src}
-                    alt={proof.alt}
-                    loading="lazy"
-                    className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                  />
-                  <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <span className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-3 p-4 text-left text-xs text-foreground/90 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                    {proof.alt}
-                  </span>
-                </button>
-              </AnimateOnView>
-            ))}
-          </div>
+        {/* Desktop : grille alignée */}
+        <StaggerContainer className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-5">
+          {proofs.map((proof, index) => (
+            <AnimateOnView key={proof.src} delay={(index % 3) * 0.1}>
+              <button
+                type="button"
+                onClick={() => setActive(proof)}
+                aria-label={`Agrandir : ${proof.alt}`}
+                className="group relative block aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border/60 bg-card/50 shadow-sm transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-[0_20px_50px_-20px_rgb(var(--primary)/0.6)]"
+              >
+                <img
+                  src={proof.src}
+                  alt={proof.alt}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                />
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <span className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-3 p-4 text-left text-xs text-foreground/90 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                  {proof.alt}
+                </span>
+              </button>
+            </AnimateOnView>
+          ))}
         </StaggerContainer>
 
       </Container>
