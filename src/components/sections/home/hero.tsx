@@ -17,7 +17,7 @@ const Hero = () => {
 
             <AnimateOnView blur delay={0.2}>
               <p className="text-body-md max-w-2xl mx-auto mb-8 text-muted-foreground">
-                J'ai fait plus de 30 000€ en 3 mois et demi en vendant des produits digitaux sur TikTok,
+                J'ai généré +35k€ en 6 mois en vendant des produits digitaux sur TikTok,
                 sans jamais montrer mon visage. Voici la méthode complète.
               </p>
             </AnimateOnView>
