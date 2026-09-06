@@ -41,6 +41,7 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
       onButtonClick,
       isHighlighted = false,
       backgroundImage,
+      featuresFooter,
       ...props
     },
     ref
