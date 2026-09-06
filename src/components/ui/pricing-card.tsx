@@ -23,6 +23,7 @@ interface PricingCardProps {
   onButtonClick?: () => void;
   isHighlighted?: boolean;
   backgroundImage?: string;
+  featuresFooter?: React.ReactNode;
 }
 
 const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
