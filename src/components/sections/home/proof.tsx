@@ -5,7 +5,6 @@ import { AnimateOnView } from '@/components/ui/motion/animate-on-view';
 import { StaggerContainer } from '@/components/ui/motion/stagger';
 import img1 from '@/assets/proof/image1.jpg.asset.json';
 import img2 from '@/assets/proof/image2.jpg.asset.json';
-import img3 from '@/assets/proof/image3.jpg.asset.json';
 import img4 from '@/assets/proof/image4.jpg.asset.json';
 import img5 from '@/assets/proof/image5.jpg.asset.json';
 import img8 from '@/assets/proof/albert-evan-result.png.asset.json';
@@ -19,7 +18,6 @@ import imgF from '@/assets/proof/image5_2.png.asset.json';
 const proofs = [
   { src: img8.url, alt: "Résultat d'un élève : 1 000 € générés en une semaine" },
   { src: imgC.url, alt: "Élève à 2 000 € en une semaine (2 043 $ de payouts)" },
-  { src: img3.url, alt: "Résultat après un mois : plus de 2 500 $ de ventes" },
   { src: imgA.url, alt: 'Première vente à 97 € reçue sur PayPal' },
   { src: img2.url, alt: 'Chiffres sur deux semaines : 140 € puis 350 €' },
   { src: imgB.url, alt: "510 $ de revenus au bout d'une semaine" },
