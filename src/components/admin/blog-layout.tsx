@@ -2,6 +2,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { cn } from "@/lib/utils";
 import {
     ArrowLeft,
+    BarChart3,
     FileText,
     LayoutDashboard,
     PenSquare,
@@ -17,6 +18,7 @@ interface BlogLayoutProps {
 const sidebarItems = [
   { icon: LayoutDashboard, label: "All Posts", href: "/dashboard/blog" },
   { icon: PenSquare, label: "Create Post", href: "/dashboard/blog/new" },
+  { icon: BarChart3, label: "Paniers & conversions", href: "/dashboard/analytics" },
   { icon: User, label: "Profile", href: "/dashboard/profile" },
 ];
 

@@ -1,4 +1,5 @@
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+import { createClient } from "npm:@supabase/supabase-js@2";
 import { type StripeEnv, createStripeClient } from "../_shared/stripe.ts";
 import { PLANS, isPlanId } from "../_shared/plans.ts";
 
@@ -7,6 +8,17 @@ const json = (body: unknown, status = 200) =>
     status,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
+
+let _supabase: ReturnType<typeof createClient> | null = null;
+function getSupabase() {
+  if (!_supabase) {
+    _supabase = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+    );
+  }
+  return _supabase;
+}
 
 async function resolveOrCreateCustomer(
   stripe: ReturnType<typeof createStripeClient>,
@@ -42,6 +54,20 @@ async function resolveOrCreateCustomer(
     return created.id;
   }
   return undefined;
+}
+
+// Enregistre la tentative de paiement pour pouvoir mesurer les abandons.
+// Ne doit jamais faire échouer le checkout : en cas d'erreur on se contente de
+// logger, le client doit pouvoir payer même si le suivi tombe en panne.
+async function recordCheckoutAttempt(row: Record<string, unknown>) {
+  try {
+    const { error } = await getSupabase()
+      .from("checkout_sessions")
+      .upsert(row, { onConflict: "stripe_session_id" });
+    if (error) console.error("recordCheckoutAttempt failed:", error.message);
+  } catch (err) {
+    console.error("recordCheckoutAttempt threw:", err);
+  }
 }
 
 async function createCheckoutSession(options: {
@@ -85,7 +111,7 @@ async function createCheckoutSession(options: {
     ...(planId && { planId }),
   };
 
-  const session = await stripe.checkout.sessions.create({
+  const params = {
     line_items: [{ price: stripePrice.id, quantity: options.quantity || 1 }],
     mode: isRecurring ? "subscription" : "payment",
     ui_mode: "embedded_page",
@@ -95,6 +121,37 @@ async function createCheckoutSession(options: {
     ...(!isRecurring && { payment_intent_data: { description: productName } }),
     ...(isRecurring && { subscription_data: { metadata } }),
     metadata,
+  } as Record<string, unknown>;
+
+  // Demande à Stripe de générer un lien de reprise du panier à l'expiration de
+  // la session. Toutes les configurations de Checkout ne l'acceptent pas ; si
+  // Stripe refuse, on recrée la session sans cette option plutôt que de bloquer
+  // le paiement.
+  let session;
+  try {
+    session = await stripe.checkout.sessions.create({
+      ...params,
+      after_expiration: { recovery: { enabled: true, allow_promotion_codes: false } },
+    } as never);
+  } catch (err) {
+    console.warn(
+      "after_expiration.recovery refusé par Stripe, session créée sans lien de reprise:",
+      err instanceof Error ? err.message : err,
+    );
+    session = await stripe.checkout.sessions.create(params as never);
+  }
+
+  await recordCheckoutAttempt({
+    stripe_session_id: session.id,
+    stripe_customer_id: customerId ?? null,
+    environment: options.environment,
+    user_id: options.userId || null,
+    email: options.customerEmail ?? null,
+    plan: planId ?? null,
+    amount: planId ? parseFloat(PLANS[planId].amount) : null,
+    currency: (stripePrice.currency ?? "eur").toUpperCase(),
+    status: "started",
+    started_at: new Date().toISOString(),
   });
 
   return session.client_secret;

@@ -9,6 +9,7 @@ import About from "./pages/about";
 import Blog from "./pages/blog";
 import BlogPost from "./pages/blog/[slug]";
 import Contact from "./pages/contact";
+import Analytics from "./pages/dashboard/analytics";
 import BlogDashboard from "./pages/dashboard/blog";
 import BlogEditor from "./pages/dashboard/blog/editor";
 import ProfilePage from "./pages/dashboard/profile";
@@ -56,6 +57,7 @@ const App = () => (
               <Route path="/merci" element={<MerciPage />} />
               <Route path="/gerer-abonnement" element={<GererAbonnementPage />} />
               <Route path="/dashboard/profile" element={<ProfilePage />} />
+              <Route path="/dashboard/analytics" element={<Analytics />} />
               <Route path="/dashboard/blog" element={<BlogDashboard />} />
               <Route path="/dashboard/blog/new" element={<BlogEditor />} />
               <Route path="/dashboard/blog/edit/:id" element={<BlogEditor />} />

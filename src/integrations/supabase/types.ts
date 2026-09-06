@@ -56,6 +56,69 @@ export type Database = {
         }
         Relationships: []
       }
+      checkout_sessions: {
+        Row: {
+          abandoned_at: string | null
+          amount: number | null
+          created_at: string
+          currency: string
+          email: string | null
+          environment: string
+          full_name: string | null
+          id: string
+          paid_at: string | null
+          plan: string | null
+          recovery_email_sent_at: string | null
+          recovery_url: string | null
+          started_at: string
+          status: string
+          stripe_customer_id: string | null
+          stripe_session_id: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          abandoned_at?: string | null
+          amount?: number | null
+          created_at?: string
+          currency?: string
+          email?: string | null
+          environment?: string
+          full_name?: string | null
+          id?: string
+          paid_at?: string | null
+          plan?: string | null
+          recovery_email_sent_at?: string | null
+          recovery_url?: string | null
+          started_at?: string
+          status?: string
+          stripe_customer_id?: string | null
+          stripe_session_id: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          abandoned_at?: string | null
+          amount?: number | null
+          created_at?: string
+          currency?: string
+          email?: string | null
+          environment?: string
+          full_name?: string | null
+          id?: string
+          paid_at?: string | null
+          plan?: string | null
+          recovery_email_sent_at?: string | null
+          recovery_url?: string | null
+          started_at?: string
+          status?: string
+          stripe_customer_id?: string | null
+          stripe_session_id?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       orders: {
         Row: {
           access_token: string
