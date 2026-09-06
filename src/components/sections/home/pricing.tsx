@@ -80,10 +80,10 @@ const Pricing = () => {
               />
             </AnimateOnView>
 
-            <AnimateOnView className="text-center pt-4">
-              <p className="text-sm text-muted-foreground">
+            <AnimateOnView className="flex justify-center pt-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary shadow-sm">
                 🛡️ Garantie satisfait ou remboursé sous 60 jours
-              </p>
+              </div>
             </AnimateOnView>
           </div>
         </StaggerContainer>

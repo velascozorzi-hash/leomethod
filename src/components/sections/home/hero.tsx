@@ -29,9 +29,9 @@ const Hero = () => {
             </AnimateOnView>
 
             <AnimateOnView delay={0.4}>
-              <p className="text-sm text-muted-foreground/80 mt-3">
+              <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary shadow-sm">
                 🛡️ Satisfait ou remboursé sous 60 jours
-              </p>
+              </div>
             </AnimateOnView>
 
           </StaggerContainer>
