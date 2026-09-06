@@ -79,6 +79,12 @@ const Pricing = () => {
                 backgroundImage={plan.backgroundImage}
               />
             </AnimateOnView>
+
+            <AnimateOnView className="text-center pt-4">
+              <p className="text-sm text-muted-foreground">
+                🛡️ Garantie satisfait ou remboursé sous 60 jours
+              </p>
+            </AnimateOnView>
           </div>
         </StaggerContainer>
       </Container>
