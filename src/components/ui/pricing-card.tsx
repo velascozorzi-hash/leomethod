@@ -23,6 +23,7 @@ interface PricingCardProps {
   onButtonClick?: () => void;
   isHighlighted?: boolean;
   backgroundImage?: string;
+  featuresFooter?: React.ReactNode;
 }
 
 const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
@@ -40,6 +41,7 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
       onButtonClick,
       isHighlighted = false,
       backgroundImage,
+      featuresFooter,
       ...props
     },
     ref
@@ -131,6 +133,11 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
                   </li>
                 ))}
               </ul>
+              {featuresFooter && (
+                <p className="mt-5 text-base font-medium leading-snug text-foreground">
+                  {featuresFooter}
+                </p>
+              )}
             </div>
           </CardContent>
           <CardFooter>

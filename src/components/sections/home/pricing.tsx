@@ -21,10 +21,12 @@ const plan = {
     "Tous mes scripts Claude : ceux que j'ai utilisés pour lancer mes premières ventes, et ceux pour automatiser et scaler",
     "Les prompts d'automatisation pour produire tes vidéos en quelques minutes",
     "Les templates de pages de vente, de bio TikTok et de séquences e-mail",
+    "Mon accompagnement personnel pour ne jamais rester bloqué",
     "Les nouveaux modules et mises à jour ajoutés chaque mois, inclus",
     "Accès à la communauté privée des élèves",
     "Accès à vie : aucun abonnement, aucun frais caché",
   ],
+  featuresFooter: "Un seul accès, tout le système, et de nouvelles ressources chaque mois.",
   buttonText: "Rejoindre la formation",
   buttonLink: "/signup",
   backgroundImage: "/images/pricing/pricing-bg.webp",
@@ -67,6 +69,7 @@ const Pricing = () => {
                 discount="-67% de lancement"
                 pricePeriod={<span className="text-xs text-muted-foreground/80">/ paiement unique · accès à vie </span>}
                 features={plan.features}
+                featuresFooter={plan.featuresFooter}
                 buttonText={plan.buttonText}
                 buttonLink={plan.buttonLink}
                 onButtonClick={() =>
