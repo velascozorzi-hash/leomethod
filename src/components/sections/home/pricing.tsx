@@ -69,6 +69,7 @@ const Pricing = () => {
                 discount="-67% de lancement"
                 pricePeriod={<span className="text-xs text-muted-foreground/80">/ paiement unique · accès à vie </span>}
                 features={plan.features}
+                featuresFooter={plan.featuresFooter}
                 buttonText={plan.buttonText}
                 buttonLink={plan.buttonLink}
                 onButtonClick={() =>
