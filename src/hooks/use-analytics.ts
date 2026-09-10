@@ -6,6 +6,45 @@ export type EnvironmentFilter = "all" | "live" | "sandbox";
 /** Statut réel d'une tentative, une fois l'ancienneté prise en compte. */
 export type ResolvedStatus = "paid" | "abandoned" | "presumed_abandoned" | "in_progress";
 
+/**
+ * Rangée de la table `checkout_sessions`. Cette table n'est pas encore couverte
+ * par les types Supabase générés (`src/integrations/supabase/types.ts`), on la
+ * déclare donc localement pour conserver la sûreté de typage côté hook.
+ */
+type CheckoutSessionRow = {
+  id: string;
+  stripe_session_id: string;
+  environment: string;
+  email: string | null;
+  full_name: string | null;
+  plan: string | null;
+  amount: number | null;
+  currency: string;
+  status: string;
+  recovery_url: string | null;
+  started_at: string;
+  paid_at: string | null;
+  abandoned_at: string | null;
+};
+
+type SessionsListResult = { data: CheckoutSessionRow[] | null; error: unknown };
+type SessionsSingleResult = { data: CheckoutSessionRow | null; error: unknown };
+
+type SessionsQuery = SessionsBuilder & PromiseLike<SessionsListResult>;
+
+type SessionsBuilder = {
+  select: (columns?: string) => SessionsQuery;
+  gte: (column: string, value: string) => SessionsQuery;
+  eq: (column: string, value: string) => SessionsQuery;
+  order: (column: string, options?: { ascending?: boolean }) => SessionsQuery;
+  limit: (count: number) => { maybeSingle: () => PromiseLike<SessionsSingleResult> };
+};
+
+const sessionsTable = (): SessionsBuilder =>
+  (supabase as unknown as { from: (table: "checkout_sessions") => SessionsBuilder }).from(
+    "checkout_sessions"
+  );
+
 export interface CheckoutAttempt {
   id: string;
   stripe_session_id: string;
@@ -81,29 +120,27 @@ export function useCheckoutAnalytics(days: number, environment: EnvironmentFilte
     queryFn: async () => {
       const since = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
 
-      let query = supabase
-        .from("checkout_sessions")
+      let query = sessionsTable()
         .select("*")
         .gte("started_at", since)
         .order("started_at", { ascending: false });
 
       if (environment !== "all") query = query.eq("environment", environment);
 
-      const [{ data, error }, oldest] = await Promise.all([
-        query,
-        supabase
-          .from("checkout_sessions")
-          .select("started_at")
-          .order("started_at", { ascending: true })
-          .limit(1)
-          .maybeSingle(),
-      ]);
+      const recent = await query;
+      const oldest = await sessionsTable()
+        .select("started_at")
+        .order("started_at", { ascending: true })
+        .limit(1)
+        .maybeSingle();
+
+      const { data, error } = recent;
 
       if (error) throw error;
 
       const attempts: CheckoutAttempt[] = (data ?? []).map((row) => ({
-        ...(row as unknown as Omit<CheckoutAttempt, "resolvedStatus">),
-        resolvedStatus: resolveStatus(row as { status: string; started_at: string }),
+        ...row,
+        resolvedStatus: resolveStatus(row),
       }));
 
       const abandoned = attempts.filter((a) => isAbandoned(a.resolvedStatus));
