@@ -121,18 +121,18 @@ export function useCheckoutAnalytics(days: number, environment: EnvironmentFilte
     queryFn: async () => {
       const since = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
 
-      let query = supabase
-        .from("checkout_sessions")
+      let query = sessionsTable()
         .select("*")
         .gte("started_at", since)
         .order("started_at", { ascending: false });
 
       if (environment !== "all") query = query.eq("environment", environment);
 
-      const [{ data, error }, oldest] = await Promise.all([
+      const [{ data, error }, oldest] = await Promise.all<
+        [SessionsListResult, SessionsSingleResult]
+      >([
         query,
-        supabase
-          .from("checkout_sessions")
+        sessionsTable()
           .select("started_at")
           .order("started_at", { ascending: true })
           .limit(1)
@@ -142,8 +142,8 @@ export function useCheckoutAnalytics(days: number, environment: EnvironmentFilte
       if (error) throw error;
 
       const attempts: CheckoutAttempt[] = (data ?? []).map((row) => ({
-        ...(row as unknown as Omit<CheckoutAttempt, "resolvedStatus">),
-        resolvedStatus: resolveStatus(row as { status: string; started_at: string }),
+        ...row,
+        resolvedStatus: resolveStatus(row),
       }));
 
       const abandoned = attempts.filter((a) => isAbandoned(a.resolvedStatus));
