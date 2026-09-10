@@ -6,6 +6,46 @@ export type EnvironmentFilter = "all" | "live" | "sandbox";
 /** Statut réel d'une tentative, une fois l'ancienneté prise en compte. */
 export type ResolvedStatus = "paid" | "abandoned" | "presumed_abandoned" | "in_progress";
 
+/**
+ * Rangée de la table `checkout_sessions`. Cette table n'est pas encore couverte
+ * par les types Supabase générés (`src/integrations/supabase/types.ts`), on la
+ * déclare donc localement pour conserver la sûreté de typage côté hook.
+ */
+type CheckoutSessionRow = {
+  id: string;
+  stripe_session_id: string;
+  environment: string;
+  email: string | null;
+  full_name: string | null;
+  plan: string | null;
+  amount: number | null;
+  currency: string;
+  status: string;
+  recovery_url: string | null;
+  started_at: string;
+  paid_at: string | null;
+  abandoned_at: string | null;
+};
+
+type SessionsListResult = { data: CheckoutSessionRow[] | null; error: unknown };
+type SessionsSingleResult = { data: CheckoutSessionRow | null; error: unknown };
+
+type SessionsBuilder = {
+  select: (columns?: string) => SessionsBuilder & PromiseLike<SessionsListResult>;
+  gte: (column: string, value: string) => SessionsBuilder;
+  eq: (column: string, value: string) => SessionsBuilder;
+  order: (
+    column: string,
+    options?: { ascending?: boolean }
+  ) => SessionsBuilder & PromiseLike<SessionsListResult>;
+  limit: (count: number) => { maybeSingle: () => PromiseLike<SessionsSingleResult> };
+};
+
+const sessionsTable = () =>
+  (supabase as unknown as { from: (table: "checkout_sessions") => SessionsBuilder }).from(
+    "checkout_sessions"
+  );
+
 export interface CheckoutAttempt {
   id: string;
   stripe_session_id: string;
