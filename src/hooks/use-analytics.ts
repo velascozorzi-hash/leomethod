@@ -127,16 +127,14 @@ export function useCheckoutAnalytics(days: number, environment: EnvironmentFilte
 
       if (environment !== "all") query = query.eq("environment", environment);
 
-      const [{ data, error }, oldest] = await Promise.all<
-        [SessionsListResult, SessionsSingleResult]
-      >([
-        query,
-        sessionsTable()
-          .select("started_at")
-          .order("started_at", { ascending: true })
-          .limit(1)
-          .maybeSingle(),
-      ]);
+      const recent = await query;
+      const oldest = await sessionsTable()
+        .select("started_at")
+        .order("started_at", { ascending: true })
+        .limit(1)
+        .maybeSingle();
+
+      const { data, error } = recent;
 
       if (error) throw error;
 
