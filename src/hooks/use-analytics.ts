@@ -30,18 +30,17 @@ type CheckoutSessionRow = {
 type SessionsListResult = { data: CheckoutSessionRow[] | null; error: unknown };
 type SessionsSingleResult = { data: CheckoutSessionRow | null; error: unknown };
 
+type SessionsQuery = SessionsBuilder & PromiseLike<SessionsListResult>;
+
 type SessionsBuilder = {
-  select: (columns?: string) => SessionsBuilder & PromiseLike<SessionsListResult>;
-  gte: (column: string, value: string) => SessionsBuilder;
-  eq: (column: string, value: string) => SessionsBuilder;
-  order: (
-    column: string,
-    options?: { ascending?: boolean }
-  ) => SessionsBuilder & PromiseLike<SessionsListResult>;
+  select: (columns?: string) => SessionsQuery;
+  gte: (column: string, value: string) => SessionsQuery;
+  eq: (column: string, value: string) => SessionsQuery;
+  order: (column: string, options?: { ascending?: boolean }) => SessionsQuery;
   limit: (count: number) => { maybeSingle: () => PromiseLike<SessionsSingleResult> };
 };
 
-const sessionsTable = () =>
+const sessionsTable = (): SessionsBuilder =>
   (supabase as unknown as { from: (table: "checkout_sessions") => SessionsBuilder }).from(
     "checkout_sessions"
   );
