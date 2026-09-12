@@ -9,11 +9,6 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           <StaggerContainer>
 
-            <AnimateOnView blur>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary shadow-sm">
-                ⏳ Offre à 97 € — ça finit ce soir à minuit
-              </div>
-            </AnimateOnView>
 
             <AnimateOnView blur delay={0.1}>
               <h1 className="h1 text-foreground mb-4">
