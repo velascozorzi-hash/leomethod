@@ -4,7 +4,6 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { AnimateOnView } from '@/components/ui/motion/animate-on-view';
 import { StaggerContainer } from '@/components/ui/motion/stagger';
 import img1 from '@/assets/proof/image1.jpg.asset.json';
-import img2 from '@/assets/proof/image2.jpg.asset.json';
 import img4 from '@/assets/proof/image4.jpg.asset.json';
 import img5 from '@/assets/proof/image5.jpg.asset.json';
 import img8 from '@/assets/proof/albert-evan-result.png.asset.json';
@@ -13,18 +12,15 @@ import imgB from '@/assets/proof/image1_3.png.asset.json';
 import imgC from '@/assets/proof/image2_1.jpeg.asset.json';
 import imgD from '@/assets/proof/image3_1.jpeg.asset.json';
 import imgE from '@/assets/proof/image4_2.png.asset.json';
-import imgF from '@/assets/proof/image5_2.png.asset.json';
 
 const proofs = [
   { src: img8.url, alt: "Résultat d'un élève : 1 000 € générés en une semaine" },
   { src: imgC.url, alt: "Élève à 2 000 € en une semaine (2 043 $ de payouts)" },
   { src: imgA.url, alt: 'Première vente à 97 € reçue sur PayPal' },
-  { src: img2.url, alt: 'Chiffres sur deux semaines : 140 € puis 350 €' },
   { src: imgB.url, alt: "510 $ de revenus au bout d'une semaine" },
   { src: img1.url, alt: 'Journée à 700 € de volume brut' },
   { src: imgE.url, alt: '6 ventes en une semaine et demie : 674 $ de payouts' },
   { src: img5.url, alt: 'Élève ayant dépassé la barre des 2 000 $' },
-  { src: imgF.url, alt: '5e vente : 407 $ de revenus et 11,4 % de conversion' },
   { src: img4.url, alt: 'Élève ayant dépassé la barre des 3 000 €' },
   { src: imgD.url, alt: "Première vente dès l'arrivée : 102 $ de revenus" },
 ];
