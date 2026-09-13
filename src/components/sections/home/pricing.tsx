@@ -88,6 +88,12 @@ const Pricing = () => {
                 🛡️ Garantie satisfait ou remboursé sous 60 jours
               </div>
             </AnimateOnView>
+
+            <AnimateOnView className="flex justify-center pt-3">
+              <p className="text-xs text-muted-foreground">
+                ou payer en 3× sans frais avec Klarna — 3× 32,33 €
+              </p>
+            </AnimateOnView>
           </div>
         </StaggerContainer>
       </Container>
