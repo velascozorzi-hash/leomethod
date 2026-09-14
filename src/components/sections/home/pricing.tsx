@@ -7,7 +7,7 @@ import { PricingCard } from "../../ui/pricing-card";
 
 const plan = {
   planId: "formation" as const,
-  title: "Formation complète",
+  title: "Accompagnement complet",
   description:
     "Tout le système avatar IA pour créer, publier et vendre ton produit digital sur TikTok, sans jamais montrer ton visage. Accès complet dès l'inscription.",
   price: "97 €",
@@ -27,7 +27,7 @@ const plan = {
     "Accès à vie : aucun abonnement, aucun frais caché",
   ],
   featuresFooter: "Un seul accès, tout le système, et de nouvelles ressources chaque mois.",
-  buttonText: "Rejoindre la formation",
+  buttonText: "Rejoindre l'accompagnement",
   buttonLink: "/signup",
   backgroundImage: "/images/pricing/pricing-bg.webp",
 };
@@ -49,7 +49,7 @@ const Pricing = () => {
       <Container className="space-y-8 md:space-y-16">
         <StaggerContainer className="text-center">
           <AnimateOnView blur>
-            <h2 className="h2 mb-5">Rejoins la formation</h2>
+            <h2 className="h2 mb-5">Rejoins l'accompagnement</h2>
           </AnimateOnView>
           <AnimateOnView blur delay={0.2}>
             <p className="text-muted-foreground">
@@ -89,11 +89,9 @@ const Pricing = () => {
               </div>
             </AnimateOnView>
 
-            <AnimateOnView className="flex justify-center pt-3">
-              <p className="text-xs text-muted-foreground">
-                ou payer en 3× sans frais avec Klarna — 3× 32,33 €
-              </p>
-            </AnimateOnView>
+            <AnimateOnView className="flex justify-center pt-4">
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-border/60 bg-card/60 px-4 py-2 text-sm text-muted-foreground shadow-sm">
+                <span className="rounded-md bg-[#FFC2} ] ... 
           </div>
         </StaggerContainer>
       </Container>
