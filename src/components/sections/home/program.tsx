@@ -172,7 +172,7 @@ const Program = () => {
       <Container className="space-y-10 md:space-y-16">
         <StaggerContainer className="text-center max-w-2xl mx-auto">
           <AnimateOnView blur>
-            <h2 className="h2 md:mb-5 mb-3">Le contenu détaillé de la formation</h2>
+            <h2 className="h2 md:mb-5 mb-3">Le contenu détaillé de l'accompagnement</h2>
           </AnimateOnView>
           <AnimateOnView blur delay={0.2}>
             <p className="text-muted-foreground">

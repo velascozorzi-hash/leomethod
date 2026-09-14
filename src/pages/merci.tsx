@@ -8,7 +8,7 @@ const MerciPage = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Merci pour ta commande | Formation IA</title>
+        <title>Merci pour ta commande | Accompagnement IA</title>
         <meta name="description" content="Confirmation de ta commande et accès à la formation." />
       </Helmet>
       <section className="py-24 md:py-32">

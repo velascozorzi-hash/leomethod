@@ -66,10 +66,10 @@ const GererAbonnementPage = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Gérer mon abonnement | Formation IA</title>
+        <title>Gérer mon abonnement | Accompagnement IA</title>
         <meta
           name="description"
-          content="Résilie ton abonnement à la formation en entrant simplement ton adresse e-mail."
+          content="Résilie ton abonnement à l'accompagnement en entrant simplement ton adresse e-mail."
         />
       </Helmet>
       <section className="py-24 md:py-32">
