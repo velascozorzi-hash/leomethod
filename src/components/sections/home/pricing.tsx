@@ -95,6 +95,7 @@ const Pricing = () => {
                 ou payer en 3× sans frais — 3× 32,33 €
               </div>
             </AnimateOnView>
+          </div>
         </StaggerContainer>
       </Container>
       <div ref={checkoutRef}>{checkoutElement}</div>
