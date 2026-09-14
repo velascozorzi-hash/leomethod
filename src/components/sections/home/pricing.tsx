@@ -91,8 +91,10 @@ const Pricing = () => {
 
             <AnimateOnView className="flex justify-center pt-4">
               <div className="inline-flex items-center gap-2.5 rounded-full border border-border/60 bg-card/60 px-4 py-2 text-sm text-muted-foreground shadow-sm">
-                <span className="rounded-md bg-[#FFC2} ] ... 
-          </div>
+                <span className="rounded-md bg-[#FFC2]/15 px-2 py-0.5 font-semibold text-[#FF6A00]">Klarna</span>
+                ou payer en 3× sans frais — 3× 32,33 €
+              </div>
+            </AnimateOnView>
         </StaggerContainer>
       </Container>
       <div ref={checkoutRef}>{checkoutElement}</div>
