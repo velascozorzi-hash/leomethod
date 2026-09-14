@@ -18,14 +18,14 @@ const Hero = () => {
 
             <AnimateOnView blur delay={0.2}>
               <p className="text-body-md max-w-2xl mx-auto mb-8 text-muted-foreground">
-                J'ai généré +35k€ en 6 mois en vendant des produits digitaux sur TikTok,
+                J'ai généré +40 000€ en 6 mois en vendant des produits digitaux sur TikTok,
                 sans jamais montrer mon visage. Voici la méthode complète.
               </p>
             </AnimateOnView>
 
             <AnimateOnView delay={0.3} className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg">
-                <a href="#offre">Rejoindre la formation</a>
+                <a href="#offre">Rejoindre l'accompagnement</a>
               </Button>
             </AnimateOnView>
 

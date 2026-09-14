@@ -7,7 +7,7 @@ import { Minus, Plus } from "lucide-react";
 
 const faqs = [
   {
-    question: "À qui s'adresse cette formation ?",
+    question: "À qui s'adresse cet accompagnement ?",
     answer: "À toute personne qui veut créer un revenu en ligne avec l'IA, même en partant de zéro : pas besoin d'audience, de compétence technique ni de montrer son visage.",
   },
   {
@@ -20,7 +20,11 @@ const faqs = [
   },
   {
     question: "Est-ce que j'ai un accès à vie ?",
-    answer: "Oui. Tu gardes l'accès à la formation et à toutes ses mises à jour futures, sans abonnement ni frais cachés.",
+    answer: "Oui. Tu gardes l'accès à l'accompagnement et à toutes ses mises à jour futures, sans abonnement ni frais cachés.",
+  },
+  {
+    question: "Comment se passe l'accompagnement ?",
+    answer: "Je réponds personnellement à toutes tes questions et je reste disponible dès que tu es bloqué quelque part. Tu n'es jamais seul à avancer.",
   }
 ];
 
@@ -45,7 +49,7 @@ const FAQ = () => {
           <div className="max-w-[500px] w-full">
             <AnimateOnView once y={40}>
               <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
-                {faqs.slice(0, 4).map((faq, index) => (
+                {faqs.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`} className="border-b border-border/40 px-0">
                     <AccordionTrigger className="text-left py-6 hover:no-underline [&>svg]:hidden">
                       <span className="h4 pr-8">{faq.question}</span>

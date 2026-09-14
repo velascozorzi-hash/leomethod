@@ -22,7 +22,7 @@ const testimonials: Testimonial[] = [
     {
         id: 2,
         title: "Simple et clair",
-        quote: "Formation carrée, rien de superflu. Les prompts Claude m'ont fait gagner un temps fou : mon avatar et mes premiers scripts étaient prêts en deux soirs.",
+        quote: "Accompagnement carré, rien de superflu. Les prompts Claude m'ont fait gagner un temps fou : mon avatar et mes premiers scripts étaient prêts en deux soirs.",
         author: "Sarah B.",
         context: "22 ans, Nantes",
     },
@@ -44,7 +44,7 @@ const testimonials: Testimonial[] = [
     {
         id: 5,
         title: "Rentabilisée en 3 semaines",
-        quote: "J'ai récupéré le prix de la formation en trois semaines. Rien à dire.",
+        quote: "J'ai récupéré le prix de l'accompagnement en trois semaines. Rien à dire.",
         author: "Camille D.",
         context: "25 ans, Rennes",
     },
@@ -65,7 +65,7 @@ const testimonials: Testimonial[] = [
     {
         id: 8,
         title: "Enfin du concret",
-        quote: "J'avais déjà acheté deux formations vagues. Là c'est du pas-à-pas avec les prompts prêts à copier-coller, tu ouvres Claude et tu fais.",
+        quote: "J'avais déjà acheté deux programmes vagues avant. Là c'est du pas-à-pas avec les prompts prêts à copier-coller, tu ouvres Claude et tu fais.",
         author: "Théo R.",
         context: "27 ans, Paris",
     },

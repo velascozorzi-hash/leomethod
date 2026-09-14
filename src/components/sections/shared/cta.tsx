@@ -18,14 +18,14 @@ const CTA = () => {
                     </AnimateOnView>
                     <AnimateOnView blur delay={0.2}>
                         <p className='text-muted-foreground md:mb-10 mb-5'>
-                            Rejoins la formation et applique exactement le système qui m'a permis de générer
+                            Rejoins l'accompagnement et applique exactement le système qui m'a permis de générer
                             +30 000€ en 3 mois et demi avec l'IA.
                         </p>
                     </AnimateOnView>
                     <AnimateOnView>
                         <Button asChild size="lg">
                             <a href="#offre">
-                                Rejoindre la formation
+                                Rejoindre l'accompagnement
                             </a>
                         </Button>
                     </AnimateOnView>
