@@ -3,9 +3,8 @@ import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
 import { motion } from 'framer-motion'
 
-/* [X] = placeholders à remplir */
-const TOTAL_SPOTS = '[X]'
-const TAKEN_SPOTS = '[X]'
+const TOTAL_SPOTS = '20'
+const TAKEN_SPOTS = '11'
 
 const Spots = () => {
   return (
