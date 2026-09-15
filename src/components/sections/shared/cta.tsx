@@ -11,23 +11,17 @@ const CTA = () => {
 
             <Container className="relative z-10">
                 <StaggerContainer className="text-center max-w-[640px] mx-auto">
-                    <AnimateOnView blur>
-                        <h2 className="h2 md:mb-5 mb-3">
-                            Lance ton produit digital dès cette semaine
-                        </h2>
-                    </AnimateOnView>
-                    <AnimateOnView blur delay={0.2}>
-                        <p className='text-muted-foreground md:mb-10 mb-5'>
-                            Rejoins l'accompagnement et applique exactement le système qui m'a permis de générer
-                            +30 000€ en 3 mois et demi avec l'IA.
-                        </p>
-                    </AnimateOnView>
                     <AnimateOnView>
                         <Button asChild size="lg">
                             <a href="#offre">
-                                Rejoindre l'accompagnement
+                                Rejoindre l'accompagnement — 197€
                             </a>
                         </Button>
+                    </AnimateOnView>
+                    <AnimateOnView delay={0.2}>
+                        <p className="mt-6 text-sm md:text-base text-muted-foreground">
+                            Garantie 90 jours · Paiement en 3× disponible
+                        </p>
                     </AnimateOnView>
                 </StaggerContainer>
             </Container>

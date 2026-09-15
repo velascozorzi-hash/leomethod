@@ -2,10 +2,8 @@ import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
 import { StaggerContainer } from '@/components/ui/motion/stagger'
 import StepVisual, { type StepVisualKind } from '@/components/ui/step-visual'
 import Container from '../../container'
-import { Button } from '../../ui/button'
 import {
   FeatureCard,
-  FeatureCardAction,
   FeatureCardContent,
   FeatureCardDescription,
   FeatureCardTitle
@@ -14,25 +12,23 @@ import {
 const cards: { id: number; title: string; description: string; visual: StepVisualKind }[] = [
   {
     id: 1,
-    title: "Choisis ta niche, ton positionnement et ton offre",
-    description: "Identifie une niche qui a un vrai problème douloureux, place-toi avec un angle unique et transforme ce problème en offre claire : ebook, template ou mini-formation.",
+    title: "Trouver un produit qui se vend déjà",
+    description: "Tu n'inventes rien. Tu observes ce qui génère déjà de l'argent. Mais observer c'est pas scroller — il y a une grille de lecture. Sans elle, tu confonds ce qui a l'air de marcher avec ce qui marche vraiment.",
     visual: "niche",
   },
   {
     id: 2,
-    title: "Crée ton avatar IA et ton produit digital",
-    description: "Génère un avatar IA avec sa voix et son visage, qui parle à ta place, puis fabrique ton produit digital de A à Z avec les modèles prêts à l'emploi.",
+    title: "Créer le produit",
+    description: "Format, structure, valeur perçue. Le client juge en 3 secondes avant même d'ouvrir. Il y a un seuil de qualité en dessous duquel tu vends pas — la plupart le découvrent trop tard.",
     visual: "avatar",
   },
   {
     id: 3,
-    title: "Utilise les réseaux sans jamais montrer ta tête pour vendre en automatique",
-    description: "Publie chaque jour sur TikTok avec ton avatar IA, attire les bonnes personnes et laisse le tunnel encaisser et livrer ton produit à ta place, 24h/24.",
+    title: "Vendre avec un avatar",
+    description: "Personnage, voix, synchro, codes de la niche. Un mauvais réglage sur une seule variable et le spectateur scroll. Sans que tu saches pourquoi.",
     visual: "reseaux",
   }
 ]
-
-
 
 const Features = () => {
 
@@ -42,13 +38,8 @@ const Features = () => {
         <StaggerContainer className="text-center max-w-xl mx-auto">
           <AnimateOnView blur>
             <h2 className="h2 mb-6">
-              La méthode en 3 étapes
+              3 étapes. Mais chacune a ses règles.
             </h2>
-          </AnimateOnView>
-          <AnimateOnView blur delay={0.2}>
-            <p className='text-muted-foreground'>
-              Un chemin simple et reproductible : une niche, une offre, un avatar IA qui vend pour toi.
-            </p>
           </AnimateOnView>
         </StaggerContainer>
         <StaggerContainer
@@ -64,15 +55,11 @@ const Features = () => {
                 imagePosition="right"
               >
                 <FeatureCardContent>
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-primary/80 mb-3">
+                    Étape {index + 1}
+                  </p>
                   <FeatureCardTitle>{card.title}</FeatureCardTitle>
                   <FeatureCardDescription>{card.description}</FeatureCardDescription>
-                  <FeatureCardAction>
-                    <Button asChild>
-                      <a href="#offre">
-                        Je veux apprendre
-                      </a>
-                    </Button>
-                  </FeatureCardAction>
                 </FeatureCardContent>
                 <div className="w-full md:order-2 flex justify-center">
                   <StepVisual kind={card.visual} />
@@ -81,6 +68,22 @@ const Features = () => {
             </AnimateOnView>
           ))}
         </StaggerContainer>
+
+        {/* Bloc de conclusion — traitement visuel fort */}
+        <AnimateOnView blur className="relative z-20 max-w-[1062px] mx-auto">
+          <div className="relative overflow-hidden rounded-[30px] border border-primary/40 bg-card/80 backdrop-blur-sm p-8 md:p-14 text-center">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgb(var(--primary)/0.2),transparent_70%)]" />
+            <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-64 w-64 rounded-full bg-primary/25 blur-3xl animate-glow-pulse" />
+
+            <p className="relative h3">Chaque étape dépend de la précédente.</p>
+            <p className="relative mt-5 text-body-md text-muted-foreground max-w-xl mx-auto">
+              La niche décide l'avatar. L'avatar décide l'offre. L'offre décide le produit.
+            </p>
+            <p className="relative mt-6 inline-flex items-center rounded-full border border-primary/50 bg-primary/10 px-5 py-2.5 text-sm md:text-base font-semibold text-primary">
+              Change une seule chose → tout est à refaire.
+            </p>
+          </div>
+        </AnimateOnView>
       </Container>
     </section>
   )

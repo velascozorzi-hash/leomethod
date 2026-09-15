@@ -7,25 +7,33 @@ import { Minus, Plus } from "lucide-react";
 
 const faqs = [
   {
-    question: "À qui s'adresse cet accompagnement ?",
-    answer: "À toute personne qui veut créer un revenu en ligne avec l'IA, même en partant de zéro : pas besoin d'audience, de compétence technique ni de montrer son visage.",
+    question: "J'ai zéro expérience.",
+    answer: "Mes élèves partent de zéro. Les 9 modules reprennent tout depuis le début, et je valide chaque étape avec toi.",
   },
   {
-    question: "Combien de temps par jour dois-je y consacrer ?",
-    answer: "Une à deux heures par jour suffisent pour avancer sérieusement. Le plan d'action est découpé en étapes courtes que tu peux faire à ton rythme.",
+    question: "J'ai pas de budget.",
+    answer: "C'est justement l'intérêt du modèle : 0€ de pub, 0€ de stock, plateforme gratuite. Ton seul investissement c'est l'accompagnement et ton temps.",
   },
   {
-    question: "Faut-il un budget publicitaire ?",
-    answer: "Non. Toute la méthode repose sur du contenu organique sur TikTok, généré et optimisé avec l'IA. Zéro euro de pub nécessaire pour démarrer.",
+    question: "Les produits digitaux c'est saturé.",
+    answer: "Aucune niche globale n'est saturée. Des sous-niches le sont, d'autres s'ouvrent chaque mois. C'est exactement pour ça que je mets la liste à jour tous les mois.",
   },
   {
-    question: "Est-ce que j'ai un accès à vie ?",
-    answer: "Oui. Tu gardes l'accès à l'accompagnement et à toutes ses mises à jour futures, sans abonnement ni frais cachés.",
+    question: "Je peux pas le faire seul ?",
+    answer: "Techniquement oui. Tout ce que je t'explique existe quelque part. La question c'est combien de temps tu vas mettre à trier le vrai du faux — et si tu tiendras jusque-là. Moi j'ai perdu 6 500€ à essayer seul.",
+  },
+  {
+    question: "J'ai peur que ce soit encore une arnaque.",
+    answer: "Je comprends. C'est pour ça qu'il y a une garantie résultat de 90 jours. Si tu appliques et que t'as pas de résultats, je rembourse.",
+  },
+  {
+    question: "J'ai pas le temps, je bosse ou je suis en cours.",
+    answer: "Le modèle est fait pour ça. Pas de logistique, pas de SAV, pas de caméra. Quelques heures par semaine suffisent pour produire et publier.",
   },
   {
     question: "Comment se passe l'accompagnement ?",
-    answer: "Je réponds personnellement à toutes tes questions et je reste disponible dès que tu es bloqué quelque part. Tu n'es jamais seul à avancer.",
-  }
+    answer: "Tu m'as en direct. Je réponds sous 12h maximum. Pas de support générique, pas de community manager.",
+  },
 ];
 
 const FAQ = () => {

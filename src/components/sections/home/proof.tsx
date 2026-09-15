@@ -38,8 +38,7 @@ const Proof = () => {
           </AnimateOnView>
           <AnimateOnView blur delay={0.2}>
             <p className="text-muted-foreground">
-              Des captures brutes partagées par ceux qui appliquent la méthode : premières ventes,
-              premiers milliers d'euros, sans jamais montrer leur visage.
+              Des captures brutes partagées par ceux qui appliquent la méthode.
             </p>
           </AnimateOnView>
         </StaggerContainer>
