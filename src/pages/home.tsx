@@ -22,8 +22,8 @@ const Home = () => {
   return (
     <Layout>
       <SEO
-        title="Vends des produits digitaux sur TikTok sans montrer ton visage"
-        description="9 modules, ta niche et ton produit validés avec moi, accompagnement direct. Sans stock, sans pub, sans caméra."
+        title="Vends des produits digitaux sur TikTok sans jamais te montrer"
+        description="9 modules, ta niche et ton produit validés avec moi, un suivi en direct. Ni stock, ni publicité, ni caméra."
         canonicalUrl="/"
       />
 

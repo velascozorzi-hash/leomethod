@@ -6,12 +6,12 @@ import { useEffect, useRef } from "react";
 import Container from "../../container";
 
 const stack = [
-  { id: 1, label: "Les 9 modules complets (5h+ de vidéo)", price: "597€" },
-  { id: 2, label: "Les 4 validations (niche, sous-niche, produit, prix)", price: "397€" },
-  { id: 3, label: "Les niches les plus exploitables, mises à jour chaque mois", price: "297€" },
-  { id: 4, label: "Templates : produit, page de vente, bio TikTok", price: "197€" },
-  { id: 5, label: "Accès au groupe privé", price: "100€" },
-  { id: 6, label: "Accompagnement personnel avec moi", price: "62€" },
+  { id: 1, label: "Les 9 modules intégraux (plus de 5h de vidéo)", price: "597€" },
+  { id: 2, label: "Les 4 points de validation (niche, sous-niche, produit, tarif)", price: "397€" },
+  { id: 3, label: "La sélection des niches les plus exploitables, actualisée tous les mois", price: "297€" },
+  { id: 4, label: "Les modèles prêts à l'emploi : produit, page de vente, bio TikTok", price: "197€" },
+  { id: 5, label: "L'entrée dans le groupe privé", price: "100€" },
+  { id: 6, label: "Mon suivi personnel", price: "62€" },
 ];
 
 const PRICE_ID = "formation_onetime";
@@ -37,7 +37,7 @@ const Pricing = () => {
       <Container className="space-y-8 md:space-y-16">
         <StaggerContainer className="text-center">
           <AnimateOnView blur>
-            <h2 className="h2">Ce qui est inclus.</h2>
+            <h2 className="h2">Tout ce que tu reçois.</h2>
           </AnimateOnView>
         </StaggerContainer>
 
@@ -64,7 +64,7 @@ const Pricing = () => {
                 <div className="relative z-10 mt-6 border-t border-white/10 pt-6 space-y-3">
                   <div className="flex items-baseline justify-between gap-4">
                     <span className="text-sm md:text-body-md text-muted-foreground">
-                      Valeur totale
+                      Valeur cumulée
                     </span>
                     <span className="text-xl md:text-2xl text-muted-foreground line-through tabular-nums">
                       1 650€
@@ -72,7 +72,7 @@ const Pricing = () => {
                   </div>
                   <div className="flex items-baseline justify-between gap-4">
                     <span className="text-base md:text-body-lg font-medium text-foreground">
-                      Ton prix aujourd'hui
+                      Ce que tu payes aujourd'hui
                     </span>
                     <span className="h2 text-primary tabular-nums">197€</span>
                   </div>

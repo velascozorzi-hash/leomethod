@@ -15,6 +15,41 @@ import {
 const shell =
   "relative w-full max-w-[494px] aspect-square rounded-[24px] border border-border/60 bg-card/60 backdrop-blur-sm overflow-hidden p-6 flex flex-col justify-center gap-4";
 
+/**
+ * Enveloppe animée commune aux trois visuels :
+ * halo qui respire, balayage lumineux et liseré qui pulse.
+ */
+const VisualShell = ({ children }: { children: React.ReactNode }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.96 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true, margin: "-60px" }}
+    transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+    whileHover={{ scale: 1.015 }}
+    className={shell}
+  >
+    <motion.span
+      aria-hidden
+      animate={{ opacity: [0.25, 0.6, 0.25], scale: [1, 1.15, 1] }}
+      transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      className="pointer-events-none absolute -top-20 -right-16 h-56 w-56 rounded-full bg-primary/20 blur-3xl"
+    />
+    <motion.span
+      aria-hidden
+      animate={{ x: ["-120%", "220%"] }}
+      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", repeatDelay: 2 }}
+      className="pointer-events-none absolute inset-y-0 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-primary/10 to-transparent"
+    />
+    <motion.span
+      aria-hidden
+      animate={{ opacity: [0.2, 0.7, 0.2] }}
+      transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+      className="pointer-events-none absolute inset-0 rounded-[24px] ring-1 ring-inset ring-primary/30"
+    />
+    <div className="relative flex flex-1 flex-col justify-center gap-4">{children}</div>
+  </motion.div>
+);
+
 const float = (delay = 0) => ({
   animate: { y: [0, -8, 0] },
   transition: { duration: 4, repeat: Infinity, ease: "easeInOut" as const, delay },
@@ -22,7 +57,7 @@ const float = (delay = 0) => ({
 
 /* 1 — Choisis ta niche, ton positionnement, ton offre */
 const NicheVisual = () => (
-  <div className={shell}>
+  <VisualShell>
     <div className="flex items-center gap-2 text-sm text-muted-foreground">
       <Search className="w-4 h-4 text-primary" />
       Choix de ta niche
@@ -88,12 +123,12 @@ const NicheVisual = () => (
         ))}
       </div>
     </motion.div>
-  </div>
+  </VisualShell>
 );
 
 /* 2 — Crée ton avatar IA et ton produit digital */
 const AvatarVisual = () => (
-  <div className={shell}>
+  <VisualShell>
     <div className="flex items-center justify-center gap-4">
       <div className="relative w-[150px] h-[240px] shrink-0 rounded-[22px] border border-border/60 bg-background/70 overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-primary/25 to-transparent" />
@@ -151,12 +186,12 @@ const AvatarVisual = () => (
         </motion.span>
       ))}
     </div>
-  </div>
+  </VisualShell>
 );
 
 /* 3 — Utilise les réseaux sans jamais montrer ta tête, vends en automatique */
 const SocialVisual = () => (
-  <div className={shell}>
+  <VisualShell>
     <div className="flex items-start justify-center gap-3">
       {[
         { title: "3 erreurs qui bloquent ta perte de poids", likes: "12,4k", delay: 0 },
@@ -222,7 +257,7 @@ const SocialVisual = () => (
     >
       Jamais ton visage à l'écran
     </motion.div>
-  </div>
+  </VisualShell>
 );
 
 const visuals = {

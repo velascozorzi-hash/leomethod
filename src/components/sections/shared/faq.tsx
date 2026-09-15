@@ -7,32 +7,32 @@ import { Minus, Plus } from "lucide-react";
 
 const faqs = [
   {
-    question: "J'ai zéro expérience.",
-    answer: "Mes élèves partent de zéro. Les 9 modules reprennent tout depuis le début, et je valide chaque étape avec toi.",
+    question: "Je débute totalement.",
+    answer: "Mes élèves aussi partent de rien. Les 9 modules démarrent au niveau zéro, et je valide chaque étape avec toi.",
   },
   {
-    question: "J'ai pas de budget.",
-    answer: "C'est justement l'intérêt du modèle : 0€ de pub, 0€ de stock, plateforme gratuite. Ton seul investissement c'est l'accompagnement et ton temps.",
+    question: "Je n'ai aucun budget.",
+    answer: "C'est précisément l'avantage du modèle : aucune pub à financer, aucun stock, une plateforme gratuite. Tu investis dans l'accompagnement et dans ton temps, rien d'autre.",
   },
   {
-    question: "Les produits digitaux c'est saturé.",
-    answer: "Aucune niche globale n'est saturée. Des sous-niches le sont, d'autres s'ouvrent chaque mois. C'est exactement pour ça que je mets la liste à jour tous les mois.",
+    question: "Le marché du digital est saturé.",
+    answer: "Aucune niche globale n'est saturée. Certaines sous-niches le sont, d'autres apparaissent tous les mois. C'est exactement pour ça que j'actualise la liste chaque mois.",
   },
   {
-    question: "Je peux pas le faire seul ?",
-    answer: "Techniquement oui. Tout ce que je t'explique existe quelque part. La question c'est combien de temps tu vas mettre à trier le vrai du faux — et si tu tiendras jusque-là. Moi j'ai perdu 6 500€ à essayer seul.",
+    question: "Pourquoi ne pas me débrouiller seul ?",
+    answer: "Sur le papier, c'est faisable : tout ce que je transmets se trouve quelque part. Reste à savoir combien de temps te prendra le tri entre le vrai et le faux, et si tu tiendras la distance. Moi, faire seul m'a coûté 6 500€.",
   },
   {
-    question: "J'ai peur que ce soit encore une arnaque.",
-    answer: "Je comprends. C'est pour ça qu'il y a une garantie résultat de 90 jours. Si tu appliques et que t'as pas de résultats, je rembourse.",
+    question: "Et si c'était encore une arnaque ?",
+    answer: "La crainte est légitime. D'où la garantie résultat de 90 jours : tu appliques, tu n'obtiens rien, je rembourse.",
   },
   {
-    question: "J'ai pas le temps, je bosse ou je suis en cours.",
-    answer: "Le modèle est fait pour ça. Pas de logistique, pas de SAV, pas de caméra. Quelques heures par semaine suffisent pour produire et publier.",
+    question: "Entre le travail ou les cours, je n'ai pas le temps.",
+    answer: "Le modèle est conçu pour ça. Ni logistique, ni service client, ni caméra. Quelques heures par semaine suffisent pour créer et publier.",
   },
   {
-    question: "Comment se passe l'accompagnement ?",
-    answer: "Tu m'as en direct. Je réponds sous 12h maximum. Pas de support générique, pas de community manager.",
+    question: "Comment se déroule l'accompagnement ?",
+    answer: "Tu m'as en direct, avec une réponse en 12h maximum. Ni support standardisé, ni community manager.",
   },
 ];
 

@@ -34,11 +34,11 @@ const Proof = () => {
       <Container className="space-y-8 md:space-y-12">
         <StaggerContainer className="text-center max-w-2xl mx-auto">
           <AnimateOnView blur>
-            <h2 className="h2 md:mb-5 mb-3">Les résultats réels des élèves</h2>
+            <h2 className="h2 md:mb-5 mb-3">Ce que les élèves obtiennent vraiment</h2>
           </AnimateOnView>
           <AnimateOnView blur delay={0.2}>
             <p className="text-muted-foreground">
-              Des captures brutes partagées par ceux qui appliquent la méthode.
+              Captures non retouchées, envoyées par ceux qui appliquent la méthode.
             </p>
           </AnimateOnView>
         </StaggerContainer>

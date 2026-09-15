@@ -4,13 +4,13 @@ import { legalConfig } from "@/utils/legal-config";
 const RemboursementPage = () => (
     <LegalPage
         title="Conditions de remboursement"
-        description="La garantie satisfait ou remboursé 60 jours : conditions à respecter et procédure de demande."
+        description="La garantie résultat 90 jours : conditions à respecter et procédure de demande."
         path="/legal/remboursement"
     >
         <h2>Le principe</h2>
         <p>
-            La formation est garantie <strong>satisfait ou remboursé pendant 60 jours</strong>. Si tu
-            appliques sérieusement la méthode pendant 60 jours et que tu n'as pas au minimum récupéré le
+            La formation est assortie d'une <strong>garantie résultat de 90 jours</strong>. Si tu
+            appliques sérieusement la méthode pendant 90 jours et que tu n'as pas au minimum récupéré le
             prix que tu as payé, je te rembourse intégralement.
         </p>
         <p>
@@ -20,7 +20,7 @@ const RemboursementPage = () => (
 
         <h2>Les conditions à respecter</h2>
         <ul>
-            <li>Avoir travaillé sur ton projet <strong>chaque jour pendant 60 jours</strong>.</li>
+            <li>Avoir travaillé sur ton projet <strong>de manière régulière pendant 90 jours</strong>.</li>
             <li>Avoir <strong>regardé 100 % de la formation</strong>, du premier au dernier module.</li>
             <li>
                 Avoir <strong>appliqué la méthode telle qu'elle est enseignée</strong> (niche, avatar IA,
@@ -31,7 +31,7 @@ const RemboursementPage = () => (
                 produit réalisé, page de vente, chiffres obtenus.
             </li>
             <li>
-                Faire ta demande <strong>dans les 60 jours</strong> suivant la fin de cette période
+                Faire ta demande <strong>dans les 90 jours</strong> suivant la fin de cette période
                 d'application.
             </li>
         </ul>

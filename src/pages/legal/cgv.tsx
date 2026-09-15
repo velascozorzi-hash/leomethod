@@ -48,15 +48,15 @@ const CGVPage = () => (
             rétractation lors de la commande. Ce consentement est recueilli au moment du paiement.
         </p>
 
-        <h2>6. Garantie satisfait ou remboursé 60 jours</h2>
+        <h2>6. Garantie résultat 90 jours</h2>
         <p>
-            La formation est garantie satisfait ou remboursé pendant 60 jours : si, au terme de ces 60
+            La formation est assortie d'une garantie résultat de 90 jours : si, au terme de ces 90
             jours, l'acheteur n'a pas généré au minimum l'équivalent du prix d'achat qu'il a payé, il est
             intégralement remboursé.
         </p>
         <p>Cette garantie s'applique aux conditions cumulatives suivantes :</p>
         <ul>
-            <li>avoir travaillé sur la méthode chaque jour pendant les 60 jours ;</li>
+            <li>avoir appliqué la méthode de manière régulière pendant les 90 jours ;</li>
             <li>avoir consommé l'intégralité de la formation (tous les modules et leçons) ;</li>
             <li>
                 présenter ses résultats et son avancement (contenus publiés, produit créé, statistiques)
@@ -66,7 +66,7 @@ const CGVPage = () => (
         <p>
             La demande se fait par email à{" "}
             <a href={`mailto:${legalConfig.email}`}>{legalConfig.email}</a> dans les 7 jours suivant la fin
-            de la période de 60 jours. Le remboursement est effectué sous 14 jours après validation.
+            de la période de 90 jours. Le remboursement est effectué sous 14 jours après validation.
         </p>
 
         <h2>7. Garantie de résultats</h2>

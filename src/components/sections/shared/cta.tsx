@@ -20,7 +20,7 @@ const CTA = () => {
                     </AnimateOnView>
                     <AnimateOnView delay={0.2}>
                         <p className="mt-6 text-sm md:text-base text-muted-foreground">
-                            Garantie 90 jours · Paiement en 3× disponible
+                            Garantie 90 jours · Règlement en 3× possible
                         </p>
                     </AnimateOnView>
                 </StaggerContainer>
