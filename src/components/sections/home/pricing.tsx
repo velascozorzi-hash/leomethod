@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/motion/springs";
 import { useStripeCheckout } from "@/hooks/useStripeCheckout";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, ShieldCheck } from "lucide-react";
 import { useEffect, useRef } from "react";
 import Container from "../../container";
 
@@ -147,7 +147,10 @@ const Pricing = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div variants={riseChild} className="flex justify-center pt-6">
+          <motion.div
+            variants={riseChild}
+            className="flex flex-wrap items-center justify-center gap-3 pt-6"
+          >
             <motion.span
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
@@ -155,6 +158,10 @@ const Pricing = () => {
             >
               199€ · Paiement en 3× disponible
             </motion.span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary shadow-sm">
+              <ShieldCheck className="h-4 w-4" />
+              Garantie 90 jours
+            </span>
           </motion.div>
         </motion.div>
       </Container>

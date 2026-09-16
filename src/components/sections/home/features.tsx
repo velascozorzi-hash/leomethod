@@ -45,7 +45,7 @@ const StepCard = ({ card, index }: { card: (typeof cards)[number]; index: number
     whileInView={{ opacity: 1, y: 0, scale: 1 }}
     viewport={viewportOnce}
     transition={spring}
-    className="relative md:sticky md:top-24 z-10 bg-background md:rounded-[30px] rounded-lg"
+    className="sticky top-6 md:top-24 z-10 bg-background md:rounded-[30px] rounded-lg"
   >
     <FeatureCard imagePosition="right" className="relative">
       <motion.span

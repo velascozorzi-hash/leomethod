@@ -42,7 +42,6 @@ const Home = () => {
         {/* 4 — Mon histoire */}
         <Story />
       </Suspense>
-      <JoinCta label="Ça a tilté ? C'est ici." />
       <Suspense fallback={null}>
         {/* 5 — C'est pas ta faute */}
         <NotYourFault />
