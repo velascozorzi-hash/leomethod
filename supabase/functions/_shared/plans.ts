@@ -1,10 +1,12 @@
-// Formule vendue sur la page d'accueil. Les montants sont définis côté serveur
-// uniquement : le client ne peut jamais choisir son prix.
+// Formule vendue sur la page d'accueil.
+// ATTENTION : ce montant ne sert QU'À l'enregistrement en base et aux e-mails.
+// Le montant réellement débité vient du prix Stripe portant le lookup key
+// "formation_onetime". Les deux doivent rester alignés.
 export const PLANS = {
   formation: {
     id: "formation",
     label: "Formation complète",
-    amount: "39.99",
+    amount: "197.00",
   },
 } as const;
 
