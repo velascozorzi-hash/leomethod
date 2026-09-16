@@ -28,11 +28,11 @@ const visuals = [
   },
   {
     id: 'histoire-accompagnement',
-    src: '/images/story/accompagnement.jpg',
+    src: '/images/story/accompagnement.png',
     alt: "Mon message d'arrivée dans un accompagnement payant",
     caption: "L'accompagnement payant à 5 000€",
-    ratio: '900 / 824',
-    className: 'w-[82%] ml-auto',
+    ratio: '357 / 763',
+    className: 'w-[64%] ml-auto',
   },
 ]
 

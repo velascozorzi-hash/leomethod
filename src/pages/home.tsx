@@ -15,6 +15,7 @@ const Proof = lazy(() => import("@/components/sections/home/proof"));
 const Guarantee = lazy(() => import("@/components/sections/home/guarantee"));
 const Spots = lazy(() => import("@/components/sections/home/spots"));
 const FAQ = lazy(() => import("@/components/sections/shared/faq"));
+import JoinCta from "@/components/sections/home/join-cta";
 
 const Home = () => {
 
@@ -41,6 +42,7 @@ const Home = () => {
         {/* 4 — Mon histoire */}
         <Story />
       </Suspense>
+      <JoinCta label="Ça a tilté ? C'est ici." />
       <Suspense fallback={null}>
         {/* 5 — C'est pas ta faute */}
         <NotYourFault />
@@ -49,6 +51,7 @@ const Home = () => {
         {/* 6 — Les 3 étapes */}
         <Features />
       </Suspense>
+      <JoinCta label="Méthode claire, passage à l'acte." />
       <Suspense fallback={null}>
         {/* 8 — Trajectoire */}
         <Trajectory />
@@ -57,6 +60,7 @@ const Home = () => {
         {/* 9 — Les validations */}
         <Validations />
       </Suspense>
+      <JoinCta label="Tu as vu le système. À toi de jouer." />
       <Suspense fallback={null}>
         {/* 10 — Le stack */}
         <Pricing />
