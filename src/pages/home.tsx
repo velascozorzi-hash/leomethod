@@ -8,7 +8,6 @@ const Inverse = lazy(() => import("@/components/sections/home/inverse"));
 const Story = lazy(() => import("@/components/sections/home/story"));
 const NotYourFault = lazy(() => import("@/components/sections/home/not-your-fault"));
 const Features = lazy(() => import("@/components/sections/home/features"));
-const MonthTwoWall = lazy(() => import("@/components/sections/home/month-two-wall"));
 const Trajectory = lazy(() => import("@/components/sections/home/trajectory"));
 const Validations = lazy(() => import("@/components/sections/home/validations"));
 const Pricing = lazy(() => import("@/components/sections/home/pricing"));
@@ -49,10 +48,6 @@ const Home = () => {
       <Suspense fallback={null}>
         {/* 6 — Les 3 étapes */}
         <Features />
-      </Suspense>
-      <Suspense fallback={null}>
-        {/* 7 — Le mur du mois 2 */}
-        <MonthTwoWall />
       </Suspense>
       <Suspense fallback={null}>
         {/* 8 — Trajectoire */}

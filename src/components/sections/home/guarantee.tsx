@@ -1,47 +1,89 @@
 import Container from '@/components/container'
-import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
-import { StaggerContainer } from '@/components/ui/motion/stagger'
+import { AmbientBlob, AmbientFloat, AmbientSweep } from '@/components/ui/motion/ambient'
+import { cardChild, growX, riseChild, spring, staggerParent, viewportOnce } from '@/components/ui/motion/springs'
 import { motion } from 'framer-motion'
 import { ShieldCheck } from 'lucide-react'
 
 const Guarantee = () => {
   return (
-    <section className="py-14 md:py-24">
+    <section className="py-16 md:py-24">
       <Container>
-        <StaggerContainer className="group relative max-w-[720px] mx-auto overflow-hidden rounded-[30px] border border-primary/40 bg-card/70 backdrop-blur-sm p-8 md:p-12 text-center transition-colors duration-500 hover:border-primary/70">
-          <motion.div
+        <motion.div
+          variants={staggerParent(0.09)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          whileHover={{ y: -5 }}
+          whileTap={{ scale: 0.99 }}
+          transition={spring.snappy}
+          className="group relative max-w-[720px] mx-auto overflow-hidden rounded-[30px] border border-primary/40 bg-card/70 backdrop-blur-sm px-6 py-10 md:p-12 text-center"
+        >
+          <AmbientBlob className="-top-28 left-1/2 h-64 w-64 -translate-x-1/2 bg-primary/25" duration={8} />
+          <AmbientSweep duration={7} />
+
+          {/* liseré qui se trace au scroll */}
+          <motion.span
             aria-hidden
-            animate={{ opacity: [0.6, 1, 0.6], scale: [1, 1.1, 1] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgb(var(--primary)/0.18),transparent_70%)]"
+            variants={growX(1, 0.1)}
+            className="pointer-events-none absolute left-0 top-0 h-[3px] w-full origin-left rounded-full bg-gradient-to-r from-primary via-primary/60 to-transparent will-change-transform"
           />
 
-          <AnimateOnView blur scale>
-            <motion.span
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/25 to-primary/5 border border-primary/30"
-            >
-              <ShieldCheck className="w-6 h-6 text-primary" />
-            </motion.span>
-          </AnimateOnView>
+          <motion.div variants={cardChild} className="relative">
+            <AmbientFloat className="inline-block" amplitude={7} duration={4.5}>
+              <span className="relative inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/30 to-primary/5">
+                <motion.span
+                  aria-hidden
+                  animate={{ scale: [1, 1.35, 1], opacity: [0.5, 0, 0.5] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute inset-0 rounded-2xl bg-primary/30 will-change-transform"
+                />
+                <ShieldCheck className="relative h-7 w-7 text-primary" />
+              </span>
+            </AmbientFloat>
+          </motion.div>
 
-          <AnimateOnView blur delay={0.1}>
-            <h2 className="relative h2 mt-6">Garantie 90 jours</h2>
-          </AnimateOnView>
+          <motion.h2 variants={cardChild} className="relative h2 mt-6">
+            Garantie 90 jours
+          </motion.h2>
 
-          <AnimateOnView blur delay={0.2}>
-            <p className="relative mt-5 text-body-lg font-medium text-foreground">
-              Le risque est de mon côté, pas du tien.
-            </p>
-          </AnimateOnView>
+          <motion.p
+            variants={riseChild}
+            className="relative mt-4 text-body-lg font-medium text-foreground"
+          >
+            Le risque est de mon côté, pas du tien.
+          </motion.p>
 
-          <AnimateOnView blur delay={0.3}>
-            <p className="relative mt-4 text-body-md text-muted-foreground">
-              Tu appliques la méthode pendant 3 mois sans résultat ? Je te rends la totalité.
-            </p>
-          </AnimateOnView>
-        </StaggerContainer>
+          <motion.p
+            variants={riseChild}
+            className="relative mx-auto mt-3 max-w-md text-body-md text-muted-foreground"
+          >
+            Tu appliques la méthode pendant 3 mois sans résultat ? Je te rends la totalité.
+          </motion.p>
+
+          {/* les 3 jalons de la garantie */}
+          <motion.div
+            variants={staggerParent(0.08)}
+            className="relative mt-8 grid grid-cols-3 gap-2 sm:gap-3"
+          >
+            {['Tu appliques', "Tu n'obtiens rien", 'Je rembourse'].map((label, index) => (
+              <motion.div
+                key={label}
+                variants={cardChild}
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.97 }}
+                transition={spring.snappy}
+                className="rounded-2xl border border-primary/25 bg-background/60 px-2 py-3 sm:px-4 sm:py-4"
+              >
+                <p className="text-[11px] uppercase tracking-[0.16em] text-primary/70">
+                  0{index + 1}
+                </p>
+                <p className="mt-1.5 text-xs sm:text-sm font-medium text-foreground leading-snug">
+                  {label}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
       </Container>
     </section>
   )

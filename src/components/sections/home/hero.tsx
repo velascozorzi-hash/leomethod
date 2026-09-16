@@ -11,7 +11,7 @@ const Hero = () => {
 
             <AnimateOnView blur delay={0.1}>
               <h1 className="h1 text-foreground mb-4">
-                Je fabrique des produits digitaux et je les écoule sur TikTok sans jamais apparaître à l'écran.
+                Je crée des produits digitaux et je les vends sur TikTok sans jamais montrer mon visage.
               </h1>
             </AnimateOnView>
 

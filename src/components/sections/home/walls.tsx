@@ -1,6 +1,6 @@
 import Container from '@/components/container'
-import { AnimateOnView } from '@/components/ui/motion/animate-on-view'
-import { StaggerContainer } from '@/components/ui/motion/stagger'
+import { AmbientBlob, AmbientFloat } from '@/components/ui/motion/ambient'
+import { cardChild, spring, staggerParent, viewportOnce } from '@/components/ui/motion/springs'
 import { motion } from 'framer-motion'
 import { Banknote, CalendarClock, Layers3, PieChart } from 'lucide-react'
 
@@ -37,8 +37,8 @@ const walls = [
 
 const Walls = () => {
   return (
-    <section className="relative overflow-hidden py-14 md:py-24">
-      {/* traitement visuel fort : halo + grille animée */}
+    <section className="relative overflow-hidden py-16 md:py-24">
+      {/* traitement visuel fort : halo + grille qui dérive */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgb(var(--primary)/0.18),transparent_60%)]" />
       <motion.div
         aria-hidden
@@ -48,58 +48,61 @@ const Walls = () => {
       />
 
       <Container className="relative z-10 space-y-10 md:space-y-16">
-        <StaggerContainer className="text-center max-w-2xl mx-auto">
-          <AnimateOnView blur>
-            <h2 className="h2 md:mb-5 mb-3">
-              Ce qui fait tomber 95% des débutants en e-commerce
-            </h2>
-          </AnimateOnView>
-          <AnimateOnView blur delay={0.2}>
-            <p className="text-muted-foreground">
-              Quatre obstacles qui se dressent avant même ta première vente.
-            </p>
-          </AnimateOnView>
-        </StaggerContainer>
+        <motion.div
+          variants={staggerParent(0.08)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="text-center max-w-2xl mx-auto"
+        >
+          <motion.h2 variants={cardChild} className="h2 md:mb-5 mb-3">
+            Ce qui fait tomber 95% des débutants en e-commerce
+          </motion.h2>
+          <motion.p variants={cardChild} className="text-muted-foreground">
+            Quatre obstacles qui se dressent avant même ta première vente.
+          </motion.p>
+        </motion.div>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+        <motion.div
+          variants={staggerParent(0.07)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5"
+        >
           {walls.map((wall, index) => (
-            <AnimateOnView
+            <motion.div
               key={wall.id}
-              delay={index * 0.1}
-              scale
-              y={40}
-              className="h-full"
+              variants={cardChild}
+              whileHover={{ y: -5 }}
+              whileTap={{ scale: 0.985 }}
+              transition={spring.snappy}
+              className="group relative h-full overflow-hidden rounded-[28px] border border-primary/25 bg-card/70 backdrop-blur-sm p-5 md:p-8"
             >
-              <div className="group relative h-full overflow-hidden rounded-[28px] border border-primary/25 bg-card/70 backdrop-blur-sm p-6 md:p-8 transition-all duration-500 md:hover:-translate-y-2 md:hover:border-primary/60">
-                <motion.div
-                  aria-hidden
-                  animate={{ opacity: [0.25, 0.55, 0.25], scale: [1, 1.15, 1] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: index * 0.6 }}
-                  className="pointer-events-none absolute -top-24 -right-16 h-52 w-52 rounded-full bg-primary/25 blur-3xl"
-                />
-                <span className="pointer-events-none absolute -bottom-6 right-2 text-[90px] leading-none font-semibold text-primary/10 transition-all duration-500 group-hover:text-primary/20 group-hover:-translate-y-1 select-none">
-                  {String(index + 1).padStart(2, '0')}
+              <AmbientBlob
+                className="-top-24 -right-16 h-52 w-52 bg-primary/22"
+                duration={6.5}
+                delay={index * 0.6}
+              />
+              <span className="pointer-events-none absolute -bottom-5 right-2 select-none text-[72px] md:text-[90px] font-semibold leading-none text-primary/10 transition-all duration-300 group-hover:text-primary/20">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+
+              <AmbientFloat amplitude={5} duration={4} delay={index * 0.4} className="relative w-fit">
+                <span className="flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/25 to-primary/5">
+                  <wall.icon className="h-5 w-5 text-primary" />
                 </span>
+              </AmbientFloat>
 
-                <motion.div
-                  aria-hidden
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: index * 0.4 }}
-                  className="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/25 to-primary/5 border border-primary/30 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
-                >
-                  <wall.icon className="w-5 h-5 text-primary" />
-                </motion.div>
+              <h3 className="relative h4 mt-4 md:mt-5">{wall.title}</h3>
+              <p className="relative mt-3 text-sm md:text-base leading-relaxed text-muted-foreground">
+                {wall.description}
+              </p>
 
-                <h3 className="relative h4 mt-5">{wall.title}</h3>
-                <p className="relative mt-3 text-muted-foreground text-sm md:text-base leading-relaxed">
-                  {wall.description}
-                </p>
-
-                <span className="pointer-events-none absolute inset-x-6 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              </div>
-            </AnimateOnView>
+              <span className="pointer-events-none absolute inset-x-6 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            </motion.div>
           ))}
-        </StaggerContainer>
+        </motion.div>
       </Container>
     </section>
   )

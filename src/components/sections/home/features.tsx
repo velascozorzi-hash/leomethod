@@ -46,7 +46,7 @@ const StepCard = ({ card, index }: { card: (typeof cards)[number]; index: number
     <motion.div
       ref={ref}
       style={{ scale }}
-      className="sticky top-20 md:top-24 z-10 bg-background md:rounded-[30px] rounded-lg"
+      className="md:sticky md:top-24 z-10 bg-background md:rounded-[30px] rounded-lg"
     >
       <motion.span
         aria-hidden
