@@ -27,7 +27,7 @@ const JoinCta = ({ label = "Prêt à passer à l'action ?" }: JoinCtaProps) => {
         </AnimateOnView>
         <AnimateOnView delay={0.2}>
           <span className="text-sm font-medium text-muted-foreground">
-            199€ · Paiement en 3× disponible
+            97€ · Paiement en 3× disponible
           </span>
         </AnimateOnView>
       </Container>
