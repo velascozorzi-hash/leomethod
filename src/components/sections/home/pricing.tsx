@@ -19,10 +19,10 @@ import Container from "../../container";
 const stack = [
   { id: 1, label: "Les 9 modules intégraux (plus de 5h de vidéo)", price: "597€" },
   { id: 2, label: "Les 4 points de validation (niche, sous-niche, produit, tarif)", price: "397€" },
-  { id: 3, label: "La sélection des niches les plus exploitables, actualisée tous les mois", price: "297€" },
-  { id: 4, label: "Les modèles prêts à l'emploi : produit, page de vente, bio TikTok", price: "197€" },
-  { id: 5, label: "L'entrée dans le groupe privé", price: "100€" },
-  { id: 6, label: "Mon suivi personnel", price: "62€" },
+  { id: 3, label: "Mon suivi personnel, réponse sous 12h", price: "297€" },
+  { id: 4, label: "La sélection des niches les plus exploitables, actualisée tous les mois", price: "197€" },
+  { id: 5, label: "Les modèles prêts à l'emploi : produit, page de vente, bio TikTok", price: "97€" },
+  { id: 6, label: "L'entrée dans le groupe privé", price: "97€" },
 ];
 
 const PRICE_ID = "formation_onetime";
@@ -111,7 +111,7 @@ const Pricing = () => {
               <div className="flex items-baseline justify-between gap-4">
                 <span className="text-sm md:text-base text-muted-foreground">Valeur cumulée</span>
                 <span className="relative text-xl md:text-2xl text-muted-foreground tabular-nums">
-                  1 650€
+                  1 682€
                   {/* barré qui se trace au scroll */}
                   <motion.span
                     aria-hidden
