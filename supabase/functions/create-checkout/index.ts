@@ -3,6 +3,51 @@ import { createClient } from "npm:@supabase/supabase-js@2";
 import { type StripeEnv, createStripeClient } from "../_shared/stripe.ts";
 import { PLANS, isPlanId } from "../_shared/plans.ts";
 
+/**
+ * Produit Stripe de la formation, par environnement.
+ * Le prix de vente n'est plus attaché à une clé de recherche (ingérable depuis
+ * le Dashboard) : on prend le TARIF PAR DÉFAUT du produit. Pour changer de
+ * prix, il suffit donc de créer un tarif dans Stripe et de le marquer
+ * "Définir comme tarif par défaut", sans toucher au code.
+ */
+const FORMATION_PRODUCT_ID: Record<StripeEnv, string> = {
+  live: Deno.env.get("STRIPE_FORMATION_PRODUCT_ID_LIVE") ?? "prod_V6npYgQgdgFGnP",
+  sandbox: Deno.env.get("STRIPE_FORMATION_PRODUCT_ID_TEST") ?? "",
+};
+
+async function resolvePrice(
+  stripe: ReturnType<typeof createStripeClient>,
+  priceId: string,
+  environment: StripeEnv,
+) {
+  // 1. Identifiant de tarif explicite (price_...), s'il est un jour passé tel quel.
+  if (priceId.startsWith("price_")) {
+    const price = await stripe.prices.retrieve(priceId);
+    if (!price.active) throw new Error("Price is archived");
+    return price;
+  }
+
+  // 2. Tarif par défaut du produit : c'est le chemin nominal.
+  const productId = FORMATION_PRODUCT_ID[environment];
+  if (productId && priceId === "formation_onetime") {
+    const product = await stripe.products.retrieve(productId, {
+      expand: ["default_price"],
+    });
+    const defaultPrice = product.default_price;
+    if (defaultPrice && typeof defaultPrice !== "string" && defaultPrice.active) {
+      return defaultPrice;
+    }
+    console.warn(
+      `Produit ${productId} sans tarif par défaut actif, repli sur la clé de recherche.`,
+    );
+  }
+
+  // 3. Repli historique : clé de recherche, en ignorant les tarifs archivés.
+  const prices = await stripe.prices.list({ lookup_keys: [priceId], active: true });
+  if (!prices.data.length) throw new Error("Price not found");
+  return prices.data[0];
+}
+
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
     status,
@@ -81,9 +126,7 @@ async function createCheckoutSession(options: {
   if (!/^[a-zA-Z0-9_-]+$/.test(options.priceId)) throw new Error("Invalid priceId");
   const stripe = createStripeClient(options.environment);
 
-  const prices = await stripe.prices.list({ lookup_keys: [options.priceId] });
-  if (!prices.data.length) throw new Error("Price not found");
-  const stripePrice = prices.data[0];
+  const stripePrice = await resolvePrice(stripe, options.priceId, options.environment);
 
   const customerId = await resolveOrCreateCustomer(stripe, {
     email: options.customerEmail,

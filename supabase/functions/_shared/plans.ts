@@ -6,7 +6,7 @@ export const PLANS = {
   formation: {
     id: "formation",
     label: "Formation complète",
-    amount: "197.00",
+    amount: "199.00",
   },
 } as const;
 

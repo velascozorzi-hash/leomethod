@@ -14,7 +14,7 @@ const CTA = () => {
                     <AnimateOnView>
                         <Button asChild size="lg">
                             <a href="#offre">
-                                Rejoindre l'accompagnement — 197€
+                                Rejoindre l'accompagnement — 199€
                             </a>
                         </Button>
                     </AnimateOnView>

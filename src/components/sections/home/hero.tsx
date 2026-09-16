@@ -29,7 +29,7 @@ const Hero = () => {
 
             <AnimateOnView delay={0.4}>
               <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary shadow-sm">
-                197€ · Paiement en 3× disponible
+                199€ · Paiement en 3× disponible
               </div>
             </AnimateOnView>
 

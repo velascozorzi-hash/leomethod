@@ -129,7 +129,7 @@ const Pricing = () => {
                   variants={popIn(0.45)}
                   className="h2 text-primary tabular-nums"
                 >
-                  197€
+                  199€
                 </motion.span>
               </div>
             </motion.div>
@@ -153,7 +153,7 @@ const Pricing = () => {
               transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
               className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary shadow-sm will-change-transform"
             >
-              197€ · Paiement en 3× disponible
+              199€ · Paiement en 3× disponible
             </motion.span>
           </motion.div>
         </motion.div>
