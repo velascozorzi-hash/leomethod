@@ -56,6 +56,17 @@ const Pricing = () => {
           viewport={viewportOnce}
           className="text-center"
         >
+          <motion.span
+            variants={cardChild}
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-semibold uppercase tracking-wide text-primary shadow-sm"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+            </span>
+            Offre live
+          </motion.span>
+
           <motion.h2 variants={cardChild} className="h2">
             Tout ce que tu reçois.
           </motion.h2>
@@ -125,12 +136,25 @@ const Pricing = () => {
                 <span className="text-base md:text-body-lg font-medium text-foreground">
                   Ce que tu payes aujourd'hui
                 </span>
-                <motion.span
-                  variants={popIn(0.45)}
-                  className="h2 text-primary tabular-nums"
-                >
-                  97€
-                </motion.span>
+                <span className="flex items-baseline gap-3">
+                  <motion.span
+                    variants={popIn(0.4)}
+                    className="relative text-xl md:text-2xl text-muted-foreground tabular-nums"
+                  >
+                    199€
+                    <motion.span
+                      aria-hidden
+                      variants={growX(1, 0.5)}
+                      className="absolute left-0 top-1/2 h-[2px] w-full origin-left bg-muted-foreground will-change-transform"
+                    />
+                  </motion.span>
+                  <motion.span
+                    variants={popIn(0.45)}
+                    className="h2 text-primary tabular-nums"
+                  >
+                    97€
+                  </motion.span>
+                </span>
               </div>
             </motion.div>
 
@@ -156,6 +180,7 @@ const Pricing = () => {
               transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
               className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary shadow-sm will-change-transform"
             >
+              <span className="text-muted-foreground line-through decoration-2">199€</span>
               97€ · Paiement en 3× disponible
             </motion.span>
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-semibold text-primary shadow-sm">
