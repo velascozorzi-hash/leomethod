@@ -93,6 +93,10 @@ const Proof = () => {
           ))}
         </StaggerContainer>
 
+        <p className="text-center text-[11px] text-muted-foreground/60">
+          Résultats issus de l'ancienne communauté Skool, et non de l'accompagnement actuel.
+        </p>
+
       </Container>
 
       <Dialog open={!!active} onOpenChange={(open) => !open && setActive(null)}>
