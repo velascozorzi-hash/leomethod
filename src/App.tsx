@@ -22,6 +22,7 @@ import IntegrationDetailsPage from "./pages/integration/[slug]";
 import CGVPage from "./pages/legal/cgv";
 import ConfidentialitePage from "./pages/legal/confidentialite";
 import CookiesPage from "./pages/legal/cookies";
+import MentionsLegalesPage from "./pages/legal/mentions-legales";
 import RemboursementPage from "./pages/legal/remboursement";
 import LoginPage from "./pages/login";
 import MerciPage from "./pages/merci";
@@ -66,6 +67,7 @@ const App = () => (
               <Route path="/legal/cgv" element={<CGVPage />} />
               <Route path="/legal/confidentialite" element={<ConfidentialitePage />} />
               <Route path="/legal/cookies" element={<CookiesPage />} />
+              <Route path="/legal/mentions-legales" element={<MentionsLegalesPage />} />
               <Route path="/legal/remboursement" element={<RemboursementPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
