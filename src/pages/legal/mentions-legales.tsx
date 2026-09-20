@@ -13,7 +13,6 @@ const MentionsLegalesPage = () => (
       domicilié à {legalConfig.address} et immatriculé sous le numéro SIRET {legalConfig.siret}.
     </p>
     <p>
-      Numéro de TVA intracommunautaire : {legalConfig.vat}.<br />
       Adresse e-mail : <a href={`mailto:${legalConfig.email}`}>{legalConfig.email}</a>.
     </p>
 
