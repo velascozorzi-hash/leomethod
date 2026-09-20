@@ -3,7 +3,7 @@
 export const legalConfig = {
     companyName: "Zorzi",
     legalForm: "Auto-entrepreneur",
-    address: "17 rue Émile Durkheim",
+    address: "17 rue Émile Durkheim, 75013 Paris",
     siret: "[Numéro SIRET]",
     vat: "[Numéro de TVA intracommunautaire, si applicable]",
     email: "rapha9390@gmail.com",
