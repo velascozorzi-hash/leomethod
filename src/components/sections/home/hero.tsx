@@ -33,13 +33,6 @@ const Hero = () => {
                   <span className="relative text-muted-foreground line-through decoration-2">199€</span>
                   <span>97€ · Paiement en 3× disponible</span>
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-semibold uppercase tracking-wide text-primary shadow-sm">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-                  </span>
-                  Offre live
-                </span>
               </div>
             </AnimateOnView>
 
