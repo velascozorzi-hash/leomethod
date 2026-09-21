@@ -30,7 +30,6 @@ const PRICE_ID = "formation_onetime";
 const Pricing = () => {
   const { openCheckout, checkoutElement, isOpen } = useStripeCheckout();
   const checkoutRef = useRef<HTMLDivElement>(null);
-  const [consent, setConsent] = useState(false);
 
   useEffect(() => {
     if (isOpen && checkoutRef.current) {
