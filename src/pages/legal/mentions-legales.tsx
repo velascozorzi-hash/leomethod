@@ -4,47 +4,26 @@ import { legalConfig } from "@/utils/legal-config";
 const MentionsLegalesPage = () => (
   <LegalPage
     title="Mentions légales"
-    description="Informations légales relatives à l’éditeur, à l’hébergement et à l’utilisation du site Leo Method."
+    description="Informations légales relatives à l'éditeur, à l'hébergement et à l'utilisation du site."
     path="/legal/mentions-legales"
   >
-    <h2>1. Éditeur du site</h2>
     <p>
-      Le site Leo Method est édité par {legalConfig.companyName}, {legalConfig.legalForm},
-      domicilié à {legalConfig.address} et immatriculé sous le numéro SIRET {legalConfig.siret}.
+      Le site <a href="https://leomethod.app">https://leomethod.app</a> est édité par :
     </p>
-    <p>
-      Adresse e-mail : <a href={`mailto:${legalConfig.email}`}>{legalConfig.email}</a>.
-    </p>
+    <ul>
+      <li>{legalConfig.companyName}, {legalConfig.legalForm}</li>
+      <li>SIRET : {legalConfig.siret}</li>
+      <li>Adresse : {legalConfig.address}</li>
+      <li>Email : <a href={`mailto:${legalConfig.email}`}>{legalConfig.email}</a></li>
+      <li>{legalConfig.vatStatus}</li>
+    </ul>
 
-    <h2>2. Directeur de la publication</h2>
-    <p>Le directeur de la publication est {legalConfig.publicationDirector}.</p>
-
-    <h2>3. Hébergement</h2>
-    <p>
-      Le site est hébergé par {legalConfig.host.name}.<br />
-      {legalConfig.host.details}.
-    </p>
-
-    <h2>4. Propriété intellectuelle</h2>
-    <p>
-      L’ensemble des textes, vidéos, visuels, ressources, méthodes et contenus disponibles sur ce
-      site est protégé par le droit de la propriété intellectuelle. Toute reproduction, diffusion,
-      adaptation ou exploitation, totale ou partielle, sans autorisation écrite préalable est interdite.
-    </p>
-
-    <h2>5. Responsabilité</h2>
-    <p>
-      Les informations présentées sur ce site sont fournies à titre informatif. L’éditeur s’efforce
-      d’en assurer l’exactitude, sans pouvoir garantir l’absence d’erreurs ou d’interruptions. Les
-      résultats présentés sont individuels et ne constituent pas une garantie de revenus.
-    </p>
-
-    <h2>6. Données personnelles</h2>
-    <p>
-      Les modalités de collecte et de traitement des données personnelles sont détaillées dans la
-      politique de confidentialité accessible en bas du site. Toute demande peut être adressée à
-      <a href={`mailto:${legalConfig.email}`}> {legalConfig.email}</a>.
-    </p>
+    <h2>Hébergement</h2>
+    <ul>
+      <li>Hébergement du site : {legalConfig.hosts.site}</li>
+      <li>Hébergement des paiements : {legalConfig.hosts.payments}</li>
+      <li>Hébergement de la formation : {legalConfig.hosts.formation}</li>
+    </ul>
   </LegalPage>
 );
 
