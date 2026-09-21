@@ -13,7 +13,7 @@ import {
 import { useStripeCheckout } from "@/hooks/useStripeCheckout";
 import { motion } from "framer-motion";
 import { Check, ShieldCheck } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Container from "../../container";
 
 const stack = [
@@ -30,6 +30,7 @@ const PRICE_ID = "formation_onetime";
 const Pricing = () => {
   const { openCheckout, checkoutElement, isOpen } = useStripeCheckout();
   const checkoutRef = useRef<HTMLDivElement>(null);
+  const [consent, setConsent] = useState(false);
 
   useEffect(() => {
     if (isOpen && checkoutRef.current) {
@@ -56,17 +57,6 @@ const Pricing = () => {
           viewport={viewportOnce}
           className="text-center"
         >
-          <motion.span
-            variants={cardChild}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-sm font-semibold uppercase tracking-wide text-primary shadow-sm"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-            </span>
-            Offre live
-          </motion.span>
-
           <motion.h2 variants={cardChild} className="h2">
             Tout ce que tu reçois.
           </motion.h2>
@@ -158,13 +148,34 @@ const Pricing = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={riseChild} className="relative z-10 mt-8">
+            <motion.div variants={riseChild} className="relative z-10 mt-8 space-y-4">
+              <label className="flex cursor-pointer items-start gap-3 text-left">
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-1 h-4 w-4 shrink-0 cursor-pointer accent-primary"
+                />
+                <span className="text-xs md:text-sm leading-snug text-muted-foreground">
+                  J'accepte les{" "}
+                  <a href="/legal/cgv" className="underline underline-offset-2 hover:text-foreground">
+                    CGV
+                  </a>{" "}
+                  et je renonce expressément à mon droit de rétractation de 14 jours pour
+                  bénéficier d'un accès immédiat à la formation.
+                </span>
+              </label>
               <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={consent ? { scale: 1.02 } : undefined}
+                whileTap={consent ? { scale: 0.97 } : undefined}
                 transition={spring.snappy}
               >
-                <Button variant="pricing" className="w-full" onClick={handleCheckout}>
+                <Button
+                  variant="pricing"
+                  className="w-full disabled:cursor-not-allowed disabled:opacity-50"
+                  onClick={handleCheckout}
+                  disabled={!consent}
+                >
                   Rejoindre l'accompagnement
                 </Button>
               </motion.div>
