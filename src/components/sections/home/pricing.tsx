@@ -13,7 +13,7 @@ import {
 import { useStripeCheckout } from "@/hooks/useStripeCheckout";
 import { motion } from "framer-motion";
 import { Check, ShieldCheck } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Container from "../../container";
 
 const stack = [
@@ -30,7 +30,6 @@ const PRICE_ID = "formation_onetime";
 const Pricing = () => {
   const { openCheckout, checkoutElement, isOpen } = useStripeCheckout();
   const checkoutRef = useRef<HTMLDivElement>(null);
-  const [consent, setConsent] = useState(false);
 
   useEffect(() => {
     if (isOpen && checkoutRef.current) {
@@ -148,37 +147,27 @@ const Pricing = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={riseChild} className="relative z-10 mt-8 space-y-4">
-              <label className="flex cursor-pointer items-start gap-3 text-left">
-                <input
-                  type="checkbox"
-                  checked={consent}
-                  onChange={(e) => setConsent(e.target.checked)}
-                  className="mt-1 h-4 w-4 shrink-0 cursor-pointer accent-primary"
-                />
-                <span className="text-xs md:text-sm leading-snug text-muted-foreground">
-                  J'accepte les{" "}
-                  <a href="/legal/cgv" className="underline underline-offset-2 hover:text-foreground">
-                    CGV
-                  </a>{" "}
-                  et je renonce expressément à mon droit de rétractation de 14 jours pour
-                  bénéficier d'un accès immédiat à la formation.
-                </span>
-              </label>
+            <motion.div variants={riseChild} className="relative z-10 mt-8 space-y-3">
               <motion.div
-                whileHover={consent ? { scale: 1.02 } : undefined}
-                whileTap={consent ? { scale: 0.97 } : undefined}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
                 transition={spring.snappy}
               >
                 <Button
                   variant="pricing"
-                  className="w-full disabled:cursor-not-allowed disabled:opacity-50"
+                  className="w-full"
                   onClick={handleCheckout}
-                  disabled={!consent}
                 >
                   Rejoindre l'accompagnement
                 </Button>
               </motion.div>
+              <p className="text-center text-[11px] leading-snug text-muted-foreground">
+                En achetant, j'accepte les{" "}
+                <a href="/legal/cgv" className="underline underline-offset-2 hover:text-foreground">
+                  CGV
+                </a>
+                .
+              </p>
             </motion.div>
           </motion.div>
 
