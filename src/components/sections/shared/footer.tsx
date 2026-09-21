@@ -34,12 +34,6 @@ const Footer = () => {
               <Link to="/legal/confidentialite" className="text-white/70 hover:text-white transition-colors">
                 Confidentialité
               </Link>
-              <Link to="/legal/cookies" className="text-white/70 hover:text-white transition-colors">
-                Cookies
-              </Link>
-              <Link to="/legal/remboursement" className="text-white/70 hover:text-white transition-colors">
-                Remboursement
-              </Link>
               <a href="mailto:rapha9390@gmail.com" className="text-white/70 hover:text-white transition-colors">
                 Contact
               </a>

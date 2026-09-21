@@ -4,93 +4,55 @@ import { legalConfig } from "@/utils/legal-config";
 const CGVPage = () => (
     <LegalPage
         title="Conditions générales de vente"
-        description="Conditions de vente de la formation : prix, paiement, accès, droit de rétractation et remboursement."
+        description="Conditions de vente de l'accompagnement : produit, prix, livraison, rétractation et garantie."
         path="/legal/cgv"
     >
-        <h2>1. Objet</h2>
+        <h2>Produit vendu</h2>
         <p>
-            Les présentes conditions générales de vente (CGV) encadrent la vente de la formation en ligne
-            proposée par {legalConfig.companyName} sur ce site. Toute commande implique l'acceptation
-            sans réserve des présentes CGV.
+            Accès à la formation en ligne « {legalConfig.formationName} », hébergée sur la plateforme Skool.
         </p>
 
-        <h2>2. Produits et services</h2>
+        <h2>Prix</h2>
+        <p>{legalConfig.price}, paiement unique via Stripe.</p>
+
+        <h2>Livraison</h2>
         <p>
-            La formation est un produit numérique composé de modules vidéo et de ressources
-            téléchargeables, accessible sans limitation de durée après un paiement unique. L'accès
-            est individuel et strictement personnel.
+            L'accès au groupe et à la formation Skool est envoyé par email à l'adresse fournie lors du
+            paiement, immédiatement après validation du paiement par Stripe.
         </p>
 
-        <h2>3. Prix et paiement</h2>
+        <h2>Droit de rétractation</h2>
+        <p>
+            Conformément à l'article L221-28 du Code de la consommation, le client reconnaît expressément,
+            avant de valider son paiement, renoncer à son droit de rétractation de 14 jours en contrepartie
+            d'un accès immédiat au contenu numérique. Cette renonciation est recueillie par une case à
+            cocher obligatoire avant paiement.
+        </p>
+
+        <h2>Garantie « rentable sous 90 jours »</h2>
+        <p>
+            Le client peut demander un remboursement s'il remplit toutes les conditions suivantes dans un
+            délai de 90 jours à compter de l'achat :
+        </p>
         <ul>
-            <li>Formation complète : 97 € TTC, paiement unique.</li>
-        </ul>
-        <p>
-            Il s'agit d'un paiement unique, sans abonnement ni reconduction automatique. Un règlement
-            en trois fois peut être proposé au moment de la commande. Les prix sont indiqués en euros,
-            toutes taxes comprises. Le paiement s'effectue en ligne via un prestataire de paiement
-            sécurisé. Aucune donnée bancaire n'est stockée par l'éditeur du site.
-        </p>
-
-
-        <h2>4. Accès à la formation</h2>
-        <p>
-            L'accès est transmis par email immédiatement après confirmation du paiement, ou au plus tard
-            sous 24 heures. En cas de non-réception, l'acheteur contacte{" "}
-            <a href={`mailto:${legalConfig.email}`}>{legalConfig.email}</a>.
-        </p>
-
-        <h2>5. Droit de rétractation</h2>
-        <p>
-            Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation de
-            14 jours ne s'applique pas aux contenus numériques fournis immédiatement, dès lors que
-            l'acheteur a expressément consenti à l'exécution immédiate et renoncé à son droit de
-            rétractation lors de la commande. Ce consentement est recueilli au moment du paiement.
-        </p>
-
-        <h2>6. Garantie résultat 90 jours</h2>
-        <p>
-            La formation est assortie d'une garantie résultat de 90 jours : si, au terme de ces 90
-            jours, l'acheteur n'a pas généré au minimum l'équivalent du prix d'achat qu'il a payé, il est
-            intégralement remboursé.
-        </p>
-        <p>Cette garantie s'applique aux conditions cumulatives suivantes :</p>
-        <ul>
-            <li>avoir appliqué la méthode de manière régulière pendant les 90 jours ;</li>
-            <li>avoir consommé l'intégralité de la formation (tous les modules et leçons) ;</li>
+            <li>avoir suivi l'intégralité de la formation,</li>
             <li>
-                présenter ses résultats et son avancement (contenus publiés, produit créé, statistiques)
-                lors de la demande.
+                avoir sollicité activement l'accompagnement de {legalConfig.companyName} tout au long des
+                90 jours,
             </li>
+            <li>justifier avoir mis en œuvre la méthode (tentatives, échecs, ajustements),</li>
+            <li>ne pas avoir généré au moins 97€ de chiffre d'affaires grâce à la méthode.</li>
         </ul>
         <p>
-            La demande se fait par email à{" "}
-            <a href={`mailto:${legalConfig.email}`}>{legalConfig.email}</a> dans les 7 jours suivant la fin
-            de la période de 90 jours. Le remboursement est effectué sous 14 jours après validation.
+            La demande doit être adressée à{" "}
+            <a href={`mailto:${legalConfig.email}`}>{legalConfig.email}</a> avant l'expiration du délai de
+            90 jours, avec les justificatifs demandés.
         </p>
 
-        <h2>7. Garantie de résultats</h2>
+        <h2>Litiges</h2>
         <p>
-            La formation transmet une méthode et des outils. Aucune garantie de gain, de revenu ou de
-            résultat commercial n'est donnée. Les résultats présentés sur le site sont des exemples
-            individuels et non une promesse.
-        </p>
-
-        <h2>8. Propriété intellectuelle</h2>
-        <p>
-            Le partage, la revente, la diffusion ou la reproduction des contenus de la formation sont
-            interdits et peuvent entraîner la suspension immédiate de l'accès, sans remboursement, ainsi
-            que des poursuites.
-        </p>
-
-        <h2>9. Droit applicable et litiges</h2>
-        <p>
-            Les présentes CGV sont soumises au droit français. En cas de litige, une solution amiable sera
-            recherchée en priorité. À défaut, le consommateur peut recourir gratuitement à un médiateur de
-            la consommation ou à la plateforme européenne de règlement des litiges{" "}
-            <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">
-                ec.europa.eu/consumers/odr
-            </a>.
+            En cas de litige, le client peut recourir à une plateforme de médiation de la consommation.
+            Droit français applicable.
         </p>
     </LegalPage>
 );
