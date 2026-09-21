@@ -13,7 +13,7 @@ import {
 import { useStripeCheckout } from "@/hooks/useStripeCheckout";
 import { motion } from "framer-motion";
 import { Check, ShieldCheck } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Container from "../../container";
 
 const stack = [
