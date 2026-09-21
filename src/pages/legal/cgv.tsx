@@ -23,10 +23,10 @@ const CGVPage = () => (
 
         <h2>Droit de rétractation</h2>
         <p>
-            Conformément à l'article L221-28 du Code de la consommation, le client reconnaît expressément,
-            avant de valider son paiement, renoncer à son droit de rétractation de 14 jours en contrepartie
-            d'un accès immédiat au contenu numérique. Cette renonciation est recueillie par une case à
-            cocher obligatoire avant paiement.
+            Conformément à l'article L221-28 du Code de la consommation, le client reconnaît
+            expressément, en validant son paiement, renoncer à son droit de rétractation de 14 jours
+            en contrepartie d'un accès immédiat au contenu numérique. Le fait de finaliser l'achat vaut
+            acceptation des présentes CGV et de la présente renonciation.
         </p>
 
         <h2>Garantie « rentable sous 90 jours »</h2>
